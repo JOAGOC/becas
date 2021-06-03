@@ -149,7 +149,7 @@ public class Login1 extends javax.swing.JDialog implements AutoCloseable, Window
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setForeground(new java.awt.Color(51, 0, 51));
@@ -159,9 +159,8 @@ public class Login1 extends javax.swing.JDialog implements AutoCloseable, Window
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label1.setName(""); // NOI18N
-        jPanel2.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 113, 95));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-190, -10, 720, 860));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 320, 440));
 
@@ -169,11 +168,11 @@ public class Login1 extends javax.swing.JDialog implements AutoCloseable, Window
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -220,9 +219,9 @@ public class Login1 extends javax.swing.JDialog implements AutoCloseable, Window
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
     // private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
     

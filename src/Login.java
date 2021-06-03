@@ -60,8 +60,6 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
 
     private void changeUI(UI interfaz) {
         for (Component c : this.getContentPane().getComponents()) {
-            if (c instanceof JRootPane)
-                continue;
             c.setVisible(false);
         }
         switch (interfaz) {

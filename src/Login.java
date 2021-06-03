@@ -7,6 +7,7 @@ import static javax.swing.JOptionPane.*;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.JRootPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,11 +20,12 @@ import java.awt.Component;
  * @author karly
  */
 public class Login extends javax.swing.JDialog implements AutoCloseable, WindowListener{
-
+    private boolean acceso;
+    
     enum UI {
         Inicial, IniciarSesion
     }
-
+   
     /**
      * Creates new form Login
      */
@@ -57,7 +59,9 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     }// GEN-LAST:event_btnCancelarActionPerformed
 
     private void changeUI(UI interfaz) {
-        for (Component c : this.getComponents()) {
+        for (Component c : this.getContentPane().getComponents()) {
+            if (c instanceof JRootPane)
+                continue;
             c.setVisible(false);
         }
         switch (interfaz) {
@@ -331,5 +335,5 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
     // private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
-    private boolean acceso;
+    
 }

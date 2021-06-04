@@ -7,6 +7,10 @@ import static javax.swing.JOptionPane.*;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import javax.swing.JRootPane;
 
 /*
@@ -46,19 +50,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     public void windowClosing(WindowEvent e) {
         close();
     }
-    public void windowOpened(WindowEvent e){
-        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = resizedImg.createGraphics();
-
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2.drawImage(srcImg, 0, 0, w, h, null);
-        g2.dispose();
-
-        return resizedImg;
-        javax.swing.ImageIcon y = new javax.swing.ImageIcon("/Logo becat.png").getImage().getScaledInstance(120,120, java.awt.Image.SCALE_DEFAULT);
-        javax.swing.ImageIcon x = new javax.swing.ImageIcon();
-        jLabel1.setIcon(x);
-    }
+    public void windowOpened(WindowEvent e){}
     public void windowActivated(WindowEvent e){}
     public void windowDeactivated(WindowEvent e){}
     public void windowDeiconified(WindowEvent e){}

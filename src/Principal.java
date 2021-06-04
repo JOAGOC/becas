@@ -118,6 +118,11 @@ public class Principal extends javax.swing.JFrame {
         menuSol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registro.png"))); // NOI18N
         menuSol.setText("Solicitud");
         menuSol.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        menuSol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSolActionPerformed(evt);
+            }
+        });
 
         jMenuItem7.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/beca.png"))); // NOI18N
@@ -239,6 +244,10 @@ public class Principal extends javax.swing.JFrame {
        abrir.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void menuSolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuSolActionPerformed
     
             
 

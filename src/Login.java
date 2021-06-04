@@ -177,7 +177,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
                 btnAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 640, 190, 70));
+        getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 640, 190, 140));
 
         btnCancelar.setBackground(new java.awt.Color(204, 0, 102));
         btnCancelar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
@@ -188,7 +188,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
                 btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 640, 190, 70));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 640, 190, 140));
 
         lblUsuario.setBackground(new java.awt.Color(0, 0, 0));
         lblUsuario.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N

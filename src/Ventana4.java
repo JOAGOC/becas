@@ -147,16 +147,16 @@ public class Ventana4 extends javax.swing.JFrame {
         btnRegistrar.setBackground(new java.awt.Color(51, 204, 0));
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnRegistrar.setText("Registrar");
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 560, 150, 60));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 570, 150, 60));
 
         lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         lblSiguiente.setToolTipText("Siguiente");
-        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 560, -1, -1));
+        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Información Escolar del Alumno:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 92, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/123.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 730));

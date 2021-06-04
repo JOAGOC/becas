@@ -60,27 +60,32 @@ public class Ventana3 extends javax.swing.JFrame {
 
         jLabel4.setBackground(java.awt.Color.lightGray);
         jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("CLABE");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
 
         jLabel5.setBackground(java.awt.Color.lightGray);
         jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Fecha de Registro");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
         jLabel6.setBackground(java.awt.Color.lightGray);
         jLabel6.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Estatus");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
 
         jLabel7.setBackground(java.awt.Color.lightGray);
         jLabel7.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Banco");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CLABE Interbancaria ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 502, 90));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 502, 90));
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnRegistrar.setText("Registrar");
@@ -90,8 +95,8 @@ public class Ventana3 extends javax.swing.JFrame {
         lblSiguiente.setToolTipText("Siguiente");
         getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 530, -1, -1));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\karly\\Downloads\\WhatsApp Image 2021-05-26 at 7.28.20 PM.jpeg")); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -40, 1150, 650));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abcd.jpg"))); // NOI18N
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -40, 1130, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

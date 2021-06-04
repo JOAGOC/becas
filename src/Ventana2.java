@@ -68,6 +68,7 @@ public class Ventana2 extends javax.swing.JDialog {
 
         jLabel10.setBackground(java.awt.Color.lightGray);
         jLabel10.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Calle");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, -1, -1));
 
@@ -101,47 +102,56 @@ public class Ventana2 extends javax.swing.JDialog {
 
         jLabel4.setBackground(java.awt.Color.lightGray);
         jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Estado");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
         jLabel5.setBackground(java.awt.Color.lightGray);
         jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Municipio");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
 
         jLabel6.setBackground(java.awt.Color.lightGray);
         jLabel6.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Asentamiento");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
         jLabel7.setBackground(java.awt.Color.lightGray);
         jLabel7.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Localidad");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, -1, -1));
 
         jLabel8.setBackground(java.awt.Color.lightGray);
         jLabel8.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("No. Exterior ");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, -1, -1));
 
         jLabel9.setBackground(java.awt.Color.lightGray);
         jLabel9.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Descripcion de la ubicación ");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 580, -1, -1));
 
         jLabel13.setBackground(java.awt.Color.lightGray);
         jLabel13.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("No. Interior");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, -1, -1));
 
         jLabel14.setBackground(java.awt.Color.lightGray);
         jLabel14.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("C.P.");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Residencia del Alumno:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 69, 502, 90));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 502, 90));
 
         cmbEstado.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu Estado", "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Ciudad de México", "Durango", "Estado de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas" }));
@@ -158,17 +168,18 @@ public class Ventana2 extends javax.swing.JDialog {
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnRegistrar.setText("Registrar");
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 655, 150, 60));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 550, 150, 60));
 
         lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         lblSiguiente.setToolTipText("Siguiente");
-        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 650, -1, -1));
+        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, -1, -1));
 
         lblRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/regreso.png"))); // NOI18N
-        getContentPane().add(lblRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 650, -1, -1));
+        getContentPane().add(lblRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\karly\\Downloads\\WhatsApp Image 2021-05-26 at 7.28.20 PM.jpeg")); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1170, -1));
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abcd.jpg"))); // NOI18N
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

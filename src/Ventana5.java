@@ -54,7 +54,7 @@ public class Ventana5 extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Información Socioeconomica:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 280, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 280, -1));
 
         txtFecha.setBackground(java.awt.Color.lightGray);
         txtFecha.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
@@ -112,12 +112,12 @@ public class Ventana5 extends javax.swing.JFrame {
         txtSocioEconomica.setToolTipText("Aqui redactaras tu situación econimica en general\n* Cantidad de integrantes de tu familia\n* Habitaciones de tu hogar\n* Ingreso mensual total por todos los integrantes de la familia \n* Entre otros detalles que quisieras contar");
         jScrollPane1.setViewportView(txtSocioEconomica);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, 440, 130));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 420, 110));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Solicitud");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 190, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 190, -1));
 
         btnObtenerAcuse.setBackground(new java.awt.Color(51, 204, 0));
         btnObtenerAcuse.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
@@ -129,7 +129,7 @@ public class Ventana5 extends javax.swing.JFrame {
                 btnObtenerAcuseActionPerformed(evt);
             }
         });
-        getContentPane().add(btnObtenerAcuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 550, 100, 80));
+        getContentPane().add(btnObtenerAcuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 540, 100, 80));
 
         lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         lblSiguiente.setToolTipText("Siguiente");
@@ -138,10 +138,10 @@ public class Ventana5 extends javax.swing.JFrame {
                 lblSiguienteMouseClicked(evt);
             }
         });
-        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 560, -1, -1));
+        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 550, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cap22222222.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1200, 720));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abcd.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

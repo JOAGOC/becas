@@ -58,53 +58,53 @@ public class Ventana5 extends javax.swing.JFrame {
 
         txtFecha.setBackground(java.awt.Color.lightGray);
         txtFecha.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, 170, -1));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 170, -1));
 
         txtEdad.setBackground(java.awt.Color.lightGray);
         txtEdad.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 170, -1));
+        getContentPane().add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, 170, -1));
 
         txtFolio.setBackground(java.awt.Color.lightGray);
         txtFolio.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtFolio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 170, -1));
+        getContentPane().add(txtFolio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 170, -1));
 
         txtCorreo.setBackground(java.awt.Color.lightGray);
         txtCorreo.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 110, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 110, -1));
 
         txtFechaNacimiento.setBackground(java.awt.Color.lightGray);
         txtFechaNacimiento.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 170, -1));
+        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 170, -1));
 
         jLabel4.setBackground(java.awt.Color.lightGray);
         jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Folio:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 50, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 50, -1));
 
         jLabel5.setBackground(java.awt.Color.lightGray);
         jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Vigencia:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 90, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 90, -1));
 
         jLabel6.setBackground(java.awt.Color.lightGray);
         jLabel6.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Estatus:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 80, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 80, -1));
 
         jLabel13.setBackground(java.awt.Color.lightGray);
         jLabel13.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Fecha:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 70, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 70, -1));
 
         jLabel14.setBackground(java.awt.Color.lightGray);
         jLabel14.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Estado Civil:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, -1, -1));
 
         txtSocioEconomica.setColumns(20);
         txtSocioEconomica.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
@@ -117,7 +117,7 @@ public class Ventana5 extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Solicitud");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 190, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 190, -1));
 
         btnObtenerAcuse.setBackground(new java.awt.Color(51, 204, 0));
         btnObtenerAcuse.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N

@@ -170,6 +170,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
         jMenuItem3.setText("Registrarse");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         menuT.add(jMenuItem3);
 
         jMenu1.add(menuT);
@@ -227,6 +232,13 @@ public class Principal extends javax.swing.JFrame {
        abrir.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+
+       Ventana1 abrir=new Ventana1();
+       abrir.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
     
             
 

@@ -34,7 +34,6 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         initComponents();
         changeUI(UI.Inicial);
         this.addWindowListener(this);
-        jLabel1.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon("/Logo becat.png").getImage().getScaledInstance((jLabel1.getWidth()>jLabel1.getHeight())?jLabel1.getWidth():jLabel1.getHeight(), (jLabel1.getWidth()>jLabel1.getHeight())?jLabel1.getWidth():jLabel1.getHeight(), java.awt.Image.SCALE_FAST)));
     }
 
     public Login() {
@@ -42,13 +41,24 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         initComponents();
         changeUI(UI.Inicial);
         this.addWindowListener(this);
-        jLabel1.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon("/Logo becat.png").getImage().getScaledInstance((jLabel1.getWidth()>jLabel1.getHeight())?jLabel1.getWidth():jLabel1.getHeight(), (jLabel1.getWidth()>jLabel1.getHeight())?jLabel1.getWidth():jLabel1.getHeight(), java.awt.Image.SCALE_FAST)));
     }
 
     public void windowClosing(WindowEvent e) {
         close();
     }
-    public void windowOpened(WindowEvent e){}
+    public void windowOpened(WindowEvent e){
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
+        javax.swing.ImageIcon y = new javax.swing.ImageIcon("/Logo becat.png").getImage().getScaledInstance(120,120, java.awt.Image.SCALE_DEFAULT);
+        javax.swing.ImageIcon x = new javax.swing.ImageIcon();
+        jLabel1.setIcon(x);
+    }
     public void windowActivated(WindowEvent e){}
     public void windowDeactivated(WindowEvent e){}
     public void windowDeiconified(WindowEvent e){}
@@ -56,23 +66,17 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     public void windowClosed(WindowEvent e){}
 
     private void changeUI(UI interfaz) {
-        for (Component c : jPanel2.getComponents()) {
-            c.setVisible(false);
-        }
-        switch (interfaz) {
-            case Inicial:
-                Component[] c = { jLabel2,btnCancelar, btnAceptar, jLabel1 };
-                for (Component cc : c) {
-                    cc.setVisible(true);
-                }
-                break;
-            case IniciarSesion:
-                Component[] components = { jLabel1,jLabel2,btnAceptar, btnCancelar, jPasswordField1, lblContraseña, lblUsuario,
-                        txtUsuario };
-                for (Component cc : components) {
-                    cc.setVisible(true);
-                }
-                break;
+        Component[] components = { btnIS, btnRegistrarse, btnAceptar, btnCancelar, lblUsuario, lblContraseña, txtUsuario, jpwContraseña};
+        boolean b = interfaz == UI.Inicial;
+        for (int i = 0; i<components.length; i++)
+        {
+            if (i <= 1)
+            {
+                components[i].setVisible(b);
+            }
+            else {
+                components[i].setVisible(!b);
+            }
         }
     }
     
@@ -90,7 +94,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         boolean noEncontrado = true;
         for (int i = 0; i < Principal.alumnos.size(); i++) {
             if (Principal.alumnos.get(i).getCURP().equalsIgnoreCase(txtUsuario.getText())) {
-                if (Principal.alumnos.get(i).getContraseña().equals(jPasswordField1.getText())) {
+                if (Principal.alumnos.get(i).getContraseña().equals(jpwContraseña.getText())) {
                     showMessageDialog(this, "Acceso concedido");
                     acceso = true;
                     this.close();
@@ -125,7 +129,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jpwContraseña = new javax.swing.JPasswordField();
         txtUsuario = new javax.swing.JTextField();
         lblUsuario = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
@@ -133,12 +137,11 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         jLabel2 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
-        btnIS1 = new javax.swing.JButton();
-        btnRegistrarse1 = new javax.swing.JButton();
+        btnIS = new javax.swing.JButton();
+        btnRegistrarse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setForeground(new java.awt.Color(51, 0, 51));
-        setPreferredSize(new java.awt.Dimension(360, 480));
 
         jPanel1.setBackground(new java.awt.Color(0, 45, 106));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 520));
@@ -148,8 +151,8 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         jPanel2.setPreferredSize(new java.awt.Dimension(360, 480));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPasswordField1.setToolTipText("Introduce tu contraseña");
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 150, -1));
+        jpwContraseña.setToolTipText("Introduce tu contraseña");
+        jPanel2.add(jpwContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 150, -1));
 
         txtUsuario.setToolTipText("Introduce tu CURP");
         jPanel2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 150, -1));
@@ -164,7 +167,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         lblContraseña.setText("Contraseña:");
         jPanel2.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
 
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel1.setPreferredSize(new java.awt.Dimension(170, 120));
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 170, 120));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -196,29 +199,29 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         });
         jPanel2.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 90, 30));
 
-        btnIS1.setBackground(new java.awt.Color(153, 0, 64));
-        btnIS1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        btnIS1.setForeground(new java.awt.Color(255, 255, 255));
-        btnIS1.setText("Iniciar Sesión");
-        btnIS1.setBorder(null);
-        btnIS1.addActionListener(new java.awt.event.ActionListener() {
+        btnIS.setBackground(new java.awt.Color(153, 0, 64));
+        btnIS.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        btnIS.setForeground(new java.awt.Color(255, 255, 255));
+        btnIS.setText("Iniciar Sesión");
+        btnIS.setBorder(null);
+        btnIS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIS1ActionPerformed(evt);
+                btnISActionPerformed(evt);
             }
         });
-        jPanel2.add(btnIS1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 150, 60));
+        jPanel2.add(btnIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 150, 60));
 
-        btnRegistrarse1.setBackground(new java.awt.Color(64, 153, 0));
-        btnRegistrarse1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        btnRegistrarse1.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrarse1.setText("Registrarse");
-        btnRegistrarse1.setBorder(null);
-        btnRegistrarse1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarse.setBackground(new java.awt.Color(64, 153, 0));
+        btnRegistrarse.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.setBorder(null);
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarse1ActionPerformed(evt);
+                btnRegistrarseActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegistrarse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 150, 50));
+        jPanel2.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 150, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 360, 480));
 
@@ -240,20 +243,20 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         changeUI(UI.Inicial);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnIS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIS1ActionPerformed
+    private void btnISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnISActionPerformed
         changeUI(UI.IniciarSesion);
-    }//GEN-LAST:event_btnIS1ActionPerformed
+    }//GEN-LAST:event_btnISActionPerformed
 
-    private void btnRegistrarse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarse1ActionPerformed
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         this.setVisible(false);
         Ventana2 abrir = new Ventana2(this, true);
         this.setVisible(true);
-    }//GEN-LAST:event_btnRegistrarse1ActionPerformed
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         try {
             validarCampoVacio(lblUsuario, txtUsuario);
-            validarCampoVacio(lblContraseña, jPasswordField1);
+            validarCampoVacio(lblContraseña, jpwContraseña);
         } catch (RuntimeException e) {
             showMessageDialog(this, e.getMessage());
         }
@@ -303,13 +306,13 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnIS1;
-    private javax.swing.JButton btnRegistrarse1;
+    private javax.swing.JButton btnIS;
+    private javax.swing.JButton btnRegistrarse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jpwContraseña;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtUsuario;

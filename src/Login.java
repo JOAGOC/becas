@@ -7,6 +7,10 @@ import static javax.swing.JOptionPane.*;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import javax.swing.JRootPane;
 
 /*
@@ -46,7 +50,6 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     public void windowClosing(WindowEvent e) {
         close();
     }
-
     public void windowOpened(WindowEvent e){}
     public void windowActivated(WindowEvent e){}
     public void windowDeactivated(WindowEvent e){}
@@ -54,43 +57,21 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     public void windowIconified(WindowEvent e){}
     public void windowClosed(WindowEvent e){}
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCancelarActionPerformed
-        changeUI(UI.Inicial);
-    }// GEN-LAST:event_btnCancelarActionPerformed
-
     private void changeUI(UI interfaz) {
-        for (Component c : this.getContentPane().getComponents()) {
-            if (c instanceof JRootPane)
-                continue;
-            c.setVisible(false);
-        }
-        switch (interfaz) {
-            case Inicial:
-                Component[] c = { btnIS, btnRegistrarse, jLabel1 };
-                for (Component cc : c) {
-                    cc.setVisible(true);
-                }
-                break;
-            case IniciarSesion:
-                Component[] components = { btnAceptar, btnCancelar, jPasswordField1, lblContraseña, lblUsuario,
-                        txtUsuario };
-                for (Component cc : components) {
-                    cc.setVisible(true);
-                }
-                break;
+        Component[] components = { btnIS, btnRegistrarse, btnAceptar, btnCancelar, lblUsuario, lblContraseña, txtUsuario, jpwContraseña};
+        boolean b = interfaz == UI.Inicial;
+        for (int i = 0; i<components.length; i++)
+        {
+            if (i <= 1)
+            {
+                components[i].setVisible(b);
+            }
+            else {
+                components[i].setVisible(!b);
+            }
         }
     }
-
-    private void btnISActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnISActionPerformed
-        changeUI(UI.IniciarSesion);
-    }// GEN-LAST:event_btnISActionPerformed
-
-    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarseActionPerformed
-        this.setVisible(false);
-        Ventana2 abrir = new Ventana2(this, true);
-        this.setVisible(true);
-    }// GEN-LAST:event_btnRegistrarseActionPerformed
-
+    
     private void validarCampoVacio(JLabel lbl, JTextField tfs) throws RuntimeException {
         lbl.setForeground(Color.black);
         if (tfs.getText().equals("")) {
@@ -101,22 +82,11 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         }
     }
 
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAceptarActionPerformed
-        try {
-            validarCampoVacio(lblUsuario, txtUsuario);
-            validarCampoVacio(lblContraseña, jPasswordField1);
-        } catch (RuntimeException e) {
-            showMessageDialog(this, e.getMessage());
-        }
-        // pasada de lista de alumnos
-        login();
-    }// GEN-LAST:event_btnAceptarActionPerformed
-
     public void login() {
         boolean noEncontrado = true;
         for (int i = 0; i < Principal.alumnos.size(); i++) {
             if (Principal.alumnos.get(i).getCURP().equalsIgnoreCase(txtUsuario.getText())) {
-                if (Principal.alumnos.get(i).getContraseña().equals(jPasswordField1.getText())) {
+                if (Principal.alumnos.get(i).getContraseña().equals(jpwContraseña.getText())) {
                     showMessageDialog(this, "Acceso concedido");
                     acceso = true;
                     this.close();
@@ -149,12 +119,16 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jpwContraseña = new javax.swing.JPasswordField();
         txtUsuario = new javax.swing.JTextField();
-        btnAceptar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnCancelar = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
         btnIS = new javax.swing.JButton();
         btnRegistrarse = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
@@ -183,6 +157,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         btnCancelar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(null);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -218,7 +193,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         });
         getContentPane().add(btnIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 220, 90));
 
-        btnRegistrarse.setBackground(new java.awt.Color(0, 0, 255));
+        btnRegistrarse.setBackground(new java.awt.Color(64, 153, 0));
         btnRegistrarse.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setText("Registrarse");
@@ -252,6 +227,30 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        changeUI(UI.Inicial);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnISActionPerformed
+        changeUI(UI.IniciarSesion);
+    }//GEN-LAST:event_btnISActionPerformed
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
+        this.setVisible(false);
+        Ventana2 abrir = new Ventana2(this, true);
+        this.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        try {
+            validarCampoVacio(lblUsuario, txtUsuario);
+            validarCampoVacio(lblContraseña, jpwContraseña);
+        } catch (RuntimeException e) {
+            showMessageDialog(this, e.getMessage());
+        }
+        // pasada de lista de alumnos
+        login();
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,7 +298,10 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     private javax.swing.JButton btnRegistrarse;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jpwContraseña;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtUsuario;

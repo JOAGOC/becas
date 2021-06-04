@@ -15,6 +15,9 @@ public class Ventana5 extends javax.swing.JFrame {
      */
     public Ventana5() {
         initComponents();
+        txtSocioEconomica.setLineWrap(true);
+        txtSocioEconomica.setWrapStyleWord(true);
+        lblSiguiente.setVisible(false);
     }
 
     /**
@@ -41,7 +44,8 @@ public class Ventana5 extends javax.swing.JFrame {
         txtSocioEconomica = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         btnObtenerAcuse = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblSiguiente = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,80 +54,107 @@ public class Ventana5 extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Información Socioeconomica:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 280, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 280, -1));
 
         txtFecha.setBackground(java.awt.Color.lightGray);
         txtFecha.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 170, -1));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, 170, -1));
 
         txtEdad.setBackground(java.awt.Color.lightGray);
         txtEdad.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 170, -1));
+        getContentPane().add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 170, -1));
 
         txtFolio.setBackground(java.awt.Color.lightGray);
         txtFolio.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtFolio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 170, -1));
+        getContentPane().add(txtFolio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 170, -1));
 
         txtCorreo.setBackground(java.awt.Color.lightGray);
         txtCorreo.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 110, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 110, -1));
 
         txtFechaNacimiento.setBackground(java.awt.Color.lightGray);
         txtFechaNacimiento.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 170, -1));
+        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 170, -1));
 
         jLabel4.setBackground(java.awt.Color.lightGray);
         jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Folio:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 50, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 50, -1));
 
         jLabel5.setBackground(java.awt.Color.lightGray);
         jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Vigencia:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 90, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 90, -1));
 
         jLabel6.setBackground(java.awt.Color.lightGray);
         jLabel6.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Estatus:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 80, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 80, -1));
 
         jLabel13.setBackground(java.awt.Color.lightGray);
         jLabel13.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Fecha:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 70, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 70, -1));
 
         jLabel14.setBackground(java.awt.Color.lightGray);
         jLabel14.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Estado Civil:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, -1, -1));
 
         txtSocioEconomica.setColumns(20);
         txtSocioEconomica.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
         txtSocioEconomica.setRows(5);
+        txtSocioEconomica.setToolTipText("Aqui redactaras tu situación econimica en general\n* Cantidad de integrantes de tu familia\n* Habitaciones de tu hogar\n* Ingreso mensual total por todos los integrantes de la familia \n* Entre otros detalles que quisieras contar");
         jScrollPane1.setViewportView(txtSocioEconomica);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, 296, 162));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, 440, 130));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Solicitud");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 190, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 190, -1));
 
         btnObtenerAcuse.setBackground(new java.awt.Color(51, 204, 0));
         btnObtenerAcuse.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        btnObtenerAcuse.setText("Obtener Acuse");
-        getContentPane().add(btnObtenerAcuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 500, 180, 50));
+        btnObtenerAcuse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/documentos-oficiales.png"))); // NOI18N
+        btnObtenerAcuse.setToolTipText("Obtener Acuse");
+        btnObtenerAcuse.setBorder(null);
+        btnObtenerAcuse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObtenerAcuseActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnObtenerAcuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 550, 100, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solicitudddddd.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 580));
+        lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
+        lblSiguiente.setToolTipText("Siguiente");
+        lblSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSiguienteMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 560, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cap22222222.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1200, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnObtenerAcuseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerAcuseActionPerformed
+       lblSiguiente.setVisible(true);
+    }//GEN-LAST:event_btnObtenerAcuseActionPerformed
+
+    private void lblSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSiguienteMouseClicked
+       Principal abrir=new Principal();
+       abrir.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_lblSiguienteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -162,15 +193,16 @@ public class Ventana5 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnObtenerAcuse;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSiguiente;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtFecha;

@@ -75,7 +75,7 @@ public class Ventana1 extends javax.swing.JFrame {
 
         txtCurp.setBackground(java.awt.Color.lightGray);
         txtCurp.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
-        getContentPane().add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 170, -1));
+        getContentPane().add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 280, -1));
 
         txtCorreo.setBackground(java.awt.Color.lightGray);
         txtCorreo.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
@@ -112,7 +112,7 @@ public class Ventana1 extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 600, 170, 50));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, 170, 50));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setText("Información Personal del Alumno:");
@@ -121,7 +121,8 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel4.setBackground(java.awt.Color.lightGray);
         jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel4.setText("Nombre: ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, -1));
+        jLabel4.setToolTipText("Ingresa tu nombre completo");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
 
         jLabel5.setBackground(java.awt.Color.lightGray);
         jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
@@ -151,7 +152,7 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel13.setBackground(java.awt.Color.lightGray);
         jLabel13.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel13.setText("Nacionalidad:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
 
         jLabel14.setBackground(java.awt.Color.lightGray);
         jLabel14.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
@@ -163,7 +164,7 @@ public class Ventana1 extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         jLabel11.setToolTipText("Siguiente");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 590, 80, 70));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 570, 80, 70));
 
         jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\karly\\Downloads\\WhatsApp Image 2021-05-26 at 7.28.20 PM.jpeg")); // NOI18N
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -50, 1220, 750));

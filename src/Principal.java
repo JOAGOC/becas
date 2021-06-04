@@ -76,7 +76,8 @@ public class Principal extends javax.swing.JFrame {
         lblReloj = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuSol = new javax.swing.JMenu();
-        menuPro = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         menuJP = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuE = new javax.swing.JMenu();
@@ -93,6 +94,7 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(51, 102, 255));
         setSize(new java.awt.Dimension(1280, 900));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
@@ -104,8 +106,11 @@ public class Principal extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 630, -1, 73));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen1.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1131, -1));
+        getContentPane().add(lblReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 727, 139, 49));
 
         menuBar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 204)));
         menuBar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -114,9 +119,22 @@ public class Principal extends javax.swing.JFrame {
         menuSol.setText("Solicitud");
         menuSol.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
 
-        menuPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/educacion.png"))); // NOI18N
-        menuPro.setText("Programas");
-        menuPro.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        jMenuItem7.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/beca.png"))); // NOI18N
+        jMenuItem7.setText("Solicitar Beca");
+        jMenuItem7.setToolTipText("Solicitar beca y obtener acuse");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        menuSol.add(jMenuItem7);
+
+        menuBar.add(menuSol);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/educacion.png"))); // NOI18N
+        jMenu1.setText("Programas");
+        jMenu1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
 
         menuJP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1.png"))); // NOI18N
         menuJP.setText("Jovenes Pioneros");
@@ -132,7 +150,7 @@ public class Principal extends javax.swing.JFrame {
         });
         menuJP.add(jMenuItem1);
 
-        menuPro.add(menuJP);
+        jMenu1.add(menuJP);
 
         menuE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/excelencia.png"))); // NOI18N
         menuE.setText("Excelencia");
@@ -143,7 +161,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem2.setText("Registrarse");
         menuE.add(jMenuItem2);
 
-        menuPro.add(menuE);
+        jMenu1.add(menuE);
 
         menuT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/libro-abierto.png"))); // NOI18N
         menuT.setText("Tlautli");
@@ -154,11 +172,9 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem3.setText("Registrarse");
         menuT.add(jMenuItem3);
 
-        menuPro.add(menuT);
+        jMenu1.add(menuT);
 
-        menuSol.add(menuPro);
-
-        menuBar.add(menuSol);
+        menuBar.add(jMenu1);
 
         menuA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grupo.png"))); // NOI18N
         menuA.setText("Alumnos");
@@ -193,32 +209,6 @@ public class Principal extends javax.swing.JFrame {
 
         setJMenuBar(menuBar);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(884, 884, 884)
-                        .addComponent(btnSalir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(531, 531, 531)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -231,6 +221,12 @@ public class Principal extends javax.swing.JFrame {
         abrir.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+       Ventana5 abrir=new Ventana5();
+       abrir.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
     
             
 
@@ -283,6 +279,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -290,12 +287,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JLabel lblReloj;
     private javax.swing.JMenu menuA;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuE;
     private javax.swing.JMenu menuJP;
-    private javax.swing.JMenu menuPro;
     private javax.swing.JMenu menuS;
     private javax.swing.JMenu menuSol;
     private javax.swing.JMenu menuT;

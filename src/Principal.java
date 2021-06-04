@@ -1,12 +1,4 @@
-import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Calendar;
-
-import java.util.Date;
-import java.util.GregorianCalendar;
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,10 +11,6 @@ import java.util.GregorianCalendar;
  */
 public class Principal extends javax.swing.JFrame {
     
-
-    
-    
-
     /**
      * Creates new form Principal
      */
@@ -92,8 +80,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(51, 102, 255));
-        setIconImage(new ImageIcon(getClass().getResource("/Logobecat.png").getImage()
-        );
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/LogoBecat.png")).getImage());
         setSize(new java.awt.Dimension(1280, 900));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));

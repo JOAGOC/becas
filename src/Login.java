@@ -34,6 +34,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         initComponents();
         changeUI(UI.Inicial);
         this.addWindowListener(this);
+        jLabel1.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon("/Logo becat.png").getImage().getScaledInstance((jLabel1.getWidth()>jLabel1.getHeight())?jLabel1.getWidth():jLabel1.getHeight(), (jLabel1.getWidth()>jLabel1.getHeight())?jLabel1.getWidth():jLabel1.getHeight(), java.awt.Image.SCALE_FAST)));
     }
 
     public Login() {
@@ -41,12 +42,12 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         initComponents();
         changeUI(UI.Inicial);
         this.addWindowListener(this);
+        jLabel1.setIcon(new javax.swing.ImageIcon(new javax.swing.ImageIcon("/Logo becat.png").getImage().getScaledInstance((jLabel1.getWidth()>jLabel1.getHeight())?jLabel1.getWidth():jLabel1.getHeight(), (jLabel1.getWidth()>jLabel1.getHeight())?jLabel1.getWidth():jLabel1.getHeight(), java.awt.Image.SCALE_FAST)));
     }
 
     public void windowClosing(WindowEvent e) {
         close();
     }
-
     public void windowOpened(WindowEvent e){}
     public void windowActivated(WindowEvent e){}
     public void windowDeactivated(WindowEvent e){}
@@ -54,23 +55,19 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     public void windowIconified(WindowEvent e){}
     public void windowClosed(WindowEvent e){}
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCancelarActionPerformed
-        changeUI(UI.Inicial);
-    }// GEN-LAST:event_btnCancelarActionPerformed
-
     private void changeUI(UI interfaz) {
-        for (Component c : this.getContentPane().getComponents()) {
+        for (Component c : jPanel2.getComponents()) {
             c.setVisible(false);
         }
         switch (interfaz) {
             case Inicial:
-                Component[] c = { btnIS, btnRegistrarse, jLabel1 };
+                Component[] c = { jLabel2,btnCancelar, btnAceptar, jLabel1 };
                 for (Component cc : c) {
                     cc.setVisible(true);
                 }
                 break;
             case IniciarSesion:
-                Component[] components = { btnAceptar, btnCancelar, jPasswordField1, lblContraseña, lblUsuario,
+                Component[] components = { jLabel1,jLabel2,btnAceptar, btnCancelar, jPasswordField1, lblContraseña, lblUsuario,
                         txtUsuario };
                 for (Component cc : components) {
                     cc.setVisible(true);
@@ -78,17 +75,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
                 break;
         }
     }
-
-    private void btnISActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnISActionPerformed
-        changeUI(UI.IniciarSesion);
-    }// GEN-LAST:event_btnISActionPerformed
-
-    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarseActionPerformed
-        this.setVisible(false);
-        Ventana2 abrir = new Ventana2(this, true);
-        this.setVisible(true);
-    }// GEN-LAST:event_btnRegistrarseActionPerformed
-
+    
     private void validarCampoVacio(JLabel lbl, JTextField tfs) throws RuntimeException {
         lbl.setForeground(Color.black);
         if (tfs.getText().equals("")) {
@@ -98,17 +85,6 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
                     tfs.getName().equals("txtUsuario") ? "El CURP está vacío" : "La Contraseña está vacío");
         }
     }
-
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAceptarActionPerformed
-        try {
-            validarCampoVacio(lblUsuario, txtUsuario);
-            validarCampoVacio(lblContraseña, jPasswordField1);
-        } catch (RuntimeException e) {
-            showMessageDialog(this, e.getMessage());
-        }
-        // pasada de lista de alumnos
-        login();
-    }// GEN-LAST:event_btnAceptarActionPerformed
 
     public void login() {
         boolean noEncontrado = true;
@@ -147,140 +123,143 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         txtUsuario = new javax.swing.JTextField();
-        btnAceptar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        btnIS = new javax.swing.JButton();
-        btnRegistrarse = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnCancelar = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
+        btnIS1 = new javax.swing.JButton();
+        btnRegistrarse1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setForeground(new java.awt.Color(51, 0, 51));
+        setPreferredSize(new java.awt.Dimension(360, 480));
+
+        jPanel1.setBackground(new java.awt.Color(0, 45, 106));
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 520));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(0, 64, 153));
+        jPanel2.setPreferredSize(new java.awt.Dimension(360, 480));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPasswordField1.setToolTipText("Introduce tu contraseña");
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 150, -1));
 
         txtUsuario.setToolTipText("Introduce tu CURP");
+        jPanel2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 150, -1));
 
-        btnAceptar.setBackground(new java.awt.Color(0, 0, 255));
-        btnAceptar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAceptar.setText("Aceptar");
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
-            }
-        });
+        lblUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        lblUsuario.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        lblUsuario.setText("Usuario: ");
+        jPanel2.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
-        btnCancelar.setBackground(new java.awt.Color(204, 0, 102));
-        btnCancelar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        lblContraseña.setBackground(new java.awt.Color(255, 153, 0));
+        lblContraseña.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        lblContraseña.setText("Contraseña:");
+        jPanel2.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 170, 120));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Bienvenido");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+
+        btnCancelar.setBackground(new java.awt.Color(153, 0, 64));
+        btnCancelar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(null);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
+        jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 90, 30));
 
-        lblUsuario.setBackground(new java.awt.Color(0, 0, 0));
-        lblUsuario.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        lblUsuario.setText("Usuario: ");
-
-        lblContraseña.setBackground(new java.awt.Color(255, 153, 0));
-        lblContraseña.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        lblContraseña.setText("Contraseña:");
-
-        jPasswordField1.setToolTipText("Introduce tu contraseña");
-
-        btnIS.setBackground(new java.awt.Color(153, 0, 0));
-        btnIS.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        btnIS.setForeground(new java.awt.Color(255, 255, 255));
-        btnIS.setText("Iniciar Sesión");
-        btnIS.setBorder(null);
-        btnIS.addActionListener(new java.awt.event.ActionListener() {
+        btnAceptar.setBackground(new java.awt.Color(64, 153, 0));
+        btnAceptar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setText("Aceptar");
+        btnAceptar.setBorder(null);
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnISActionPerformed(evt);
+                btnAceptarActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 90, 30));
 
-        btnRegistrarse.setBackground(new java.awt.Color(0, 0, 255));
-        btnRegistrarse.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrarse.setText("Registrarse");
-        btnRegistrarse.setBorder(null);
-        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+        btnIS1.setBackground(new java.awt.Color(153, 0, 64));
+        btnIS1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        btnIS1.setForeground(new java.awt.Color(255, 255, 255));
+        btnIS1.setText("Iniciar Sesión");
+        btnIS1.setBorder(null);
+        btnIS1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarseActionPerformed(evt);
+                btnIS1ActionPerformed(evt);
             }
         });
+        jPanel2.add(btnIS1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 150, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Diseño sin título.png"))); // NOI18N
+        btnRegistrarse1.setBackground(new java.awt.Color(64, 153, 0));
+        btnRegistrarse1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        btnRegistrarse1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse1.setText("Registrarse");
+        btnRegistrarse1.setBorder(null);
+        btnRegistrarse1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarse1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRegistrarse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 150, 50));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 360, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(430, 430, 430)
-                        .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(lblUsuario))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(btnIS, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(lblContraseña))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(370, 370, 370)
-                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(450, 450, 450)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(370, 370, 370)
-                .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(330, 330, 330)
-                .addComponent(lblUsuario))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(370, 370, 370)
-                .addComponent(btnIS, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(332, 332, 332)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(380, 380, 380)
-                .addComponent(lblContraseña))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(380, 380, 380)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(450, 450, 450)
-                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        changeUI(UI.Inicial);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnIS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIS1ActionPerformed
+        changeUI(UI.IniciarSesion);
+    }//GEN-LAST:event_btnIS1ActionPerformed
+
+    private void btnRegistrarse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarse1ActionPerformed
+        this.setVisible(false);
+        Ventana2 abrir = new Ventana2(this, true);
+        this.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarse1ActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        try {
+            validarCampoVacio(lblUsuario, txtUsuario);
+            validarCampoVacio(lblContraseña, jPasswordField1);
+        } catch (RuntimeException e) {
+            showMessageDialog(this, e.getMessage());
+        }
+        // pasada de lista de alumnos
+        login();
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,9 +303,12 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnIS;
-    private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JButton btnIS1;
+    private javax.swing.JButton btnRegistrarse1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblUsuario;

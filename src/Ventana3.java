@@ -40,70 +40,58 @@ public class Ventana3 extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtCLABE.setBackground(java.awt.Color.lightGray);
         txtCLABE.setFont(new java.awt.Font("NSimSun", 2, 13)); // NOI18N
-        getContentPane().add(txtCLABE);
-        txtCLABE.setBounds(410, 290, 210, 30);
+        getContentPane().add(txtCLABE, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 210, 30));
 
         txtEstatus.setBackground(java.awt.Color.lightGray);
         txtEstatus.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
-        getContentPane().add(txtEstatus);
-        txtEstatus.setBounds(410, 390, 210, 27);
+        getContentPane().add(txtEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 210, -1));
 
         txtBanco.setBackground(java.awt.Color.lightGray);
         txtBanco.setFont(new java.awt.Font("NSimSun", 2, 13)); // NOI18N
-        getContentPane().add(txtBanco);
-        txtBanco.setBounds(410, 450, 120, 30);
+        getContentPane().add(txtBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 120, 30));
 
         txtFechaRegistro.setBackground(java.awt.Color.lightGray);
         txtFechaRegistro.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
-        getContentPane().add(txtFechaRegistro);
-        txtFechaRegistro.setBounds(410, 340, 110, 27);
+        getContentPane().add(txtFechaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 110, -1));
 
         jLabel4.setBackground(java.awt.Color.lightGray);
         jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel4.setText("CLABE");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(330, 290, 60, 21);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
 
         jLabel5.setBackground(java.awt.Color.lightGray);
         jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel5.setText("Fecha de Registro");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(230, 330, 164, 21);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
         jLabel6.setBackground(java.awt.Color.lightGray);
         jLabel6.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel6.setText("Estatus");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(320, 390, 68, 21);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
 
         jLabel7.setBackground(java.awt.Color.lightGray);
         jLabel7.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel7.setText("Banco");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(340, 450, 57, 21);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setText("CLABE Interbancaria ");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(290, 70, 502, 90);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 502, 90));
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnRegistrar.setText("Registrar");
-        getContentPane().add(btnRegistrar);
-        btnRegistrar.setBounds(390, 530, 150, 60);
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 150, 60));
 
         lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         lblSiguiente.setToolTipText("Siguiente");
-        getContentPane().add(lblSiguiente);
-        lblSiguiente.setBounds(580, 530, 64, 64);
+        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 530, -1, -1));
 
         jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\karly\\Downloads\\WhatsApp Image 2021-05-26 at 7.28.20 PM.jpeg")); // NOI18N
-        getContentPane().add(jLabel15);
-        jLabel15.setBounds(-120, -40, 1150, 730);
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -40, 1150, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

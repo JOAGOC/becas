@@ -309,5 +309,5 @@ public class Principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private static boolean acceso;
     public static ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
-    
+    public static Alumno alumnoSesion;
 }

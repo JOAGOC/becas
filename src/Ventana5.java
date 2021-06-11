@@ -18,6 +18,7 @@ public class Ventana5 extends javax.swing.JFrame {
         txtSocioEconomica.setLineWrap(true);
         txtSocioEconomica.setWrapStyleWord(true);
         lblSiguiente.setVisible(false);
+        
     }
 
     /**

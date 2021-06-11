@@ -2,10 +2,18 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+
 import static javax.swing.JOptionPane.*;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Component;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,14 +40,64 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         initComponents();
         changeUI(UI.Inicial);
         this.addWindowListener(this);
+        LeerAlumnos();
     }
-
+    
     public Login() {
         super();
         initComponents();
         changeUI(UI.Inicial);
         this.addWindowListener(this);
+        LeerAlumnos();
     }
+
+    private void GuardarAlumnos() {
+        String alumnosTxt = "";
+        for (Alumno a:alumnos){
+            alumnosTxt += a.getNombre()+"|"+a.getCURP()+"|"+a.getContraseña()+"|"+a.getTelefono()+"|"+a.getCorreo()+"|"+a.getNacionalidad()+"|"+a.getEstadoCivil()+"|"+a.getCelular()+"|"+a.getFechaDeNacimiento()+"|"+a.getLugarDeNacimiento()+"\n";
+        }
+        BufferedWriter bw = null;
+        try {
+           bw = new BufferedWriter(new FileWriter(FILE_NAME));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            bw.write(alumnosTxt);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            bw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void LeerAlumnos() {
+        FileReader reader = null;
+        try {
+            reader = new FileReader(FILE_NAME);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader bf = new BufferedReader(reader);
+        String alumno;
+        try {
+            while ((alumno = bf.readLine()) != null) {
+                String[] cell = alumno.split("\\|");
+                int x = 0;
+                try {
+                    alumnos.add(new Alumno(cell[x++],cell[x++],cell[x++],cell[x++],cell[x++],cell[x++],cell[x++],cell[x++],cell[x++],cell[x++]));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void windowClosing(WindowEvent e) {
         close();
@@ -78,12 +136,13 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
 
     public void login() {
         boolean noEncontrado = true;
-        for (int i = 0; i < Principal.alumnos.size(); i++) {
-            if (Principal.alumnos.get(i).getCURP().equalsIgnoreCase(txtUsuario.getText())) {
-                if (Principal.alumnos.get(i).getContraseña().equals(jpswContraseña.getText())) {
+        for (int i = 0; i < alumnos.size(); i++) {
+            if (alumnos.get(i).getCURP().equalsIgnoreCase(txtUsuario.getText())) {
+                if (alumnos.get(i).getContraseña().equals(jpswContraseña.getText())) {
                     showMessageDialog(this, "Acceso concedido");
                     acceso = true;
-                    this.close();
+                    setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                    dispose();
                     return;
                 } else {
                     showMessageDialog(this, "No coincide la CURP y la contraseña");
@@ -98,7 +157,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
 
     public void close() {
         Principal.setAcceso(acceso);
-        this.dispose();
+        GuardarAlumnos();
     }
 
     /**
@@ -124,7 +183,6 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         btnSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setForeground(new java.awt.Color(51, 0, 51));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -275,7 +333,7 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new Login(new JFrame("xd"),true).setVisible(true);
             }
         });
 
@@ -293,6 +351,6 @@ public class Login extends javax.swing.JDialog implements AutoCloseable, WindowL
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
-    // private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
-    
+    private java.util.ArrayList<Alumno> alumnos = new java.util.ArrayList<Alumno>();
+    private final String FILE_NAME = "ALUMNOS.TXT";
 }

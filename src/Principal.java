@@ -26,7 +26,7 @@ public class Principal extends javax.swing.JFrame {
 
         public void run(){
             x.enableControls(false);
-            Login login = new Login(x, true);
+            login = new Login(x, true);
             login.setVisible(true);
             if (acceso){
                 x.enableControls(true);
@@ -38,16 +38,6 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         Thread h = new Thread(new ShowLogin(this));
         h.start();
-        alumnos.add(new Alumno("Angel Gabriel Vizcarra Villavicencio", "VIVA020716HNTZLNA9", "1582", "",
-                "vizcarraangel20@gmail.com", "Mexicana", "Soltero", "3112332337", "16 julio del 2002",
-                "Tepic,Nayarit"));
-        alumnos.add(new Alumno("Karla Esmeralda Marmolejo Uribe", "MAUK020222MNTRRRA9", "8302462", "",
-                "karly_1022@outlook.es", "Mexicana", "Soltero", "311-128-49-37", "22 de febrero de 2002",
-                "Tepic, Nayarit Mexico"));
-        alumnos.add(new Alumno("José Angel González Cruz", "GOCA021024HNTNRNA8", "PATATA", "",
-                "angel24gonzalez10@gmail.com", "Mexicana", "Soltero", "311-144-52-95", "24 de Octubre de 2002",
-                "Tepic, Nayarit; México"));
-        
     }
 
     /**
@@ -103,10 +93,25 @@ public class Principal extends javax.swing.JFrame {
 
         menuBar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 204)));
         menuBar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuBar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                menuBarFocusGained(evt);
+            }
+        });
+        menuBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
 
         menuSol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registro.png"))); // NOI18N
         menuSol.setText("Solicitud");
         menuSol.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        menuSol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
         menuSol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuSolActionPerformed(evt);
@@ -129,10 +134,20 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/educacion.png"))); // NOI18N
         jMenu1.setText("Programas");
         jMenu1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
 
         menuJP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1.png"))); // NOI18N
         menuJP.setText("Jovenes Pioneros");
         menuJP.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        menuJP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
 
         jMenuItem1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
@@ -149,6 +164,11 @@ public class Principal extends javax.swing.JFrame {
         menuE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/excelencia.png"))); // NOI18N
         menuE.setText("Excelencia");
         menuE.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        menuE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
 
         jMenuItem2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
@@ -160,6 +180,11 @@ public class Principal extends javax.swing.JFrame {
         menuT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/libro-abierto.png"))); // NOI18N
         menuT.setText("Tlautli");
         menuT.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        menuT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
 
         jMenuItem3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
@@ -178,11 +203,21 @@ public class Principal extends javax.swing.JFrame {
         menuA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grupo.png"))); // NOI18N
         menuA.setText("Alumnos");
         menuA.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        menuA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unido.png"))); // NOI18N
         jMenuItem4.setText("Alumnos Inscritos");
+        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
         menuA.add(jMenuItem4);
 
         menuBar.add(menuA);
@@ -190,20 +225,41 @@ public class Principal extends javax.swing.JFrame {
         menuS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/archivos.png"))); // NOI18N
         menuS.setText("Seguimiento");
         menuS.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        menuS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/correo-electronico.png"))); // NOI18N
         jMenuItem5.setText("Mensajes");
+        jMenuItem5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
         menuS.add(jMenuItem5);
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem6.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/metodo-de-pago.png"))); // NOI18N
         jMenuItem6.setText("Pagos");
+        jMenuItem6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
         menuS.add(jMenuItem6);
 
         menuBar.add(menuS);
+
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
         menuBar.add(jMenu6);
 
         setJMenuBar(menuBar);
@@ -235,8 +291,19 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void menuSolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSolActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_menuSolActionPerformed
+
+    private void menuBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_menuBarFocusGained
+       
+    }//GEN-LAST:event_menuBarFocusGained
+
+    private void menuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSolMouseClicked
+        if (login != null)
+        {
+            login.setVisible(true);
+        }
+    }//GEN-LAST:event_menuSolMouseClicked
     
             
 
@@ -308,6 +375,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu menuT;
     // End of variables declaration//GEN-END:variables
     private static boolean acceso;
-    public static ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
     public static Alumno alumnoSesion;
+    Login login;
 }

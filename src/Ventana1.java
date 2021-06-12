@@ -68,43 +68,43 @@ public class Ventana1 extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, -1, -1));
 
         txtNombre.setBackground(java.awt.Color.lightGray);
-        txtNombre.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 170, -1));
 
         txtEdad.setBackground(java.awt.Color.lightGray);
-        txtEdad.setFont(new java.awt.Font("NSimSun", 2, 13)); // NOI18N
+        txtEdad.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 170, -1));
 
         txtCurp.setBackground(java.awt.Color.lightGray);
-        txtCurp.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtCurp.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 250, -1));
 
         txtCorreo.setBackground(java.awt.Color.lightGray);
-        txtCorreo.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtCorreo.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 60, -1));
 
         txtEstadoCivil.setBackground(java.awt.Color.lightGray);
-        txtEstadoCivil.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtEstadoCivil.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtEstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 170, -1));
 
         txtNacionalidad.setBackground(java.awt.Color.lightGray);
-        txtNacionalidad.setFont(new java.awt.Font("NSimSun", 2, 13)); // NOI18N
+        txtNacionalidad.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 120, -1));
 
         txtResidencia.setBackground(java.awt.Color.lightGray);
-        txtResidencia.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtResidencia.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtResidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 450, 160, -1));
 
         txtTelefono.setBackground(java.awt.Color.lightGray);
-        txtTelefono.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtTelefono.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 120, -1));
 
         txtCelular.setBackground(java.awt.Color.lightGray);
-        txtCelular.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtCelular.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 410, 120, -1));
 
         txtFechaNacimiento.setBackground(java.awt.Color.lightGray);
-        txtFechaNacimiento.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtFechaNacimiento.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 110, -1));
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N

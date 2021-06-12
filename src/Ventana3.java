@@ -43,19 +43,19 @@ public class Ventana3 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtCLABE.setBackground(java.awt.Color.lightGray);
-        txtCLABE.setFont(new java.awt.Font("NSimSun", 2, 13)); // NOI18N
+        txtCLABE.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtCLABE, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 210, 30));
 
         txtEstatus.setBackground(java.awt.Color.lightGray);
-        txtEstatus.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtEstatus.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 210, -1));
 
         txtBanco.setBackground(java.awt.Color.lightGray);
-        txtBanco.setFont(new java.awt.Font("NSimSun", 2, 13)); // NOI18N
-        getContentPane().add(txtBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 120, 30));
+        txtBanco.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(txtBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 120, 30));
 
         txtFechaRegistro.setBackground(java.awt.Color.lightGray);
-        txtFechaRegistro.setFont(new java.awt.Font("NSimSun", 2, 18)); // NOI18N
+        txtFechaRegistro.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtFechaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 110, -1));
 
         jLabel4.setBackground(java.awt.Color.lightGray);
@@ -80,7 +80,7 @@ public class Ventana3 extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Banco");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

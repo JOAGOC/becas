@@ -60,8 +60,8 @@ public class Ventana4 extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
 
         txtPA.setBackground(java.awt.Color.lightGray);
-        txtPA.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 57, -1));
+        txtPA.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(txtPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 70, -1));
 
         jLabel5.setBackground(java.awt.Color.lightGray);
         jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
@@ -70,7 +70,7 @@ public class Ventana4 extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, -1, -1));
 
         txtEstado.setBackground(java.awt.Color.lightGray);
-        txtEstado.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
+        txtEstado.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 150, -1));
 
         jLabel6.setBackground(java.awt.Color.lightGray);
@@ -86,7 +86,7 @@ public class Ventana4 extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
 
         txtMatricula.setBackground(java.awt.Color.lightGray);
-        txtMatricula.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
+        txtMatricula.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 170, -1));
 
         jLabel8.setBackground(java.awt.Color.lightGray);
@@ -96,7 +96,7 @@ public class Ventana4 extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
 
         txtPG.setBackground(java.awt.Color.lightGray);
-        txtPG.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
+        txtPG.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtPG, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 60, -1));
 
         jLabel9.setBackground(java.awt.Color.lightGray);
@@ -106,7 +106,7 @@ public class Ventana4 extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 440, -1, -1));
 
         txtPeriodo.setBackground(java.awt.Color.lightGray);
-        txtPeriodo.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
+        txtPeriodo.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 440, 120, -1));
 
         jLabel13.setBackground(java.awt.Color.lightGray);
@@ -122,7 +122,7 @@ public class Ventana4 extends javax.swing.JFrame {
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, -1, 20));
 
         txtTPeriodos.setBackground(java.awt.Color.lightGray);
-        txtTPeriodos.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
+        txtTPeriodos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtTPeriodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, 60, -1));
 
         jLabel10.setBackground(java.awt.Color.lightGray);
@@ -132,7 +132,7 @@ public class Ventana4 extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, 140, 20));
 
         txtPeridoA.setBackground(java.awt.Color.lightGray);
-        txtPeridoA.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
+        txtPeridoA.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         getContentPane().add(txtPeridoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 390, 60, -1));
 
         jCheckBox1.setText("No");
@@ -141,8 +141,8 @@ public class Ventana4 extends javax.swing.JFrame {
         jCheckBox2.setText("Si");
         getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 50, -1));
 
-        cmbTperiodo.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(cmbTperiodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 280, 100, -1));
+        cmbTperiodo.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(cmbTperiodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 280, 140, -1));
 
         btnRegistrar.setBackground(new java.awt.Color(51, 204, 0));
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N

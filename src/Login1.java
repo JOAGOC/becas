@@ -1,5 +1,12 @@
+import java.awt.Graphics;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 /*
@@ -27,6 +34,9 @@ public class Login1 extends javax.swing.JDialog implements AutoCloseable, Window
         initComponents();
         // changeUI(UI.Inicial);
         this.addWindowListener(this);
+        p = new PictureBox();
+        p.setSize(getSize());
+        this.add(p);
     }
 
     public Login1() {
@@ -108,15 +118,20 @@ public class Login1 extends javax.swing.JDialog implements AutoCloseable, Window
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setForeground(new java.awt.Color(51, 0, 51));
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        setSize(getPreferredSize());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo becat.png"))); // NOI18N
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel1, new java.awt.GridBagConstraints());
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -158,12 +173,29 @@ public class Login1 extends javax.swing.JDialog implements AutoCloseable, Window
                 new Login1().setVisible(true);
             }
         });
-
     }
+    
+    class PictureBox extends javax.swing.JPanel{
+
+        public PictureBox() {
+            super();
+        }
+        
+        protected void paintComponent(Graphics g){
+            super.paintComponent(g);
+            try {
+                BufferedImage imagen = ImageIO.read(new File("Logo becat.png"));
+                g.drawImage(imagen,0,0,this);
+            } catch (IOException ex) {
+                Logger.getLogger(Login1.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
-    // private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+    PictureBox p;
     
 }

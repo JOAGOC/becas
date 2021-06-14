@@ -30,8 +30,8 @@ public class Principal extends javax.swing.JFrame {
             login.setVisible(true);
             if (acceso){
                 x.enableControls(true);
-            }
         }
+    }
     }
 
     public Principal() {
@@ -304,12 +304,6 @@ public class Principal extends javax.swing.JFrame {
             login.setVisible(true);
         }
     }//GEN-LAST:event_menuSolMouseClicked
-    
-            
-
-    public static void setAcceso(boolean acceso){
-        Principal.acceso = acceso;
-    }
 
     private void enableControls(boolean enabled)
     {
@@ -374,7 +368,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu menuSol;
     private javax.swing.JMenu menuT;
     // End of variables declaration//GEN-END:variables
-    private static boolean acceso;
     public static Alumno alumnoSesion;
     Login login;
 }

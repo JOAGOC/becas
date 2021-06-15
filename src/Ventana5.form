@@ -59,7 +59,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtEdad">
+    <Component class="javax.swing.JTextField" name="txtEstatus">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
@@ -89,7 +89,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCorreo">
+    <Component class="javax.swing.JTextField" name="txtVigencia">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
@@ -104,7 +104,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtFechaNacimiento">
+    <Component class="javax.swing.JTextField" name="txtEstadoCivil">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>

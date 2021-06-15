@@ -1,3 +1,9 @@
+
+import java.util.Date;
+import java.lang.*;
+import java.time.LocalDate;
+import java.text.SimpleDateFormat;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +15,7 @@
  * @author karly
  */
 public class Ventana5 extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Ventana5
      */
@@ -18,7 +24,7 @@ public class Ventana5 extends javax.swing.JFrame {
         txtSocioEconomica.setLineWrap(true);
         txtSocioEconomica.setWrapStyleWord(true);
         lblSiguiente.setVisible(false);
-        
+        lblFecha.setText(fecha());
     }
 
     /**
@@ -31,11 +37,8 @@ public class Ventana5 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel10 = new javax.swing.JLabel();
-        txtFecha = new javax.swing.JTextField();
-        txtEdad = new javax.swing.JTextField();
         txtFolio = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
-        txtFechaNacimiento = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -46,6 +49,9 @@ public class Ventana5 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnObtenerAcuse = new javax.swing.JButton();
         lblSiguiente = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        lblFecha = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,33 +61,24 @@ public class Ventana5 extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Información Socioeconomica:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 280, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 280, -1));
 
-        txtFecha.setBackground(java.awt.Color.lightGray);
-        txtFecha.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 170, -1));
-
-        txtEdad.setBackground(java.awt.Color.lightGray);
-        txtEdad.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, 170, -1));
-
+        txtFolio.setEditable(false);
         txtFolio.setBackground(java.awt.Color.lightGray);
-        txtFolio.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtFolio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 170, -1));
+        txtFolio.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(txtFolio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 90, -1));
 
+        txtCorreo.setEditable(false);
         txtCorreo.setBackground(java.awt.Color.lightGray);
-        txtCorreo.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 110, -1));
-
-        txtFechaNacimiento.setBackground(java.awt.Color.lightGray);
-        txtFechaNacimiento.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 170, -1));
+        txtCorreo.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        txtCorreo.setText("3 Semana ");
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 90, -1));
 
         jLabel4.setBackground(java.awt.Color.lightGray);
         jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Folio:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 50, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 50, -1));
 
         jLabel5.setBackground(java.awt.Color.lightGray);
         jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
@@ -108,32 +105,43 @@ public class Ventana5 extends javax.swing.JFrame {
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, -1, -1));
 
         txtSocioEconomica.setColumns(20);
-        txtSocioEconomica.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
+        txtSocioEconomica.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         txtSocioEconomica.setRows(5);
-        txtSocioEconomica.setToolTipText("Aqui redactaras tu situación econimica en general\n* Cantidad de integrantes de tu familia\n* Habitaciones de tu hogar\n* Ingreso mensual total por todos los integrantes de la familia \n* Entre otros detalles que quisieras contar");
+        txtSocioEconomica.setToolTipText("Aqui redactaras tu situación econimica en general \n* Cantidad de integrantes de tu familia \n* Habitaciones de tu hogar \n* Ingreso mensual total por todos los integrantes de la familia  \n* Entre otros detalles que quisieras contar \n");
         jScrollPane1.setViewportView(txtSocioEconomica);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 420, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, 430, 150));
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 55)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Solicitud");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 190, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 220, -1));
 
         btnObtenerAcuse.setBackground(new java.awt.Color(51, 204, 0));
         btnObtenerAcuse.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnObtenerAcuse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/documentos-oficiales.png"))); // NOI18N
         btnObtenerAcuse.setToolTipText("Obtener Acuse");
         btnObtenerAcuse.setBorder(null);
+        btnObtenerAcuse.setBorderPainted(false);
+        btnObtenerAcuse.setContentAreaFilled(false);
+        btnObtenerAcuse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnObtenerAcuse.setFocusPainted(false);
+        btnObtenerAcuse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnObtenerAcuse.setIconTextGap(-3);
+        btnObtenerAcuse.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/dc2.png"))); // NOI18N
+        btnObtenerAcuse.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/documentos-oficiales.png"))); // NOI18N
+        btnObtenerAcuse.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnObtenerAcuse.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnObtenerAcuse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnObtenerAcuseActionPerformed(evt);
             }
         });
-        getContentPane().add(btnObtenerAcuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 540, 100, 80));
+        getContentPane().add(btnObtenerAcuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 120, 130));
 
         lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         lblSiguiente.setToolTipText("Siguiente");
+        lblSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSiguienteMouseClicked(evt);
@@ -141,11 +149,26 @@ public class Ventana5 extends javax.swing.JFrame {
         });
         getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 550, -1, -1));
 
+        jComboBox1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*Seleccione*", "Soltero/a", "Viudo/a", "Casado/a", "Divorciado/a" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 130, -1));
+
+        jComboBox2.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*Seleccione*", "Regular", "Irregular" }));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 130, -1));
+
+        lblFecha.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha.setText("DD/MM/YYYY");
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 140, 20));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abcd.jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+   
 
     private void btnObtenerAcuseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerAcuseActionPerformed
        lblSiguiente.setVisible(true);
@@ -156,7 +179,11 @@ public class Ventana5 extends javax.swing.JFrame {
        abrir.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_lblSiguienteMouseClicked
-
+    public static String fecha(){
+        Date fecha= new Date();
+        SimpleDateFormat ffecha=new SimpleDateFormat("dd/MM/YYYY");
+        return ffecha.format(fecha);
+    }
     /**
      * @param args the command line arguments
      */
@@ -194,6 +221,8 @@ public class Ventana5 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnObtenerAcuse;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -203,11 +232,9 @@ public class Ventana5 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblSiguiente;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtEdad;
-    private javax.swing.JTextField txtFecha;
-    private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtFolio;
     private javax.swing.JTextArea txtSocioEconomica;
     // End of variables declaration//GEN-END:variables

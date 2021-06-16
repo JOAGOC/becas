@@ -1,7 +1,8 @@
-
-import java.text.SimpleDateFormat;
+import static javax.swing.JOptionPane.showMessageDialog;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -24,13 +25,25 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         Thread h = new Thread(new ShowLogin(this));
         h.start();
+        lblFecha.setText(fecha());
+        TimerTask x = new TimerTask(){
+            public void run(){
+                try {
+                    lblReloj.setText(java.time.LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+                } catch (Exception e) {
+                    showMessageDialog(null,e.getMessage());
+                }
+            }
+            
+        };
+        timer.schedule(x, 0,1000);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnSalir = new javax.swing.JButton();
         lblReloj = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
         lblFecha = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
@@ -56,6 +69,11 @@ public class Principal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1280, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblReloj.setForeground(new java.awt.Color(255, 255, 255));
+        lblReloj.setText("HH:mm:ss");
+        lblReloj.setToolTipText("");
+        getContentPane().add(lblReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, -1, -1));
+
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -63,19 +81,18 @@ public class Principal extends javax.swing.JFrame {
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
         btnSalir.setContentAreaFilled(false);
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 613, 80, 90));
-        getContentPane().add(lblReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 727, 139, 49));
 
         lblFecha.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("DD/MM/YYYY");
-        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, 140, 20));
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 710));
@@ -256,9 +273,10 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 public static String fecha(){
-        Date fecha= new Date();
-        SimpleDateFormat ffecha=new SimpleDateFormat("dd/MM/YYYY");
-        return ffecha.format(fecha);
+        // Date fecha= new Date();
+        // SimpleDateFormat ffecha=new SimpleDateFormat("dd/MM/YYYY");
+        // return ffecha.format(fecha);
+        return java.time.LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/YYYY"));
     }
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
@@ -308,6 +326,8 @@ public static String fecha(){
         }
     }
 
+
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -356,4 +376,5 @@ public static String fecha(){
     // End of variables declaration//GEN-END:variables
     public static Alumno alumnoSesion;
     Login login;
+    private Timer timer = new Timer();
 }

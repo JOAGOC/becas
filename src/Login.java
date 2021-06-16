@@ -1,7 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
-
 import static javax.swing.JOptionPane.*;
 import javax.swing.JLabel;
 import java.awt.Component;
@@ -234,7 +233,7 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarseActionPerformed
         this.setVisible(false);
-        Ventana2 abrir = new Ventana2(this, true);
+        Ventana1 abrir = new Ventana1(this, true);
         abrir.setVisible(true);
         this.setVisible(true);
     }// GEN-LAST:event_btnRegistrarseActionPerformed

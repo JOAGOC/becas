@@ -47,7 +47,6 @@ public class Ventana2 extends javax.swing.JDialog {
         txtExterior = new javax.swing.JTextField();
         txtDUbicacion = new javax.swing.JTextField();
         txtCalle = new javax.swing.JTextField();
-        txtCP = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -55,14 +54,20 @@ public class Ventana2 extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmbEstado = new javax.swing.JComboBox<>();
         cmbMunicipio = new javax.swing.JComboBox<>();
         btnRegistrar = new javax.swing.JButton();
         lblSiguiente = new javax.swing.JLabel();
         lblRegresar = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        txtCP1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        txtCP3 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
+        txtCP2 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -70,116 +75,167 @@ public class Ventana2 extends javax.swing.JDialog {
         jLabel10.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Calle:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, -1, -1));
 
         txtInterior.setBackground(java.awt.Color.lightGray);
-        txtInterior.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtInterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 90, -1));
+        txtInterior.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        txtInterior.setToolTipText("");
+        getContentPane().add(txtInterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 90, -1));
 
         txtAsentamiento.setBackground(java.awt.Color.lightGray);
-        txtAsentamiento.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtAsentamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 210, 30));
+        txtAsentamiento.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(txtAsentamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 210, 30));
 
         txtLocalidad.setBackground(java.awt.Color.lightGray);
-        txtLocalidad.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtLocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 423, 210, 30));
+        txtLocalidad.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(txtLocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 210, 30));
 
         txtExterior.setBackground(java.awt.Color.lightGray);
-        txtExterior.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtExterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, 120, 30));
+        txtExterior.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(txtExterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 120, 30));
 
         txtDUbicacion.setBackground(java.awt.Color.lightGray);
-        txtDUbicacion.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtDUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 320, 80));
+        txtDUbicacion.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(txtDUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, 320, 90));
 
         txtCalle.setBackground(java.awt.Color.lightGray);
-        txtCalle.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 170, -1));
-
-        txtCP.setBackground(java.awt.Color.lightGray);
-        txtCP.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
-        getContentPane().add(txtCP, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 110, -1));
+        txtCalle.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 170, -1));
 
         jLabel4.setBackground(java.awt.Color.lightGray);
         jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Estado:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
 
         jLabel5.setBackground(java.awt.Color.lightGray);
         jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Municipio:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
 
         jLabel6.setBackground(java.awt.Color.lightGray);
         jLabel6.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Asentamiento: ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
         jLabel7.setBackground(java.awt.Color.lightGray);
         jLabel7.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Localidad:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
 
         jLabel8.setBackground(java.awt.Color.lightGray);
         jLabel8.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("No. Exterior: ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
 
         jLabel9.setBackground(java.awt.Color.lightGray);
         jLabel9.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Descripcion de la ubicación ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 580, -1, -1));
+        jLabel9.setText("Descripcion de la ubicación: ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, -1));
 
         jLabel13.setBackground(java.awt.Color.lightGray);
         jLabel13.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("No. Interior:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, -1, -1));
-
-        jLabel14.setBackground(java.awt.Color.lightGray);
-        jLabel14.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("C.P.");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Residencia del Alumno:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 502, 90));
 
-        cmbEstado.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
+        cmbEstado.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu Estado", "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Ciudad de México", "Durango", "Estado de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas" }));
         cmbEstado.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbEstadoItemStateChanged(evt);
             }
         });
-        getContentPane().add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 210, 40));
+        getContentPane().add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 210, 40));
 
-        cmbMunicipio.setFont(new java.awt.Font("New Gulim", 1, 14)); // NOI18N
+        cmbMunicipio.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         cmbMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu municipio" }));
-        getContentPane().add(cmbMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 210, 40));
+        getContentPane().add(cmbMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 210, 40));
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnRegistrar.setText("Registrar");
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 550, 150, 60));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 550, 120, 50));
 
         lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         lblSiguiente.setToolTipText("Siguiente");
-        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, -1, -1));
+        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 550, -1, -1));
 
         lblRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/regreso.png"))); // NOI18N
         getContentPane().add(lblRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("New Gulim", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        txtCP1.setBackground(java.awt.Color.lightGray);
+        txtCP1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+
+        jLabel14.setBackground(java.awt.Color.lightGray);
+        jLabel14.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Curp:");
+
+        jLabel17.setBackground(java.awt.Color.lightGray);
+        jLabel17.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Contraseña:");
+
+        txtCP3.setBackground(java.awt.Color.lightGray);
+        txtCP3.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCP1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                    .addComponent(txtCP3))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(txtCP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 370, 150));
+
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abcd.jpg"))); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 650));
+
+        txtCP2.setBackground(java.awt.Color.lightGray);
+        txtCP2.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        getContentPane().add(txtCP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 110, -1));
+
+        jLabel16.setBackground(java.awt.Color.lightGray);
+        jLabel16.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("C.P.");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -440,6 +496,8 @@ public class Ventana2 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -447,10 +505,13 @@ public class Ventana2 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblRegresar;
     private javax.swing.JLabel lblSiguiente;
     private javax.swing.JTextField txtAsentamiento;
-    private javax.swing.JTextField txtCP;
+    private javax.swing.JTextField txtCP1;
+    private javax.swing.JTextField txtCP2;
+    private javax.swing.JTextField txtCP3;
     private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtDUbicacion;
     private javax.swing.JTextField txtExterior;

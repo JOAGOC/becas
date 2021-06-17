@@ -1,4 +1,13 @@
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import static javax.swing.JOptionPane.showMessageDialog;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.util.Date;
 import java.lang.*;
 import java.time.LocalDate;
@@ -38,7 +47,7 @@ public class Ventana5 extends javax.swing.JFrame {
 
         jLabel10 = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
-        txtCorreo = new javax.swing.JTextField();
+        txtVigencia = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -49,8 +58,8 @@ public class Ventana5 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnObtenerAcuse = new javax.swing.JButton();
         lblSiguiente = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbEstadoC = new javax.swing.JComboBox<>();
+        cmbEstatus = new javax.swing.JComboBox<>();
         lblFecha = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -61,18 +70,18 @@ public class Ventana5 extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Información Socioeconomica:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 280, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 280, -1));
 
         txtFolio.setEditable(false);
         txtFolio.setBackground(java.awt.Color.lightGray);
         txtFolio.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        getContentPane().add(txtFolio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 90, -1));
+        getContentPane().add(txtFolio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 90, -1));
 
-        txtCorreo.setEditable(false);
-        txtCorreo.setBackground(java.awt.Color.lightGray);
-        txtCorreo.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        txtCorreo.setText("3 Semana ");
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 90, -1));
+        txtVigencia.setEditable(false);
+        txtVigencia.setBackground(java.awt.Color.lightGray);
+        txtVigencia.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        txtVigencia.setText("3 Semana ");
+        getContentPane().add(txtVigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 110, -1));
 
         jLabel4.setBackground(java.awt.Color.lightGray);
         jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
@@ -149,13 +158,13 @@ public class Ventana5 extends javax.swing.JFrame {
         });
         getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 550, -1, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*Seleccione*", "Soltero/a", "Viudo/a", "Casado/a", "Divorciado/a" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 130, -1));
+        cmbEstadoC.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
+        cmbEstadoC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*Seleccione*", "Soltero/a", "Viudo/a", "Casado/a", "Divorciado/a" }));
+        getContentPane().add(cmbEstadoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 130, -1));
 
-        jComboBox2.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*Seleccione*", "Regular", "Irregular" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 130, -1));
+        cmbEstatus.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*Seleccione*", "Regular", "Irregular" }));
+        getContentPane().add(cmbEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 130, -1));
 
         lblFecha.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,10 +179,62 @@ public class Ventana5 extends javax.swing.JFrame {
     
    
 
+    private void  guardar(){
+        
+        String status =(String)cmbEstatus.getSelectedItem();
+        String EC = (String)cmbEstadoC.getSelectedItem();
+        
+        try {
+//flujo de bytes de salida (escritura)
+            java.io.FileOutputStream fbs=new java.io.FileOutputStream(nameFile+".doc");
+            String cad="***********************ACUSE DE SOLICITU DE BECA**********************"+"\n"+"\n"+
+                    "El acuse generado sirve como comprobante de a solicitud, con el puedes presentar a algunas oficinas para presentar aclaraciones, preguntas y quejas, este acuse np garantiza que ya seras beneficiado con la beca."+"\n"+"\n"+
+                    "Solicitud con el numero de folio de : "+txtFolio.getText()+"\n "+"\n"+
+                    "Con una vigencia : "+txtVigencia.getText()+"\n "+"\n"+
+                    "El estatus del estudiante segun su administracion escolar : "+status+"\n"+"\n"+
+                    "Fecha de solicitud : "+fecha()+"\n "+"\n"+
+                    "Estado civil : "+EC+"\n "+"\n"+
+                    "Estado socio economico del solicitante : "+"\n"+txtSocioEconomica.getText()+"\n"+"\n"+
+                    "****************************************************************************************"+"\n"+"\n"+
+                    "Este acuse es el ultimo paso de la solicitud, por favor espera noticias de las fuentes oficiales de la coordinacion de becas para mantenerte al tanto de posibles resultados  o cambios de fecha de la misma.";
+            byte b[]=cad.getBytes();
+            fbs.write(b);
+            fbs.flush();
+        } catch (FileNotFoundException ex) {
+                showMessageDialog(this,"Archivo no encontrado");
+                //Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);  //Leer que esta haciendo aqui
+        } catch (IOException ex) {
+            Logger.getLogger(Ventana5.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+    
     private void btnObtenerAcuseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerAcuseActionPerformed
        lblSiguiente.setVisible(true);
+       //********************************************************** 
+        if(nameFile.equals("")){
+                    JFileChooser chooser = new JFileChooser();
+                    FileNameExtensionFilter filter = new FileNameExtensionFilter (
+                   "Archivos de texto,","txt","java","cpp");
+                    chooser.setFileFilter (filter);
+                   int returnVal = chooser.showSaveDialog (this);
+                   if (returnVal == JFileChooser.APPROVE_OPTION) {nameFile=chooser.getSelectedFile().getAbsolutePath();}
+                   else return;
+               }           
+       guardar();
+       showMessageDialog(this,"Acuse guardado exitosamente");
+       limpiar();
+       txtFolio.requestFocus();
     }//GEN-LAST:event_btnObtenerAcuseActionPerformed
 
+       public void limpiar(){
+           txtFolio.setText("");
+           txtVigencia.setText("");
+           txtSocioEconomica.setText("");
+       }
+    
+    
+    
+    
     private void lblSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSiguienteMouseClicked
        Principal abrir=new Principal();
        abrir.setVisible(true);
@@ -218,11 +279,11 @@ public class Ventana5 extends javax.swing.JFrame {
             }
         });
     }
-
+ private String nameFile=""; 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnObtenerAcuse;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> cmbEstadoC;
+    private javax.swing.JComboBox<String> cmbEstatus;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -234,8 +295,8 @@ public class Ventana5 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblSiguiente;
-    private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtFolio;
     private javax.swing.JTextArea txtSocioEconomica;
+    private javax.swing.JTextField txtVigencia;
     // End of variables declaration//GEN-END:variables
 }

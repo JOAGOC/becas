@@ -1,12 +1,15 @@
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-public class Ventana1 extends javax.swing.JFrame {
+public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields {
 
     public Ventana1(java.awt.Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -24,7 +27,7 @@ public class Ventana1 extends javax.swing.JFrame {
         lblCorreo = new javax.swing.JLabel();
         tfCorreo = new javax.swing.JTextField();
         lblTelefono = new javax.swing.JLabel();
-        tfTeléfono = new javax.swing.JTextField();
+        tfTelefono = new javax.swing.JTextField();
         lblCelular = new javax.swing.JLabel();
         tfCelular = new javax.swing.JTextField();
         lblNacionalidad = new javax.swing.JLabel();
@@ -47,7 +50,9 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("New Gulim", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Usuario",
+                javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+                new java.awt.Font("New Gulim", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         txtCP1.setBackground(java.awt.Color.lightGray);
         txtCP1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
@@ -67,32 +72,27 @@ public class Ventana1 extends javax.swing.JFrame {
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCP1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(txtCP3))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txtCP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup().addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel17)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtCP1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addComponent(txtCP3))
+                        .addContainerGap()));
+        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup().addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtCP1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel16))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel17).addComponent(txtCP3, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(31, Short.MAX_VALUE)));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -121,6 +121,11 @@ public class Ventana1 extends javax.swing.JFrame {
         tfNombre.setBackground(java.awt.Color.lightGray);
         tfNombre.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         tfNombre.setMaximumSize(null);
+        tfNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNombreActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
@@ -190,16 +195,16 @@ public class Ventana1 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel2.add(lblTelefono, gridBagConstraints);
 
-        tfTeléfono.setBackground(java.awt.Color.lightGray);
-        tfTeléfono.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        tfTeléfono.setMaximumSize(null);
+        tfTelefono.setBackground(java.awt.Color.lightGray);
+        tfTelefono.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        tfTelefono.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel2.add(tfTeléfono, gridBagConstraints);
+        jPanel2.add(tfTelefono, gridBagConstraints);
 
         lblCelular.setBackground(java.awt.Color.lightGray);
         lblCelular.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
@@ -289,10 +294,12 @@ public class Ventana1 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel3.add(jdchFechaNacimiento, gridBagConstraints);
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 290, 140));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 270, 150));
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("New Gulim", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Usuario",
+                javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+                new java.awt.Font("New Gulim", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         lblCURP.setBackground(java.awt.Color.lightGray);
@@ -360,6 +367,11 @@ public class Ventana1 extends javax.swing.JFrame {
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -377,7 +389,7 @@ public class Ventana1 extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 50;
         jPanel4.add(jLabel11, gridBagConstraints);
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 400, 220, 150));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 220, 150));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abcd.jpg"))); // NOI18N
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 640));
@@ -385,18 +397,45 @@ public class Ventana1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }// GEN-LAST:event_txtNombreActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarActionPerformed
+        JLabel[] lbls = { lblNombre, lblEdad, lblCorreo, lblTelefono, lblCelular, lblNacionalidad, lblEstadoCivil,
+                lblFechaNacimiento, lblCURP, lblPassword, lblConfirmar };
+        JTextField[] jtfs = { tfNombre, tfEdad, tfCorreo, tfTelefono, tfCelular, tfNacionalidad, tfEstadoCivil, null,
+                tfCURP, jpswPassword, jpswConfirmar };
+        for (int i = 0; i < jtfs.length; i++) {
+            switch (i) {
+                default:
+                    validarCampoVacio(lbls[i], jtfs[i]);
+                case 2:
+                    validarFormatoNumerico(lbls[i], jtfs[i]);
+                    int x = Integer.parseInt(jtfs[i].getText());
+                    if (x < 17 || x > 60)
+                        throw new RuntimeException("La edad que se registra no es válida");
+                    break;
+                
+            }
+        }
+    }// GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tfNombreActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_tfNombreActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel. For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -414,7 +453,7 @@ public class Ventana1 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -457,7 +496,7 @@ public class Ventana1 extends javax.swing.JFrame {
     private javax.swing.JTextField tfEstadoCivil;
     private javax.swing.JTextField tfNacionalidad;
     private javax.swing.JTextField tfNombre;
-    private javax.swing.JTextField tfTeléfono;
+    private javax.swing.JTextField tfTelefono;
     private javax.swing.JTextField txtCP1;
     private javax.swing.JTextField txtCP3;
     // End of variables declaration//GEN-END:variables

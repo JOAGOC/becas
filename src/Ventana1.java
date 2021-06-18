@@ -410,13 +410,13 @@ public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields 
             switch (i) {
                 default:
                     validarCampoVacio(lbls[i], jtfs[i]);
-                case 2:
+                case 1:
                     validarFormatoNumerico(lbls[i], jtfs[i]);
                     int x = Integer.parseInt(jtfs[i].getText());
                     if (x < 17 || x > 60)
                         throw new RuntimeException("La edad que se registra no es válida");
                     break;
-                
+                case 2:                               
             }
         }
     }// GEN-LAST:event_btnRegistrarActionPerformed

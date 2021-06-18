@@ -133,7 +133,7 @@ public class Ventana5 extends javax.swing.JFrame {
         btnObtenerAcuse.setBorder(null);
         btnObtenerAcuse.setBorderPainted(false);
         btnObtenerAcuse.setContentAreaFilled(false);
-        btnObtenerAcuse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnObtenerAcuse.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnObtenerAcuse.setFocusPainted(false);
         btnObtenerAcuse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnObtenerAcuse.setIconTextGap(-3);
@@ -150,7 +150,7 @@ public class Ventana5 extends javax.swing.JFrame {
 
         lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         lblSiguiente.setToolTipText("Siguiente");
-        lblSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSiguienteMouseClicked(evt);
@@ -169,7 +169,7 @@ public class Ventana5 extends javax.swing.JFrame {
         lblFecha.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("DD/MM/YYYY");
-        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 140, 20));
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 140, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abcd.jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 640));

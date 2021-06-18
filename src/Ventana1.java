@@ -1,7 +1,10 @@
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import static javax.swing.JOptionPane.showMessageDialog;
 
-public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields {
+import java.util.Calendar;
+
+public class Ventana1 extends javax.swing.JDialog implements IValidateTextFields {
 
     public Ventana1(java.awt.Frame owner, boolean modal) {
         super(owner, modal);
@@ -34,7 +37,7 @@ public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields 
         tfNacionalidad = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         lblEstadoCivil = new javax.swing.JLabel();
-        tfEstadoCivil = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         lblFechaNacimiento = new javax.swing.JLabel();
         jdchFechaNacimiento = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
@@ -94,7 +97,7 @@ public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields 
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(31, Short.MAX_VALUE)));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
@@ -147,6 +150,7 @@ public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields 
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel2.add(lblEdad, gridBagConstraints);
 
+        tfEdad.setEditable(false);
         tfEdad.setBackground(java.awt.Color.lightGray);
         tfEdad.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         tfEdad.setMaximumSize(null);
@@ -267,14 +271,14 @@ public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields 
         gridBagConstraints.ipadx = 80;
         jPanel3.add(lblEstadoCivil, gridBagConstraints);
 
-        tfEstadoCivil.setBackground(java.awt.Color.lightGray);
-        tfEstadoCivil.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        jComboBox1.setFont(tfEdad.getFont());
+        jComboBox1.setModel(
+                new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero", "Casado", "Divorciado", "Viudo" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel3.add(tfEstadoCivil, gridBagConstraints);
+        jPanel3.add(jComboBox1, gridBagConstraints);
 
         lblFechaNacimiento.setBackground(java.awt.Color.lightGray);
         lblFechaNacimiento.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
@@ -288,6 +292,11 @@ public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields 
         jPanel3.add(lblFechaNacimiento, gridBagConstraints);
 
         jdchFechaNacimiento.setFont(tfNacionalidad.getFont());
+        jdchFechaNacimiento.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdchFechaNacimientoPropertyChange(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -397,32 +406,107 @@ public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jdchFechaNacimientoPropertyChange(java.beans.PropertyChangeEvent evt) {// GEN-FIRST:event_jdchFechaNacimientoPropertyChange
+        try {
+            if (evt.getPropertyName().equals("date"))
+                tfEdad.setText((java.time.LocalDate.now().getYear() - jdchFechaNacimiento.getCalendar().get(1)) + "");
+        } catch (Exception e) {
+            showMessageDialog(this, e.getMessage());
+        }
+    }// GEN-LAST:event_jdchFechaNacimientoPropertyChange
+
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
+
     }// GEN-LAST:event_txtNombreActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarActionPerformed
-        JLabel[] lbls = { lblNombre, lblEdad, lblCorreo, lblTelefono, lblCelular, lblNacionalidad, lblEstadoCivil,
-                lblFechaNacimiento, lblCURP, lblPassword, lblConfirmar };
-        JTextField[] jtfs = { tfNombre, tfEdad, tfCorreo, tfTelefono, tfCelular, tfNacionalidad, tfEstadoCivil, null,
-                tfCURP, jpswPassword, jpswConfirmar };
-        for (int i = 0; i < jtfs.length; i++) {
-            switch (i) {
-                default:
-                    validarCampoVacio(lbls[i], jtfs[i]);
-                case 1:
-                    validarFormatoNumerico(lbls[i], jtfs[i]);
-                    int x = Integer.parseInt(jtfs[i].getText());
-                    if (x < 17 || x > 60)
-                        throw new RuntimeException("La edad que se registra no es válida");
-                    break;
-                case 2:                               
+        try {
+            JLabel[] lbls = { lblNombre, lblEdad, lblCorreo, lblTelefono, lblCelular, lblNacionalidad, lblEstadoCivil,
+                    lblFechaNacimiento, lblCURP, lblPassword, lblConfirmar };
+            JTextField[] jtfs = { tfNombre, tfEdad, tfCorreo, tfTelefono, tfCelular, tfNacionalidad, null, null, tfCURP,
+                    jpswPassword, jpswConfirmar };
+            for (int i = 0; i < jtfs.length; i++) {
+                validarCampoVacio(lbls[i], jtfs[i]);
+                switch (i) {
+                    case 0,5:
+                        validarFormatoTexto(lbls[i], jtfs[i]);
+                        break;
+                    case 1:
+                        if (jdchFechaNacimiento.getDate() == null) {
+                            throw new RuntimeException("Selecciona en el selector de fechas tu fecha de nacimiento");
+                        }
+                        int x = Integer.parseInt(jtfs[i].getText());
+                        if (x < 17 || x > 60) {
+                            lbls[i].setForeground(java.awt.Color.red);
+                            jtfs[i].requestFocus();
+                            throw new RuntimeException("La edad que se registra no es válida: Parámetro 17-60 años");
+                        }
+                        break;
+                    case 2:
+                        validarCorreo(lbls[i], jtfs[i]);
+                        break;
+                    case 3,4:
+                        validarFormatoNumerico(lbls[i], jtfs[i]);
+                        if (jtfs[i].getText().length() < 10) {
+                            lbls[i].setForeground(java.awt.Color.red);
+                            jtfs[i].requestFocus();
+                            throw new RuntimeException("Error en " + lbls[i].getText()
+                                    + ":\nEl número telefónico debe tener al menos 10 dígitos");
+                        }
+                        break;
+                    case 8:
+                        if (jtfs[i].getText().length() < 18) {
+                            lbls[i].setForeground(java.awt.Color.red);
+                            jtfs[i].requestFocus();
+                            throw new RuntimeException("La CURP debe tener 18 caracteres, revisa tu entrada");
+                        }
+                        break;
+                    case 9:
+                        validarContrasenia(lbls[i], jtfs[i]);
+                        break;
+                    case 10:
+                        if (!jtfs[i].getText().equals(jtfs[i - 1].getText())) {
+                            lbls[i].setForeground(java.awt.Color.red);
+                            jtfs[i].requestFocus();
+                            throw new RuntimeException("Las contraseñas no coinciden, revisa tu entrada");
+                        }
+                        break;
+                }
             }
+        } catch (Exception e) {
+            showMessageDialog(this, e.getMessage());
         }
     }// GEN-LAST:event_btnRegistrarActionPerformed
 
+    private void validarContrasenia(JLabel lbl, JTextField jtf) {
+        if (jtf.getText().length() < 8) {
+            lbl.setForeground(java.awt.Color.red);
+            jtf.requestFocus();
+            throw new RuntimeException("La contraseña debe tener al menos 8 caracteres");
+        }
+        String entrada = jtf.getText();
+        if (!java.util.regex.Pattern.compile("[a-z]").matcher(entrada).find()
+                || !java.util.regex.Pattern.compile("[A-Z]").matcher(entrada).find()
+                || !java.util.regex.Pattern.compile("[0-9]").matcher(entrada).find()
+                || java.util.regex.Pattern.compile("[^\\w]").matcher(entrada).find()) {
+            lbl.setForeground(java.awt.Color.red);
+            jtf.requestFocus();
+            throw new RuntimeException(
+                    "La contraseña debe contener solo caracteres alfanuméricos:\nAl menos una letra minúscula, al menos una letra mayúscula y un número (Las letras no deben contener acentos)");
+        }
+    }
+
+    private void validarCorreo(JLabel lbl, JTextField jtf) {
+        if (!java.util.regex.Pattern.compile("^[_A-Za-z0-9-\\.+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
+                .matcher(jtf.getText()).matches()) {
+            lbl.setForeground(java.awt.Color.red);
+            jtf.requestFocus();
+            throw new RuntimeException("El correo introducido no es válido");
+        }
+    }
+
     private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tfNombreActionPerformed
-        // TODO add your handling code here:
+
     }// GEN-LAST:event_tfNombreActionPerformed
 
     /**
@@ -458,13 +542,15 @@ public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana1().setVisible(true);
+                new Ventana1(new javax.swing.JFrame(), true).setVisible(true);
+                ;
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -493,7 +579,6 @@ public class Ventana1 extends javax.swing.JFrame implements IValidateTextFields 
     private javax.swing.JTextField tfCelular;
     private javax.swing.JTextField tfCorreo;
     private javax.swing.JTextField tfEdad;
-    private javax.swing.JTextField tfEstadoCivil;
     private javax.swing.JTextField tfNacionalidad;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JTextField tfTelefono;

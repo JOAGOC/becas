@@ -18,11 +18,25 @@ public class Ventana2 extends javax.swing.JDialog implements IValidateTextFields
         } catch (Exception e) {
             showMessageDialog(this, e.getMessage());
         }
+        jLabel12.setVisible(false);
+    }
+
+    public Ventana2(java.awt.Dialog dial, boolean bln) {
+        super(dial, bln);
+        initComponents();
+        txtDUbicacion.setLineWrap(true);
+        txtDUbicacion.setWrapStyleWord(true);
+        try {
+            leerResidenciaAlumno();
+        } catch (Exception e) {
+            showMessageDialog(this, e.getMessage());
+        }
+        jLabel12.setVisible(false);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -77,6 +91,11 @@ public class Ventana2 extends javax.swing.JDialog implements IValidateTextFields
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         jLabel12.setToolTipText("Siguiente");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -99,12 +118,7 @@ public class Ventana2 extends javax.swing.JDialog implements IValidateTextFields
         jPanel2.add(lblEstado, gridBagConstraints);
 
         cmbEstado.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu Estado",
-                "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua",
-                "Coahuila", "Colima", "Ciudad de México", "Durango", "Estado de México", "Guanajuato", "Guerrero",
-                "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro",
-                "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz",
-                "Yucatán", "Zacatecas" }));
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu Estado", "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Ciudad de México", "Durango", "Estado de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas" }));
         cmbEstado.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbEstadoItemStateChanged(evt);
@@ -304,11 +318,19 @@ public class Ventana2 extends javax.swing.JDialog implements IValidateTextFields
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        Ventana3 v = new Ventana3(this,true);
+        v.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel12MouseClicked
+
     private void btnRegistrar2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrar2ActionPerformed
         try {
             validarCamposDeRegistro();
             ResidenciaAlumnos.add(new ResidenciaAlumno((String)cmbEstado.getSelectedItem(), (String)cmbMunicipio.getSelectedItem(), txtAsentamiento.getText().toUpperCase(), txtLocalidad.getText().toUpperCase(), txtExterior.getText(), txtNumInterior.getText(), txtDUbicacion.getText(), txtCalle.getText().toUpperCase(), Principal.alumnoSesion.getCURP(), txtCP2.getText()));
             guardarResidenciaAlumno();
+            showMessageDialog(this, "Paso 2: Registro completado");
+            jLabel12.setVisible(true);
         } catch (Exception e) {
             showMessageDialog(this, e.getMessage());
         }

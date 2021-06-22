@@ -2,26 +2,25 @@ public class InformacionEscolar {
     enum TipoPeriodo{Semestre, Bimestre, Trimestre, Cuatrimestre;}
 
     private float promedioAnterior, promedioGeneral;
-    private boolean activo, regular;
+    private boolean regular;
     private String matricula;
     private TipoPeriodo tipoPeriodo;
     private int totalPeriodos;
     private Periodo periodoActual;
-
-    public InformacionEscolar(float promedioAnterior, float promedioGeneral, boolean activo, boolean regular,
-			String matricula, InformacionEscolar.TipoPeriodo tipoPeriodo, int totalPeriodos, Periodo periodoActual,
-			Universidad universidad) {
-		this.promedioAnterior = promedioAnterior;
-		this.promedioGeneral = promedioGeneral;
-		this.activo = activo; 
-		this.regular = regular; 
-		this.matricula = matricula; 
-		this.tipoPeriodo = tipoPeriodo; 
-		this.totalPeriodos = totalPeriodos; 
-		this.periodoActual = periodoActual; 
-		this.universidad = universidad; 
-	}
-	private Universidad universidad;
+    private Universidad universidad;
+    
+    public InformacionEscolar(float promedioAnterior, float promedioGeneral, boolean regular, String matricula,
+            InformacionEscolar.TipoPeriodo tipoPeriodo, int totalPeriodos, Periodo periodoActual,
+            Universidad universidad) {
+        this.promedioAnterior = promedioAnterior;
+        this.promedioGeneral = promedioGeneral;
+        this.regular = regular;
+        this.matricula = matricula;
+        this.tipoPeriodo = tipoPeriodo;
+        this.totalPeriodos = totalPeriodos;
+        this.periodoActual = periodoActual;
+        this.universidad = universidad;
+    }
     
     public float getPromedioAnterior() {
         return promedioAnterior;
@@ -34,12 +33,6 @@ public class InformacionEscolar {
     }
     public void setPromedioGeneral(float promedioGeneral) {
         this.promedioGeneral = promedioGeneral;
-    }
-    public boolean isActivo() {
-        return activo;
-    }
-    public void setActivo(boolean activo) {
-        this.activo = activo;
     }
     public boolean isRegular() {
         return regular;

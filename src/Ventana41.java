@@ -27,9 +27,6 @@ public class Ventana41 extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnRegistrar = new javax.swing.JButton();
-        lblSiguiente = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblPromedioAnterior = new javax.swing.JLabel();
         txtPA = new javax.swing.JTextField();
@@ -40,35 +37,24 @@ public class Ventana41 extends javax.swing.JFrame {
         chbxActivo = new javax.swing.JCheckBox();
         chbxRegular = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
-        lblPeriodo = new javax.swing.JLabel();
-        txtPeriodo = new javax.swing.JTextField();
         lblTipoPeriodo = new javax.swing.JLabel();
         cmbTperiodo = new javax.swing.JComboBox<>();
         lblTotalPeriodos = new javax.swing.JLabel();
         txtTPeriodos = new javax.swing.JTextField();
         lblPeriodoActual = new javax.swing.JLabel();
-        lblPeriodoActual1 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        lblPeriodoActual2 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        lblFechaInicio = new javax.swing.JLabel();
+        jdchsFechaInicio = new com.toedter.calendar.JDateChooser();
+        lblFechaCierre = new javax.swing.JLabel();
+        jdchsFechaCierre = new com.toedter.calendar.JDateChooser();
+        lblUniversidad = new javax.swing.JLabel();
+        txtUniversidad = new javax.swing.JComboBox<>();
+        lblSiguiente = new javax.swing.JLabel();
+        btnRegistrar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnRegistrar.setBackground(new java.awt.Color(51, 204, 0));
-        btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        btnRegistrar.setText("Registrar");
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, 150, 50));
-
-        lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
-        lblSiguiente.setToolTipText("Siguiente");
-        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 560, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Información Escolar del Alumno:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -127,7 +113,6 @@ public class Ventana41 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel1.add(txtPG, gridBagConstraints);
 
-        chbxActivo.setFont(txtMatricula.getFont());
         chbxActivo.setForeground(new java.awt.Color(255, 255, 255));
         chbxActivo.setText("Estudiante Activo");
         chbxActivo.setOpaque(false);
@@ -137,7 +122,6 @@ public class Ventana41 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel1.add(chbxActivo, gridBagConstraints);
 
-        chbxRegular.setFont(txtMatricula.getFont());
         chbxRegular.setForeground(new java.awt.Color(255, 255, 255));
         chbxRegular.setText("Estudiante Regular");
         chbxRegular.setOpaque(false);
@@ -152,23 +136,6 @@ public class Ventana41 extends javax.swing.JFrame {
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        lblPeriodo.setBackground(java.awt.Color.lightGray);
-        lblPeriodo.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        lblPeriodo.setForeground(new java.awt.Color(255, 255, 255));
-        lblPeriodo.setText("Periodo:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        jPanel2.add(lblPeriodo, gridBagConstraints);
-
-        txtPeriodo.setBackground(java.awt.Color.lightGray);
-        txtPeriodo.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel2.add(txtPeriodo, gridBagConstraints);
-
         lblTipoPeriodo.setBackground(java.awt.Color.lightGray);
         lblTipoPeriodo.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         lblTipoPeriodo.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,10 +143,10 @@ public class Ventana41 extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel2.add(lblTipoPeriodo, gridBagConstraints);
 
         cmbTperiodo.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        cmbTperiodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SEMESTRE", "BIMESTRE", "TRIMESTRE", "CUATRIMESTRE" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -208,54 +175,89 @@ public class Ventana41 extends javax.swing.JFrame {
         lblPeriodoActual.setBackground(java.awt.Color.lightGray);
         lblPeriodoActual.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         lblPeriodoActual.setForeground(new java.awt.Color(255, 255, 255));
-        lblPeriodoActual.setText("Periodo Actual:");
+        lblPeriodoActual.setText("Periodo Actual");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel2.add(lblPeriodoActual, gridBagConstraints);
 
-        lblPeriodoActual1.setBackground(java.awt.Color.lightGray);
-        lblPeriodoActual1.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        lblPeriodoActual1.setForeground(new java.awt.Color(255, 255, 255));
-        lblPeriodoActual1.setText("Fecha de inicio:");
+        lblFechaInicio.setBackground(java.awt.Color.lightGray);
+        lblFechaInicio.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblFechaInicio.setForeground(new java.awt.Color(255, 255, 255));
+        lblFechaInicio.setText("Fecha de inicio:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel2.add(lblPeriodoActual1, gridBagConstraints);
-
-        jDateChooser1.setFont(txtMatricula.getFont());
+        jPanel2.add(lblFechaInicio, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel2.add(jDateChooser1, gridBagConstraints);
+        jPanel2.add(jdchsFechaInicio, gridBagConstraints);
 
-        lblPeriodoActual2.setBackground(java.awt.Color.lightGray);
-        lblPeriodoActual2.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        lblPeriodoActual2.setForeground(new java.awt.Color(255, 255, 255));
-        lblPeriodoActual2.setText("Fecha de cierre:");
+        lblFechaCierre.setBackground(java.awt.Color.lightGray);
+        lblFechaCierre.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblFechaCierre.setForeground(new java.awt.Color(255, 255, 255));
+        lblFechaCierre.setText("Fecha de cierre:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel2.add(lblPeriodoActual2, gridBagConstraints);
-
-        jDateChooser2.setFont(txtMatricula.getFont());
+        jPanel2.add(lblFechaCierre, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel2.add(jDateChooser2, gridBagConstraints);
+        jPanel2.add(jdchsFechaCierre, gridBagConstraints);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 210, 390));
+        lblUniversidad.setBackground(java.awt.Color.lightGray);
+        lblUniversidad.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblUniversidad.setForeground(new java.awt.Color(255, 255, 255));
+        lblUniversidad.setText("Universidad:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel2.add(lblUniversidad, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel2.add(txtUniversidad, gridBagConstraints);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 210, 400));
+
+        lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
+        lblSiguiente.setToolTipText("Siguiente");
+        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 560, -1, -1));
+
+        btnRegistrar.setBackground(new java.awt.Color(51, 204, 0));
+        btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, 150, 50));
+
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Información Escolar del Alumno:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/123.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,27 +315,27 @@ public class Ventana41 extends javax.swing.JFrame {
     private javax.swing.JCheckBox chbxActivo;
     private javax.swing.JCheckBox chbxRegular;
     private javax.swing.JComboBox<String> cmbTperiodo;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private com.toedter.calendar.JDateChooser jdchsFechaCierre;
+    private com.toedter.calendar.JDateChooser jdchsFechaInicio;
+    private javax.swing.JLabel lblFechaCierre;
+    private javax.swing.JLabel lblFechaInicio;
     private javax.swing.JLabel lblMatricula;
-    private javax.swing.JLabel lblPeriodo;
     private javax.swing.JLabel lblPeriodoActual;
-    private javax.swing.JLabel lblPeriodoActual1;
-    private javax.swing.JLabel lblPeriodoActual2;
     private javax.swing.JLabel lblPromedioAnterior;
     private javax.swing.JLabel lblPromedioGeneral;
     private javax.swing.JLabel lblSiguiente;
     private javax.swing.JLabel lblTipoPeriodo;
     private javax.swing.JLabel lblTotalPeriodos;
+    private javax.swing.JLabel lblUniversidad;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtPA;
     private javax.swing.JTextField txtPG;
-    private javax.swing.JTextField txtPeriodo;
     private javax.swing.JTextField txtTPeriodos;
+    private javax.swing.JComboBox<String> txtUniversidad;
     // End of variables declaration//GEN-END:variables
     public static java.util.ArrayList<InformacionEscolar> infoEscolarAlumno = new java.util.ArrayList<InformacionEscolar>();
     public final static String FILE_NAME = "INFO_ALUMNOS.TXT";

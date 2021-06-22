@@ -1,16 +1,23 @@
 import java.util.Calendar;
 
 public class ClaveInterbancaria {
-    private int clabe;
+    private String clabe;
     private Calendar fechaRegistro;
     private boolean activa;
     private String nombreBanco;
 
-    public int getClabe() {
+    public ClaveInterbancaria(String clabe, Calendar fechaRegistro, boolean activa, String nombreBanco) {
+        this.clabe = clabe;
+        this.fechaRegistro = fechaRegistro;
+        this.activa = activa;
+        this.nombreBanco = nombreBanco;
+    }
+
+    public String getClabe() {
         return clabe;
     }
 
-    public void setClabe(int clabe) {
+    public void setClabe(String clabe) {
         this.clabe = clabe;
     }
 

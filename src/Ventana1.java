@@ -12,6 +12,12 @@ public class Ventana1 extends javax.swing.JDialog implements IValidateTextFields
         initComponents();
     }
 
+    public Ventana1(java.awt.Frame owner, boolean modal) {
+        super(owner, modal);
+        initComponents();  
+        jLabel11.setVisible(false);
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -410,6 +416,11 @@ public class Ventana1 extends javax.swing.JDialog implements IValidateTextFields
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         jLabel11.setToolTipText("Siguiente");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -423,6 +434,12 @@ public class Ventana1 extends javax.swing.JDialog implements IValidateTextFields
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        Ventana2 v = new Ventana2(this, true);
+        v.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jdchFechaNacimientoPropertyChange(java.beans.PropertyChangeEvent evt) {// GEN-FIRST:event_jdchFechaNacimientoPropertyChange
         try {
@@ -445,7 +462,8 @@ public class Ventana1 extends javax.swing.JDialog implements IValidateTextFields
                     tfLugarNacimiento.getText().toUpperCase()));
             guardarAlumnos();
             showMessageDialog(this, "Paso 1: Registro completado");
-            this.dispose();
+            btnRegistrar.setEnabled(false);
+            jLabel11.setVisible(true);
         } catch (Exception e) {
             showMessageDialog(this, e.getMessage());
         }

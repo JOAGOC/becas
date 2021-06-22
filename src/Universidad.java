@@ -1,5 +1,12 @@
 public class Universidad {
     private String nombre, telefono, ubicacion;
+    public static final String FILE_NAME = "UNIVERSIDAD.TXT";
+
+    public Universidad(String nombre, String telefono, String ubicacion) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.ubicacion = ubicacion;
+    }
 
     public String getNombre() {
         return nombre;
@@ -23,7 +30,5 @@ public class Universidad {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
-    }
-
-    
+    }    
 }

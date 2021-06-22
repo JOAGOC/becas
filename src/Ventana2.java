@@ -1,238 +1,372 @@
-
-import java.awt.Dialog;
+import java.util.ArrayList;
 import java.awt.Frame;
 import java.awt.event.ItemEvent;
+import java.io.IOException;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
-public class Ventana2 extends javax.swing.JDialog {
+public class Ventana2 extends javax.swing.JDialog implements IValidateTextFields {
 
-    public Ventana2(Dialog dial, boolean bln) {
+    public Ventana2(Frame dial, boolean bln) {
         super(dial, bln);
         initComponents();
+        txtDUbicacion.setLineWrap(true);
+        txtDUbicacion.setWrapStyleWord(true);
+        try {
+            leerResidenciaAlumno();
+        } catch (Exception e) {
+            showMessageDialog(this, e.getMessage());
+        }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel10 = new javax.swing.JLabel();
-        txtInterior = new javax.swing.JTextField();
-        txtAsentamiento = new javax.swing.JTextField();
-        txtLocalidad = new javax.swing.JTextField();
-        txtExterior = new javax.swing.JTextField();
-        txtDUbicacion = new javax.swing.JTextField();
-        txtCalle = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnRegistrar2 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblEstado = new javax.swing.JLabel();
         cmbEstado = new javax.swing.JComboBox<>();
+        lblMunicipio = new javax.swing.JLabel();
         cmbMunicipio = new javax.swing.JComboBox<>();
-        btnRegistrar = new javax.swing.JButton();
-        lblSiguiente = new javax.swing.JLabel();
-        lblRegresar = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        txtCP1 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        txtCP3 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
+        lblCP = new javax.swing.JLabel();
         txtCP2 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblAsentamiento = new javax.swing.JLabel();
+        txtAsentamiento = new javax.swing.JTextField();
+        lblLocalidad = new javax.swing.JLabel();
+        txtLocalidad = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        lblCalle = new javax.swing.JLabel();
+        txtCalle = new javax.swing.JTextField();
+        lblNoInterior = new javax.swing.JLabel();
+        txtNumInterior = new javax.swing.JTextField();
+        lblNumExterior = new javax.swing.JLabel();
+        txtExterior = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDUbicacion = new javax.swing.JTextArea();
+        jLabel15 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setBackground(java.awt.Color.lightGray);
-        jLabel10.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Calle:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, -1, -1));
+        jPanel5.setOpaque(false);
+        jPanel5.setLayout(new java.awt.GridBagLayout());
 
-        txtInterior.setBackground(java.awt.Color.lightGray);
-        txtInterior.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        txtInterior.setToolTipText("");
-        getContentPane().add(txtInterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 90, -1));
+        btnRegistrar2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        btnRegistrar2.setText("Registrar");
+        btnRegistrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrar2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
+        jPanel5.add(btnRegistrar2, gridBagConstraints);
+
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
+        jLabel12.setToolTipText("Siguiente");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 50;
+        jPanel5.add(jLabel12, gridBagConstraints);
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 470, 220, 150));
+
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        lblEstado.setBackground(java.awt.Color.lightGray);
+        lblEstado.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblEstado.setForeground(new java.awt.Color(255, 255, 255));
+        lblEstado.setText("Estado:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        jPanel2.add(lblEstado, gridBagConstraints);
+
+        cmbEstado.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu Estado",
+                "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua",
+                "Coahuila", "Colima", "Ciudad de México", "Durango", "Estado de México", "Guanajuato", "Guerrero",
+                "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro",
+                "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz",
+                "Yucatán", "Zacatecas" }));
+        cmbEstado.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbEstadoItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel2.add(cmbEstado, gridBagConstraints);
+
+        lblMunicipio.setBackground(java.awt.Color.lightGray);
+        lblMunicipio.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblMunicipio.setForeground(new java.awt.Color(255, 255, 255));
+        lblMunicipio.setText("Municipio:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel2.add(lblMunicipio, gridBagConstraints);
+
+        cmbMunicipio.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        cmbMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu municipio" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel2.add(cmbMunicipio, gridBagConstraints);
+
+        lblCP.setBackground(java.awt.Color.lightGray);
+        lblCP.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblCP.setForeground(new java.awt.Color(255, 255, 255));
+        lblCP.setText("C.P.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel2.add(lblCP, gridBagConstraints);
+
+        txtCP2.setBackground(java.awt.Color.lightGray);
+        txtCP2.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel2.add(txtCP2, gridBagConstraints);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 230, -1));
+
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        lblAsentamiento.setBackground(java.awt.Color.lightGray);
+        lblAsentamiento.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblAsentamiento.setForeground(new java.awt.Color(255, 255, 255));
+        lblAsentamiento.setText("Asentamiento: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel1.add(lblAsentamiento, gridBagConstraints);
 
         txtAsentamiento.setBackground(java.awt.Color.lightGray);
         txtAsentamiento.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        getContentPane().add(txtAsentamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 210, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel1.add(txtAsentamiento, gridBagConstraints);
+
+        lblLocalidad.setBackground(java.awt.Color.lightGray);
+        lblLocalidad.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblLocalidad.setForeground(new java.awt.Color(255, 255, 255));
+        lblLocalidad.setText("Localidad:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel1.add(lblLocalidad, gridBagConstraints);
 
         txtLocalidad.setBackground(java.awt.Color.lightGray);
         txtLocalidad.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        getContentPane().add(txtLocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 210, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 6, 0);
+        jPanel1.add(txtLocalidad, gridBagConstraints);
 
-        txtExterior.setBackground(java.awt.Color.lightGray);
-        txtExterior.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        getContentPane().add(txtExterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 120, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 210, 140));
 
-        txtDUbicacion.setBackground(java.awt.Color.lightGray);
-        txtDUbicacion.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        getContentPane().add(txtDUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, 320, 90));
+        jPanel3.setOpaque(false);
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        lblCalle.setBackground(java.awt.Color.lightGray);
+        lblCalle.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblCalle.setForeground(new java.awt.Color(255, 255, 255));
+        lblCalle.setText("Calle:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel3.add(lblCalle, gridBagConstraints);
 
         txtCalle.setBackground(java.awt.Color.lightGray);
         txtCalle.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        getContentPane().add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 170, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel3.add(txtCalle, gridBagConstraints);
 
-        jLabel4.setBackground(java.awt.Color.lightGray);
-        jLabel4.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Estado:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+        lblNoInterior.setBackground(java.awt.Color.lightGray);
+        lblNoInterior.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblNoInterior.setForeground(new java.awt.Color(255, 255, 255));
+        lblNoInterior.setText("No. Interior:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel3.add(lblNoInterior, gridBagConstraints);
 
-        jLabel5.setBackground(java.awt.Color.lightGray);
-        jLabel5.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Municipio:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        txtNumInterior.setBackground(java.awt.Color.lightGray);
+        txtNumInterior.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        txtNumInterior.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel3.add(txtNumInterior, gridBagConstraints);
 
-        jLabel6.setBackground(java.awt.Color.lightGray);
-        jLabel6.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Asentamiento: ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        lblNumExterior.setBackground(java.awt.Color.lightGray);
+        lblNumExterior.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblNumExterior.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumExterior.setText("No. Exterior: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel3.add(lblNumExterior, gridBagConstraints);
 
-        jLabel7.setBackground(java.awt.Color.lightGray);
-        jLabel7.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Localidad:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
+        txtExterior.setBackground(java.awt.Color.lightGray);
+        txtExterior.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel3.add(txtExterior, gridBagConstraints);
 
-        jLabel8.setBackground(java.awt.Color.lightGray);
-        jLabel8.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("No. Exterior: ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 200, 210));
 
         jLabel9.setBackground(java.awt.Color.lightGray);
         jLabel9.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Descripcion de la ubicación: ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, -1));
-
-        jLabel13.setBackground(java.awt.Color.lightGray);
-        jLabel13.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("No. Interior:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Residencia del Alumno:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 502, 90));
 
-        cmbEstado.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu Estado", "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Ciudad de México", "Durango", "Estado de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas" }));
-        cmbEstado.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbEstadoItemStateChanged(evt);
-            }
-        });
-        getContentPane().add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 210, 40));
+        txtDUbicacion.setColumns(20);
+        txtDUbicacion.setRows(5);
+        jScrollPane1.setViewportView(txtDUbicacion);
 
-        cmbMunicipio.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        cmbMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu municipio" }));
-        getContentPane().add(cmbMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 210, 40));
-
-        btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 550, 120, 50));
-
-        lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
-        lblSiguiente.setToolTipText("Siguiente");
-        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 550, -1, -1));
-
-        lblRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/regreso.png"))); // NOI18N
-        getContentPane().add(lblRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("New Gulim", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
-
-        txtCP1.setBackground(java.awt.Color.lightGray);
-        txtCP1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-
-        jLabel14.setBackground(java.awt.Color.lightGray);
-        jLabel14.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Curp:");
-
-        jLabel17.setBackground(java.awt.Color.lightGray);
-        jLabel17.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Contraseña:");
-
-        txtCP3.setBackground(java.awt.Color.lightGray);
-        txtCP3.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCP1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(txtCP3))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txtCP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 370, 150));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 660, 160));
 
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abcd.jpg"))); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 650));
-
-        txtCP2.setBackground(java.awt.Color.lightGray);
-        txtCP2.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        getContentPane().add(txtCP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 110, -1));
-
-        jLabel16.setBackground(java.awt.Color.lightGray);
-        jLabel16.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("C.P.");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEstadoItemStateChanged
+    private void btnRegistrar2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrar2ActionPerformed
+        try {
+            validarCamposDeRegistro();
+            ResidenciaAlumnos.add(new ResidenciaAlumno((String)cmbEstado.getSelectedItem(), (String)cmbMunicipio.getSelectedItem(), txtAsentamiento.getText().toUpperCase(), txtLocalidad.getText().toUpperCase(), txtExterior.getText(), txtNumInterior.getText(), txtDUbicacion.getText(), txtCalle.getText().toUpperCase(), Principal.alumnoSesion.getCURP(), txtCP2.getText()));
+            guardarResidenciaAlumno();
+        } catch (Exception e) {
+            showMessageDialog(this, e.getMessage());
+        }
+    }// GEN-LAST:event_btnRegistrar2ActionPerformed
+
+    private void cmbEstadoItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_cmbEstadoItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             if (this.cmbEstado.getSelectedIndex() > 0) {
-                this.cmbMunicipio.setModel(new DefaultComboBoxModel(this.getMunucipios(this.cmbEstado.getSelectedItem().toString())));
+                this.cmbMunicipio.setModel(
+                        new DefaultComboBoxModel<String>(this.getMunucipios(this.cmbEstado.getSelectedItem().toString())));
             }
         }
-    }//GEN-LAST:event_cmbEstadoItemStateChanged
+    }// GEN-LAST:event_cmbEstadoItemStateChanged
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    private void validarCamposDeRegistro() throws Exception {
+        javax.swing.JLabel[] lbls = { lblEstado, lblMunicipio, lblCP, lblCalle, lblNoInterior, lblNumExterior,
+                lblAsentamiento, lblLocalidad, jLabel9 };
+        JTextField[] jtfs = { null, null, txtCP2, txtCalle, txtNumInterior, txtExterior, txtAsentamiento, txtLocalidad,
+                null };
+        for (int i = 0; i < jtfs.length; i++) {
+            validarCampoVacio(lbls[i], jtfs[i]);
+            switch (i) {
+                case 0, 1:
+                    if (cmbEstado.getSelectedIndex() == 0) {
+                        showMessageDialog(this, "Por favor selecciona una opción de " + lbls[i].getText());
+                        lbls[i].setForeground(java.awt.Color.red);
+                    }
+                    break;
+                case 2:
+                    validarFormatoNumerico(lbls[i], jtfs[i]);
+                    if (jtfs[i].getText().length() != 5) {
+                        lbls[i].setForeground(java.awt.Color.red);
+                        jtfs[i].requestFocus();
+                        throw new RuntimeException(
+                                "Error en " + lbls[i].getText() + ":\nEl Código Postal debe tener al menos 5 dígitos");
+                    }
+                    break;
+                case 4, 5:
+                    validarFormatoNumerico(lbls[i], jtfs[i]);
+                    if (jtfs[i].getText().length() < 8) {
+                        lbls[i].setForeground(java.awt.Color.red);
+                        jtfs[i].requestFocus();
+                        throw new RuntimeException("Error en " + lbls[i].getText() + ":\nEl Número debe ser valido");
+                    }
+                    break;
+                case 6, 7:
+                    validarFormatoTexto(lbls[i], jtfs[i]);
+                    break;
+                case 8:
+                    if ("".equals(txtDUbicacion.getText())) {
+                        lbls[i].setForeground(java.awt.Color.red);
+                        txtDUbicacion.requestFocus();
+                        throw new RuntimeException(
+                                "Error en " + lbls[i].getText() + ":\nLa descripción no puede quedar vacía");
+                    }
+            }
+        }
+    }
 
     public String[] getMunucipios(String Estado) {
         String[] M = new String[12];
@@ -684,11 +818,31 @@ public class Ventana2 extends javax.swing.JDialog {
             M[10] = "TAMASOPO";
             M[11] = "SAN NICOLÁS TOLENTINO";
         }
-
         return M;
-
     }
-    
+
+    private void leerResidenciaAlumno() throws Exception {
+        java.io.ObjectInputStream bw = null;
+        try {
+            bw = new java.io.ObjectInputStream(new java.io.FileInputStream(FILE_NAME));
+            var xd = java.util.Arrays.asList((ResidenciaAlumno[]) bw.readObject());
+            ResidenciaAlumnos = new ArrayList<>(xd);
+        } catch (IOException e){
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    private void guardarResidenciaAlumno() throws Exception {
+        java.io.ObjectOutputStream bw = null;
+        try {
+            bw = new java.io.ObjectOutputStream(new java.io.FileOutputStream(FILE_NAME));
+        } catch (IOException e) {
+        }
+        bw.writeObject(ResidenciaAlumnos.toArray());
+        bw.flush();
+    }
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -706,42 +860,43 @@ public class Ventana2 extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Ventana2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana2().setVisible(true);
+                new Ventana2(new java.awt.Frame(),true).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnRegistrar2;
     private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JComboBox<String> cmbMunicipio;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblRegresar;
-    private javax.swing.JLabel lblSiguiente;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAsentamiento;
+    private javax.swing.JLabel lblCP;
+    private javax.swing.JLabel lblCalle;
+    private javax.swing.JLabel lblEstado;
+    private javax.swing.JLabel lblLocalidad;
+    private javax.swing.JLabel lblMunicipio;
+    private javax.swing.JLabel lblNoInterior;
+    private javax.swing.JLabel lblNumExterior;
     private javax.swing.JTextField txtAsentamiento;
-    private javax.swing.JTextField txtCP1;
     private javax.swing.JTextField txtCP2;
-    private javax.swing.JTextField txtCP3;
     private javax.swing.JTextField txtCalle;
-    private javax.swing.JTextField txtDUbicacion;
+    private javax.swing.JTextArea txtDUbicacion;
     private javax.swing.JTextField txtExterior;
-    private javax.swing.JTextField txtInterior;
     private javax.swing.JTextField txtLocalidad;
+    private javax.swing.JTextField txtNumInterior;
     // End of variables declaration//GEN-END:variables
+    public static ArrayList<ResidenciaAlumno> ResidenciaAlumnos = new ArrayList<ResidenciaAlumno>();
+    public final static String FILE_NAME = "RESIDENCIA_ALUMNOS.TXT";
 }

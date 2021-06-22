@@ -14,7 +14,7 @@ public class ClaveInterbancaria {
         this.clabe = clabe;
     }
 
-    public Calendar getFechaRegistro() {
+    public Calendar getFechaRegistro(){
         return fechaRegistro;
     }
 

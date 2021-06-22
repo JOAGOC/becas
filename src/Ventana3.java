@@ -101,6 +101,42 @@ public class Ventana3 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void guardarCLABEAlumnos() throws Exception {
+        java.io.BufferedWriter bw = null;
+        try {
+            bw = new java.io.BufferedWriter(new java.io.FileWriter(FILE_NAME));
+        } catch (IOException e) {
+        }
+        Calendar c = .getCalendar();
+        String ClabeInterbancariaTxt = "";
+        for (ClaveInterbancaria a : ClaveInterbancaria) {
+             ClabeInterbancariaTxt+= a.getClabe() + "|" + a.getFechaRegistro() + "|" + a.getNombreBanco()+"|"+"\n";
+        }
+        bw.write(ClabeInterbancariaTxt);
+        bw.flush();
+    }
+private void AgregarCLABEalumno()  throws Exception{
+    try {
+            validarCamposDeRegistro();
+            Calendar c = jdchFechaNacimiento.getCalendar();
+            Login.alumnos.add(new Alumno(tfNombre.getText().toUpperCase(), tfCURP.getText().toUpperCase(),
+                    jpswConfirmar.getText(), tfTelefono.getText(), tfCorreo.getText().toLowerCase(),
+                    tfNacionalidad.getText().toUpperCase(), (String) cmbEstadoCivil.getSelectedItem(),
+                    tfCelular.getText(),
+                    c.get(Calendar.DAY_OF_MONTH) + "/" + c.get(Calendar.MONTH) + "/" + c.get(Calendar.YEAR),
+                    tfLugarNacimiento.getText().toUpperCase()));
+            guardarAlumnos();
+            showMessageDialog(this, "Paso 1: Registro completado");
+            this.dispose();
+        } catch (Exception e) {
+            showMessageDialog(this, e.getMessage());
+        }
+}
+// ClaveInterbancaria.add(new ClaveInterbancaria(txtCLABE.getText().toUpperCase(),txtFechaRegistro.getText().toUpperCase(),(String)txtBanco.getSelectedItem());
+//new ClaveInterbancaria(clabe,fechaRegistro,nombreBanco);
+
+
+
     /**
      * @param args the command line arguments
      */
@@ -150,4 +186,6 @@ public class Ventana3 extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstatus;
     private javax.swing.JTextField txtFechaRegistro;
     // End of variables declaration//GEN-END:variables
+    public static java.util.ArrayList<ClaveInterbancaria> CLABEAlumnos = new java.util.ArrayList<ClaveInterbancaria>();
+    public final static String FILE_NAME = "CLABE_ALUMNOS.TXT";
 }

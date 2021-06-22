@@ -1,4 +1,4 @@
-public class InformaciónEscolar {
+public class InformacionEscolar {
     enum TipoPeriodo{Semestre, Bimestre, Trimestre, Cuatrimestre;}
 
     private float promedioAnterior, promedioGeneral;
@@ -7,7 +7,21 @@ public class InformaciónEscolar {
     private TipoPeriodo tipoPeriodo;
     private int totalPeriodos;
     private Periodo periodoActual;
-    private Universidad universidad;
+
+    public InformacionEscolar(float promedioAnterior, float promedioGeneral, boolean activo, boolean regular,
+			String matricula, InformacionEscolar.TipoPeriodo tipoPeriodo, int totalPeriodos, Periodo periodoActual,
+			Universidad universidad) {
+		this.promedioAnterior = promedioAnterior;
+		this.promedioGeneral = promedioGeneral;
+		this.activo = activo; 
+		this.regular = regular; 
+		this.matricula = matricula; 
+		this.tipoPeriodo = tipoPeriodo; 
+		this.totalPeriodos = totalPeriodos; 
+		this.periodoActual = periodoActual; 
+		this.universidad = universidad; 
+	}
+	private Universidad universidad;
     
     public float getPromedioAnterior() {
         return promedioAnterior;

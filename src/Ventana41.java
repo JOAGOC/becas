@@ -8,12 +8,12 @@
  *
  * @author karly
  */
-public class Ventana4 extends javax.swing.JFrame {
+public class Ventana41 extends javax.swing.JFrame {
 
     /**
      * Creates new form Ventana4
      */
-    public Ventana4() {
+    public Ventana41() {
         initComponents();
     }
 
@@ -27,7 +27,18 @@ public class Ventana4 extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        btnRegistrar = new javax.swing.JButton();
+        lblSiguiente = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblPromedioAnterior = new javax.swing.JLabel();
+        txtPA = new javax.swing.JTextField();
+        lblMatricula = new javax.swing.JLabel();
+        txtMatricula = new javax.swing.JTextField();
+        lblPromedioGeneral = new javax.swing.JLabel();
+        txtPG = new javax.swing.JTextField();
+        chbxActivo = new javax.swing.JCheckBox();
+        chbxRegular = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         lblPeriodo = new javax.swing.JLabel();
         txtPeriodo = new javax.swing.JTextField();
@@ -40,26 +51,103 @@ public class Ventana4 extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         lblPeriodoActual2 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        btnRegistrar = new javax.swing.JButton();
-        lblSiguiente = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        lblPromedioAnterior = new javax.swing.JLabel();
-        txtPA = new javax.swing.JTextField();
-        lblMatricula = new javax.swing.JLabel();
-        txtMatricula = new javax.swing.JTextField();
-        lblPromedioGeneral = new javax.swing.JLabel();
-        txtPG = new javax.swing.JTextField();
-        chbxActivo = new javax.swing.JCheckBox();
-        chbxRegular = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnRegistrar.setBackground(new java.awt.Color(51, 204, 0));
+        btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        btnRegistrar.setText("Registrar");
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, 150, 50));
+
+        lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
+        lblSiguiente.setToolTipText("Siguiente");
+        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 560, -1, -1));
+
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Información Escolar del Alumno:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
+
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        lblPromedioAnterior.setBackground(java.awt.Color.lightGray);
+        lblPromedioAnterior.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblPromedioAnterior.setForeground(new java.awt.Color(255, 255, 255));
+        lblPromedioAnterior.setText("Promedio Anterior: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 30;
+        jPanel1.add(lblPromedioAnterior, gridBagConstraints);
+
+        txtPA.setBackground(java.awt.Color.lightGray);
+        txtPA.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel1.add(txtPA, gridBagConstraints);
+
+        lblMatricula.setBackground(java.awt.Color.lightGray);
+        lblMatricula.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblMatricula.setForeground(new java.awt.Color(255, 255, 255));
+        lblMatricula.setText("Matricula:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel1.add(lblMatricula, gridBagConstraints);
+
+        txtMatricula.setBackground(java.awt.Color.lightGray);
+        txtMatricula.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel1.add(txtMatricula, gridBagConstraints);
+
+        lblPromedioGeneral.setBackground(java.awt.Color.lightGray);
+        lblPromedioGeneral.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblPromedioGeneral.setForeground(new java.awt.Color(255, 255, 255));
+        lblPromedioGeneral.setText("Promedio General:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel1.add(lblPromedioGeneral, gridBagConstraints);
+
+        txtPG.setBackground(java.awt.Color.lightGray);
+        txtPG.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel1.add(txtPG, gridBagConstraints);
+
+        chbxActivo.setFont(txtMatricula.getFont());
+        chbxActivo.setForeground(new java.awt.Color(255, 255, 255));
+        chbxActivo.setText("Estudiante Activo");
+        chbxActivo.setOpaque(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel1.add(chbxActivo, gridBagConstraints);
+
+        chbxRegular.setFont(txtMatricula.getFont());
+        chbxRegular.setForeground(new java.awt.Color(255, 255, 255));
+        chbxRegular.setText("Estudiante Regular");
+        chbxRegular.setOpaque(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel1.add(chbxRegular, gridBagConstraints);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 210, 310));
 
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
@@ -136,6 +224,8 @@ public class Ventana4 extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel2.add(lblPeriodoActual1, gridBagConstraints);
+
+        jDateChooser1.setFont(txtMatricula.getFont());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -151,6 +241,8 @@ public class Ventana4 extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel2.add(lblPeriodoActual2, gridBagConstraints);
+
+        jDateChooser2.setFont(txtMatricula.getFont());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -158,92 +250,6 @@ public class Ventana4 extends javax.swing.JFrame {
         jPanel2.add(jDateChooser2, gridBagConstraints);
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 210, 390));
-
-        btnRegistrar.setBackground(new java.awt.Color(51, 204, 0));
-        btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        btnRegistrar.setText("Registrar");
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, 150, 50));
-
-        lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
-        lblSiguiente.setToolTipText("Siguiente");
-        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 560, -1, -1));
-
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        lblPromedioAnterior.setBackground(java.awt.Color.lightGray);
-        lblPromedioAnterior.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        lblPromedioAnterior.setForeground(new java.awt.Color(255, 255, 255));
-        lblPromedioAnterior.setText("Promedio Anterior: ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 30;
-        jPanel1.add(lblPromedioAnterior, gridBagConstraints);
-
-        txtPA.setBackground(java.awt.Color.lightGray);
-        txtPA.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel1.add(txtPA, gridBagConstraints);
-
-        lblMatricula.setBackground(java.awt.Color.lightGray);
-        lblMatricula.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        lblMatricula.setForeground(new java.awt.Color(255, 255, 255));
-        lblMatricula.setText("Matricula:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel1.add(lblMatricula, gridBagConstraints);
-
-        txtMatricula.setBackground(java.awt.Color.lightGray);
-        txtMatricula.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel1.add(txtMatricula, gridBagConstraints);
-
-        lblPromedioGeneral.setBackground(java.awt.Color.lightGray);
-        lblPromedioGeneral.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        lblPromedioGeneral.setForeground(new java.awt.Color(255, 255, 255));
-        lblPromedioGeneral.setText("Promedio General:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel1.add(lblPromedioGeneral, gridBagConstraints);
-
-        txtPG.setBackground(java.awt.Color.lightGray);
-        txtPG.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel1.add(txtPG, gridBagConstraints);
-
-        chbxActivo.setForeground(new java.awt.Color(255, 255, 255));
-        chbxActivo.setText("Estudiante Activo");
-        chbxActivo.setOpaque(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel1.add(chbxActivo, gridBagConstraints);
-
-        chbxRegular.setForeground(new java.awt.Color(255, 255, 255));
-        chbxRegular.setText("Estudiante Regular");
-        chbxRegular.setOpaque(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel1.add(chbxRegular, gridBagConstraints);
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 210, 310));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/123.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 730));
@@ -262,10 +268,9 @@ public class Ventana4 extends javax.swing.JFrame {
         } catch (IOException e) {
         }
         String InfoAlumno = "";
-        new InformacionEscolar(promedioAnterior, promedioGeneral, activo, regular, matricula, tipoPeriodo, totalPeriodos, periodoActual, universidad);
-        infoEscolarAlumno.add(new InformacionEscolar(txtPA.getText().toUpperCase(),txtPG.getText().toUpperCase(),jCheckBox3.getText().toUpperCase(),jCheckBox4.getText().toUpperCase(),txtMatricula.getText().toUpperCase(),cmbTperiodo.getText().toUpperCase(),);
-        for (InformacionEscolar a : InformacionEscolar) {
-             InfoAlumno+= a.getPromedioAnterior() + "|" + a.getPromedioGeneral) + "|" + a.getNombreBanco()+"\n";
+        InfoAlumno.add(new InformacionEscolartxtPA.getText().toUpperCase(),txtEstado.getText().toUpperCase());
+        for (ClaveInterbancaria a : ClaveInterbancaria) {
+             ClabeInterbancariaTxt+= a.getClabe() + "|" + a.getFechaRegistro() + "|" + a.getNombreBanco()+"\n";
         }
         bw.write(ClabeInterbancariatxt);
         bw.flush();

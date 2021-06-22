@@ -19,7 +19,7 @@ public interface IValidateTextFields {
         if (lbl == null || jtf == null)
             return;
         lbl.setForeground(java.awt.Color.white);
-        if (java.util.regex.Pattern.compile("[^áéíóúÁÉÍÓÚÜüa-zA-Z]+").matcher(jtf.getText()).find()) {
+        if (java.util.regex.Pattern.compile("[^áéíóúÁÉÍÓÚÜüa-zA-Z ]+").matcher(jtf.getText()).find()) {
             lbl.setForeground(java.awt.Color.red);
             jtf.requestFocus();
             throw new RuntimeException("En el campo " + lbl.getText() + " solo debe escribir texto");

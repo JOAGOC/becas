@@ -5,11 +5,8 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JLabel;
 import java.awt.Component;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class Login extends javax.swing.JDialog implements IValidateTextFields{
 
@@ -22,31 +19,6 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
         initComponents();
         changeUI(UI.Inicial);
         LeerAlumnos();
-    }
-
-    private void GuardarAlumnos() {
-        String alumnosTxt = "";
-        for (Alumno a : alumnos) {
-            alumnosTxt += a.getNombre() + "|" + a.getCURP() + "|" + a.getContraseña() + "|" + a.getTelefono() + "|"
-                    + a.getCorreo() + "|" + a.getNacionalidad() + "|" + a.getEstadoCivil() + "|" + a.getCelular() + "|"
-                    + a.getFechaDeNacimiento() + "|" + a.getLugarDeNacimiento() + "\n";
-        }
-        BufferedWriter bw = null;
-        try {
-            bw = new BufferedWriter(new FileWriter(FILE_NAME));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            bw.write(alumnosTxt);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            bw.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void LeerAlumnos() {
@@ -232,10 +204,10 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
     }// GEN-LAST:event_btnISActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarseActionPerformed
-        // this.setVisible(false);
-        // Ventana1 abrir = new Ventana1(this, true);
-        // abrir.setVisible(true);
-        // this.setVisible(true);
+        this.setVisible(false);
+        Ventana1 abrir = new Ventana1(this, true);
+        abrir.setVisible(true);
+        this.setVisible(true);
     }// GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAceptarActionPerformed
@@ -271,7 +243,6 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
                 new Login(new JFrame("xd"), true).setVisible(true);
             }
         });
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -287,6 +258,6 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
-    private java.util.ArrayList<Alumno> alumnos = new java.util.ArrayList<Alumno>();
-    private final String FILE_NAME = "ALUMNOS.TXT";
+    public static java.util.ArrayList<Alumno> alumnos = new java.util.ArrayList<Alumno>();
+    public final static String FILE_NAME = "ALUMNOS.TXT";
 }

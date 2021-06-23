@@ -1,12 +1,15 @@
 import java.util.Calendar;
 
 public class ClaveInterbancaria {
+    private String CURPAlumno;
     private String clabe;
     private Calendar fechaRegistro;
     private boolean activa;
     private String nombreBanco;
 
-    public ClaveInterbancaria(String clabe, Calendar fechaRegistro, boolean activa, String nombreBanco) {
+    public ClaveInterbancaria(String cURPAlumno, String clabe, Calendar fechaRegistro, boolean activa,
+            String nombreBanco) {
+        CURPAlumno = cURPAlumno;
         this.clabe = clabe;
         this.fechaRegistro = fechaRegistro;
         this.activa = activa;
@@ -15,6 +18,14 @@ public class ClaveInterbancaria {
 
     public String getClabe() {
         return clabe;
+    }
+
+    public String getCURPAlumno() {
+        return CURPAlumno;
+    }
+
+    public void setCURPAlumno(String cURPAlumno) {
+        CURPAlumno = cURPAlumno;
     }
 
     public void setClabe(String clabe) {

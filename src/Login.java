@@ -4,9 +4,8 @@ import javax.swing.WindowConstants;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JLabel;
 import java.awt.Component;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Login extends javax.swing.JDialog implements IValidateTextFields{
 
@@ -23,15 +22,8 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
 
     private void LeerAlumnos() {
         try {
-            FileReader reader = new FileReader(FILE_NAME);
-            BufferedReader bf = new BufferedReader(reader);
-            String alumno;
-            while ((alumno = bf.readLine()) != null) {
-                String[] cell = alumno.split("\\|");
-                int x = 0;
-                alumnos.add(new Alumno(cell[x++], cell[x++], cell[x++], cell[x++], cell[x++], cell[x++], cell[x++],
-                        cell[x++], cell[x++], cell[x++]));
-            }
+            java.io.ObjectInputStream reader = new java.io.ObjectInputStream(new java.io.FileInputStream(FILE_NAME));
+            alumnos = new ArrayList<Alumno>(Arrays.asList((Alumno[])reader.readObject()));
         } catch (FileNotFoundException e){
         } catch (Exception e) {
             showMessageDialog(this, e.getMessage());
@@ -59,6 +51,7 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
                     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
                     Principal p = (Principal) getParent();
                     p.acceso();
+                    p.getMenuA().setEnabled(false);
                     dispose();
                     return;
                 } else {
@@ -205,7 +198,7 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarseActionPerformed
         this.setVisible(false);
-        Ventana1 abrir = new Ventana1(this, true);
+        RegistrarAlumno abrir = new RegistrarAlumno(this, true);
         abrir.setVisible(true);
         this.setVisible(true);
     }// GEN-LAST:event_btnRegistrarseActionPerformed
@@ -259,5 +252,5 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
     public static java.util.ArrayList<Alumno> alumnos = new java.util.ArrayList<Alumno>();
-    public final static String FILE_NAME = "ALUMNOS.TXT";
+    public final static String FILE_NAME = "ALUMNOS.OBJ";
 }

@@ -3,6 +3,11 @@ public class Alumno {
     private String nombre, CURP, contraseña, telefono, correo, nacionalidad, estadoCivil, celular, fechaDeNacimiento,
             lugarDeNacimiento;
     private int id;
+    private ResidenciaAlumno residenciaAlumno = null;
+    private ClaveInterbancaria claveInterbancaria = null;
+    private InformacionEscolar informacionEscolar = null;
+    private Solicitud solicitud = null;
+    private Programa programa = null;
     private static int idN = 0;
 
     public Alumno() {
@@ -21,7 +26,47 @@ public class Alumno {
         this.celular = celular;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.lugarDeNacimiento = lugarDeNacimiento;
-    }//
+    }
+
+    public ResidenciaAlumno getResidenciaAlumno() {
+        return residenciaAlumno;
+    }
+
+    public void setResidenciaAlumno(ResidenciaAlumno residenciaAlumno) {
+        this.residenciaAlumno = residenciaAlumno;
+    }
+
+    public ClaveInterbancaria getClaveInterbancaria() {
+        return claveInterbancaria;
+    }
+
+    public void setClaveInterbancaria(ClaveInterbancaria claveInterbancaria) {
+        this.claveInterbancaria = claveInterbancaria;
+    }
+
+    public InformacionEscolar getInformacionEscolar() {
+        return informacionEscolar;
+    }
+
+    public void setInformacionEscolar(InformacionEscolar informacionEscolar) {
+        this.informacionEscolar = informacionEscolar;
+    }
+
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
+    }
+
+    public Programa getPrograma() {
+        return programa;
+    }
+
+    public void setPrograma(Programa programa) {
+        this.programa = programa;
+    }
 
     private int increaseIdN(){
         return ++Alumno.idN;
@@ -122,6 +167,4 @@ public class Alumno {
     public static void setIdN(int idN) {
         Alumno.idN = idN;
     }
-
-    
 }

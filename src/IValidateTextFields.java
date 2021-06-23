@@ -1,4 +1,15 @@
+import java.awt.Color;
+
 public interface IValidateTextFields {
+
+    default void validarJCalendarVacio(com.toedter.calendar.JDateChooser jdchs, javax.swing.JLabel lbl,String message) throws RuntimeException
+    {
+        if (jdchs.getDate() == null) {
+            lbl.setForeground(Color.red);
+            jdchs.requestFocus();
+            throw new RuntimeException(message);
+        }
+    }
 
     default void validarCampoVacio(javax.swing.JLabel lbl, javax.swing.JTextField jtf) throws RuntimeException {
         try {

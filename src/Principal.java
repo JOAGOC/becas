@@ -1,8 +1,9 @@
 import static javax.swing.JOptionPane.showMessageDialog;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import static javax.swing.JOptionPane.showConfirmDialog;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -29,14 +30,14 @@ public class Principal extends javax.swing.JFrame {
         TimerTask x = new TimerTask(){
             public void run(){
                 try {
-                    lblReloj.setText(java.time.LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+                    lblReloj.setText(java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss")));
                 } catch (Exception e) {
                     showMessageDialog(null,e.getMessage());
                 }
             }
             
         };
-        timer.schedule(x, 0,1000);
+        timer.schedule(x,0,1000);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -56,12 +57,13 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         menuT = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        menuA = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
         menuS = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        menuA = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        mnuAyuda = new javax.swing.JMenu();
+        mnuSoporte = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(51, 102, 255));
@@ -211,28 +213,6 @@ public class Principal extends javax.swing.JFrame {
 
         menuBar.add(jMenu1);
 
-        menuA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grupo.png"))); // NOI18N
-        menuA.setText("Alumnos");
-        menuA.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        menuA.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuSolMouseClicked(evt);
-            }
-        });
-
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        jMenuItem4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unido.png"))); // NOI18N
-        jMenuItem4.setText("Alumnos Inscritos");
-        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuSolMouseClicked(evt);
-            }
-        });
-        menuA.add(jMenuItem4);
-
-        menuBar.add(menuA);
-
         menuS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/archivos.png"))); // NOI18N
         menuS.setText("Seguimiento");
         menuS.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
@@ -271,12 +251,57 @@ public class Principal extends javax.swing.JFrame {
 
         menuBar.add(menuS);
 
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+        menuA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grupo.png"))); // NOI18N
+        menuA.setText("Alumnos");
+        menuA.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        menuA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuSolMouseClicked(evt);
             }
         });
-        menuBar.add(jMenu6);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unido.png"))); // NOI18N
+        jMenuItem4.setText("Alumnos Inscritos");
+        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSolMouseClicked(evt);
+            }
+        });
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        menuA.add(jMenuItem4);
+
+        menuBar.add(menuA);
+
+        mnuAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grupo.png"))); // NOI18N
+        mnuAyuda.setText("Ayuda");
+        mnuAyuda.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        mnuAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnuAyudamenuSolMouseClicked(evt);
+            }
+        });
+
+        mnuSoporte.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        mnuSoporte.setText("Soporte");
+        mnuSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnuSoportemenuSolMouseClicked(evt);
+            }
+        });
+        mnuSoporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSoporteActionPerformed(evt);
+            }
+        });
+        mnuAyuda.add(mnuSoporte);
+
+        menuBar.add(mnuAyuda);
 
         setJMenuBar(menuBar);
 
@@ -286,19 +311,21 @@ public static String fecha(){
         // Date fecha= new Date();
         // SimpleDateFormat ffecha=new SimpleDateFormat("dd/MM/YYYY");
         // return ffecha.format(fecha);
-        return java.time.LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/YYYY"));
+        return java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/YYYY"));
     }
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Ventana1 abrir = new Ventana1(this,true);
+        RegistrarAlumno abrir = new RegistrarAlumno(this,true);
         abrir.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        Ventana5 abrir = new Ventana5();
+        if (comprobarInformacionAlumno())
+            return;
+        VentanaSolicitud abrir = new VentanaSolicitud();
         abrir.setVisible(true);
         abrir.dispose();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
@@ -321,9 +348,47 @@ public static String fecha(){
         new Mensajes().setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        new ConfirmarAdministrador().setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void mnuSoportemenuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSoportemenuSolMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuSoportemenuSolMouseClicked
+
+    private void mnuSoporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSoporteActionPerformed
+        new Ayuda(this,true);
+    }//GEN-LAST:event_mnuSoporteActionPerformed
+
+    private void mnuAyudamenuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuAyudamenuSolMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuAyudamenuSolMouseClicked
+
     public void acceso() {
         enableControls(true);
         login = null;
+        comprobarInformacionAlumno();
+    }
+
+    private boolean comprobarInformacionAlumno() {
+        if (alumnoSesion.getResidenciaAlumno() == null) {
+            if (showConfirmDialog(this,
+                    "Tu información de residencia no ha sido registrado\n¿Deseas registrar tu información de residencia? (Es necesaria para comenzar tu solicitud)") == JOptionPane.YES_OPTION)
+                new VentanaResidenciaAlumno(this, true);
+            return true;
+        }
+        if (alumnoSesion.getClaveInterbancaria() == null) {
+            if (showConfirmDialog(this,
+                    "Tu información bancaria no ha sido registrada\n¿Deseas registrar tu información? (Es necesaria para comenzar tu solicitud)") == JOptionPane.YES_OPTION)
+                new VentanaResidenciaAlumno(this, true);
+            return true;
+        }
+        if (alumnoSesion.getInformacionEscolar() == null)
+        {
+            showMessageDialog(this, "Tu información escolar aún no ha sido registrada por el administrador.\nDeberás esperar que lo haga para solicitar una beca.");
+            return true;
+        }
+        return false;
     }
 
     private void enableControls(boolean enabled) {
@@ -332,7 +397,9 @@ public static String fecha(){
         }
     }
 
-
+    public javax.swing.JMenu getMenuA() {
+        return menuA;
+    }
 
     public static void main(String args[]) {
         try {
@@ -362,7 +429,6 @@ public static String fecha(){
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -379,6 +445,8 @@ public static String fecha(){
     private javax.swing.JMenu menuS;
     private javax.swing.JMenu menuSol;
     private javax.swing.JMenu menuT;
+    private javax.swing.JMenu mnuAyuda;
+    private javax.swing.JMenuItem mnuSoporte;
     // End of variables declaration//GEN-END:variables
     public static Alumno alumnoSesion;
     Login login;

@@ -1,6 +1,6 @@
 import java.util.Calendar;
 
-public class ClaveInterbancaria {
+public class ClaveInterbancaria implements java.io.Serializable{
     private String CURPAlumno;
     private String clabe;
     private Calendar fechaRegistro;

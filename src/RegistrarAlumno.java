@@ -464,8 +464,7 @@ public class RegistrarAlumno extends javax.swing.JDialog implements IValidateTex
                     tfLugarNacimiento.getText().toUpperCase()));
             guardarAlumnos();
             showMessageDialog(this, "Paso 1: Registro completado");
-            btnRegistrar.setEnabled(false);
-            jLabel11.setVisible(true);
+            dispose();
         } catch (Exception e) {
             showMessageDialog(this, e.getMessage());
         }
@@ -554,11 +553,13 @@ public class RegistrarAlumno extends javax.swing.JDialog implements IValidateTex
         }
     }
 
-    private void guardarAlumnos() throws Exception {
+    public static void guardarAlumnos() throws Exception {
         try {
             java.io.ObjectOutputStream fos = new java.io.ObjectOutputStream(
                     new java.io.FileOutputStream(Login.FILE_NAME));
-            fos.writeObject(Login.alumnos);
+            Alumno[] x = new Alumno[Login.alumnos.size()];
+            x = Login.alumnos.toArray(x);
+            fos.writeObject(x);
             fos.flush();
         } catch (FileNotFoundException e) {
         } catch (Exception e) {

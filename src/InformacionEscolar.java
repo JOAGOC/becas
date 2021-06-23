@@ -1,4 +1,4 @@
-public class InformacionEscolar {
+public class InformacionEscolar implements java.io.Serializable{
     enum TipoPeriodo{Semestre, Bimestre, Trimestre, Cuatrimestre;}
 
     private float promedioAnterior, promedioGeneral;

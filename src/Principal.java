@@ -67,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(51, 102, 255));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/LogoBecat.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon("/LogoBecat.png").getImage());
         setSize(new java.awt.Dimension(1280, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -307,14 +307,15 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public static String fecha(){
+
+    public static String fecha(){
         // Date fecha= new Date();
         // SimpleDateFormat ffecha=new SimpleDateFormat("dd/MM/YYYY");
         // return ffecha.format(fecha);
         return java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/YYYY"));
     }
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -353,7 +354,7 @@ public static String fecha(){
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void mnuSoportemenuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSoportemenuSolMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_mnuSoportemenuSolMouseClicked
 
     private void mnuSoporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSoporteActionPerformed
@@ -361,7 +362,7 @@ public static String fecha(){
     }//GEN-LAST:event_mnuSoporteActionPerformed
 
     private void mnuAyudamenuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuAyudamenuSolMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_mnuAyudamenuSolMouseClicked
 
     public void acceso() {
@@ -373,14 +374,14 @@ public static String fecha(){
     private boolean comprobarInformacionAlumno() {
         if (alumnoSesion.getResidenciaAlumno() == null) {
             if (showConfirmDialog(this,
-                    "Tu información de residencia no ha sido registrado\n¿Deseas registrar tu información de residencia? (Es necesaria para comenzar tu solicitud)") == JOptionPane.YES_OPTION)
-                new VentanaResidenciaAlumno(this, true);
+                    "No has registrado tu información de residencia\n¿Deseas registrarla? (Es necesaria para comenzar tu solicitud)") == JOptionPane.YES_OPTION)
+                new VentanaResidenciaAlumno(this, true).setVisible(true);
             return true;
         }
         if (alumnoSesion.getClaveInterbancaria() == null) {
             if (showConfirmDialog(this,
-                    "Tu información bancaria no ha sido registrada\n¿Deseas registrar tu información? (Es necesaria para comenzar tu solicitud)") == JOptionPane.YES_OPTION)
-                new VentanaResidenciaAlumno(this, true);
+                    "No has registrado tu información Bancaria\n¿Deseas registrar tu información? (Es necesaria para comenzar tu solicitud)") == JOptionPane.YES_OPTION)
+                new VentanaClabeInterbancaria(this, true).setVisible(true);
             return true;
         }
         if (alumnoSesion.getInformacionEscolar() == null)

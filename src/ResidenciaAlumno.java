@@ -1,4 +1,4 @@
-public class ResidenciaAlumno {
+public class ResidenciaAlumno implements java.io.Serializable {
          private String estado,municipio,asentamiento,localidad,NExterior,NInterior,DUbicacion,calle,idCURPAlumno,codigoPostal; 
 
     public ResidenciaAlumno(String estado, String municipio, String asentamiento, String localidad, String NExterior, String NInterior, String DUbicacion, String calle, String idCURPAlumno, String codigoPostal) {

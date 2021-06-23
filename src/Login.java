@@ -4,6 +4,7 @@ import javax.swing.WindowConstants;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JLabel;
 import java.awt.Component;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -49,6 +50,8 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
                 if (String.valueOf(jpswContraseña.getPassword()).equals(a.getContraseña())) {
                     showMessageDialog(this, "Acceso concedido");
                     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                    setVisible(false);
+                    Principal.alumnoSesion = a;
                     Principal p = (Principal) getParent();
                     p.acceso();
                     p.getMenuA().setEnabled(false);
@@ -208,6 +211,8 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
             JLabel[] lbls = {lblUsuario,lblContraseña};
             JTextField[] jtfs = {txtUsuario,jpswContraseña};
             validarCamposVacios(lbls, jtfs);
+            if (txtUsuario.getText().length() != 18)
+                throw new RuntimeException("Inserta una CURP válida");
             login();
         } catch (RuntimeException e) {
             showMessageDialog(this, e.getMessage());

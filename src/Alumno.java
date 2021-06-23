@@ -1,4 +1,4 @@
-public class Alumno {
+public class Alumno implements java.io.Serializable{
 
     private String nombre, CURP, contraseña, telefono, correo, nacionalidad, estadoCivil, celular, fechaDeNacimiento,
             lugarDeNacimiento;

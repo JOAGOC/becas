@@ -1,6 +1,6 @@
 import java.util.Calendar;
 
-public class Solicitud {
+public class Solicitud implements java.io.Serializable {
     enum Estado{EnEspera,EnProceso,Rechazada,Aceptada,Cancelada;}
 
     private int folio;

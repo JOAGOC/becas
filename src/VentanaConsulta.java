@@ -98,6 +98,7 @@ public class VentanaConsulta extends javax.swing.JFrame {
               String i[] = new String[3];
               i[0]=al.getNombre();i[1]=al.getCURP(); i[2]=al.getCorreo(); i[3]=al.getNacionalidad();
               m.addRow(i); 
+              //A[a++]=new Alumno(i[0],i[1],i[2],i[3]);
            }
     }
     public void obtenerDatos(){

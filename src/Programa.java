@@ -1,4 +1,4 @@
-public class Programa {
+public class Programa implements java.io.Serializable{
 
     private String nombre,descripción;
     private Periodo periodo;

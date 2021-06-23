@@ -1,7 +1,5 @@
-import java.util.ArrayList;
 import java.awt.Frame;
 import java.awt.event.ItemEvent;
-import java.io.IOException;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
@@ -13,11 +11,6 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
         initComponents();
         txtDUbicacion.setLineWrap(true);
         txtDUbicacion.setWrapStyleWord(true);
-        try {
-            leerResidenciaAlumno();
-        } catch (Exception e) {
-            showMessageDialog(this, e.getMessage());
-        }
         jLabel12.setVisible(false);
     }
 
@@ -26,16 +19,9 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
         initComponents();
         txtDUbicacion.setLineWrap(true);
         txtDUbicacion.setWrapStyleWord(true);
-        try {
-            leerResidenciaAlumno();
-        } catch (Exception e) {
-            showMessageDialog(this, e.getMessage());
-        }
         jLabel12.setVisible(false);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
@@ -319,17 +305,18 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        VentanaClabeInterbancaria v = new VentanaClabeInterbancaria(this,true);
-        v.setVisible(true);
+        setVisible(false);
+        new VentanaClabeInterbancaria(this,true).setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void btnRegistrar2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrar2ActionPerformed
         try {
             validarCamposDeRegistro();
-            ResidenciaAlumnos.add(new ResidenciaAlumno((String)cmbEstado.getSelectedItem(), (String)cmbMunicipio.getSelectedItem(), txtAsentamiento.getText().toUpperCase(), txtLocalidad.getText().toUpperCase(), txtExterior.getText(), txtNumInterior.getText(), txtDUbicacion.getText(), txtCalle.getText().toUpperCase(), Principal.alumnoSesion.getCURP(), txtCP2.getText()));
-            guardarResidenciaAlumno();
+            Principal.alumnoSesion.setResidenciaAlumno(new ResidenciaAlumno((String)cmbEstado.getSelectedItem(), (String)cmbMunicipio.getSelectedItem(), txtAsentamiento.getText().toUpperCase(), txtLocalidad.getText().toUpperCase(), txtExterior.getText(), txtNumInterior.getText(), txtDUbicacion.getText(), txtCalle.getText().toUpperCase(), Principal.alumnoSesion.getCURP(), txtCP2.getText()));
+            RegistrarAlumno.guardarAlumnos();
             showMessageDialog(this, "Paso 2: Registro completado");
+            btnRegistrar2.setEnabled(false);
             jLabel12.setVisible(true);
         } catch (Exception e) {
             showMessageDialog(this, e.getMessage());
@@ -370,7 +357,7 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
                     break;
                 case 4, 5:
                     validarFormatoNumerico(lbls[i], jtfs[i]);
-                    if (jtfs[i].getText().length() < 8) {
+                    if (jtfs[i].getText().length() >= 7) {
                         lbls[i].setForeground(java.awt.Color.red);
                         jtfs[i].requestFocus();
                         throw new RuntimeException("Error en " + lbls[i].getText() + ":\nEl Número debe ser valido");
@@ -384,7 +371,7 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
                         lbls[i].setForeground(java.awt.Color.red);
                         txtDUbicacion.requestFocus();
                         throw new RuntimeException(
-                                "Error en " + lbls[i].getText() + ":\nLa descripción no puede quedar vacía");
+                                "Error en " + lbls[i].getText() + "\nLa descripción no puede quedar vacía");
                     }
             }
         }
@@ -843,28 +830,6 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
         return M;
     }
 
-    private void leerResidenciaAlumno() throws Exception {
-        java.io.ObjectInputStream bw = null;
-        try {
-            bw = new java.io.ObjectInputStream(new java.io.FileInputStream(FILE_NAME));
-            var xd = java.util.Arrays.asList((ResidenciaAlumno[]) bw.readObject());
-            ResidenciaAlumnos = new ArrayList<>(xd);
-        } catch (IOException e){
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
-    private void guardarResidenciaAlumno() throws Exception {
-        java.io.ObjectOutputStream bw = null;
-        try {
-            bw = new java.io.ObjectOutputStream(new java.io.FileOutputStream(FILE_NAME));
-        } catch (IOException e) {
-        }
-        bw.writeObject(ResidenciaAlumnos.toArray());
-        bw.flush();
-    }
-
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -919,6 +884,4 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
     private javax.swing.JTextField txtLocalidad;
     private javax.swing.JTextField txtNumInterior;
     // End of variables declaration//GEN-END:variables
-    public static ArrayList<ResidenciaAlumno> ResidenciaAlumnos = new ArrayList<ResidenciaAlumno>();
-    public final static String FILE_NAME = "RESIDENCIA_ALUMNOS.TXT";
 }

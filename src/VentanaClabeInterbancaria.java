@@ -1,11 +1,16 @@
-import java.awt.Dialog;
 import java.io.IOException;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IValidateTextFields {
 
-    public VentanaClabeInterbancaria(Dialog owner, boolean modal) {
+    public VentanaClabeInterbancaria(java.awt.Dialog owner, boolean modal) {
+        super(owner, modal);
+        initComponents();
+        lblSiguiente.setVisible(false);
+    }
+
+    public VentanaClabeInterbancaria(java.awt.Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
         lblSiguiente.setVisible(false);
@@ -123,9 +128,9 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarActionPerformed
         try {
             validarCampos();
-            CLABEAlumnos.add(new ClaveInterbancaria(Principal.alumnoSesion.getCURP(), txtCLABE.getText(),
+            Principal.alumnoSesion.setClaveInterbancaria(new ClaveInterbancaria(Principal.alumnoSesion.getCURP(), txtCLABE.getText(),
                      txtFechaRegistro.getCalendar(), true, txtBanco.getText()));
-            guardarCLABEAlumnos();
+            RegistrarAlumno.guardarAlumnos();
             showMessageDialog(this, "Paso 3: Registro completado");
             this.dispose();
         } catch (Exception e) {
@@ -140,37 +145,21 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
             validarCampoVacio(lbls[i], jtfs[i]);
             switch (i) {
                 case 0:
-                    if (java.util.regex.Pattern.compile("[^a-zA-Z0-9]|^[a-zA-Z0-9]{0,17}$|^[a-zA-Z0-9]{19,}")
+                    if (java.util.regex.Pattern.compile("[^0-9]|^[0-9]{0,17}$|^[0-9]{19,}")
                             .matcher(jtfs[i].getText()).find()) {
                         lbls[i].setForeground(java.awt.Color.red);
                         jtfs[i].requestFocus();
-                        throw new RuntimeException("Escribe una clave válida de 18 caracteres");
+                        throw new RuntimeException("Escribe una clave válida de 18 números");
                     }
+                    break;
                 case 1:
                     validarFormatoTexto(lbls[i], jtfs[i]);
+                    break;
                 case 2:
                     validarJCalendarVacio(txtFechaRegistro, lbls[i],"Selecciona una fecha de registro en el calendario");
+                    break;
             }
         }
-    }
-
-    private void leerCLABEAlumnos() throws Exception {
-        java.io.ObjectInputStream bw = null;
-        try {
-            bw = new java.io.ObjectInputStream(new java.io.FileInputStream(FILE_NAME));
-        } catch (IOException e) {
-        }
-        CLABEAlumnos = new java.util.ArrayList<ClaveInterbancaria>(java.util.Arrays.asList((ClaveInterbancaria[])bw.readObject()));
-    }
-
-    private void guardarCLABEAlumnos() throws Exception {
-        java.io.ObjectOutputStream bw = null;
-        try {
-            bw = new java.io.ObjectOutputStream(new java.io.FileOutputStream(FILE_NAME));
-        } catch (IOException e) {
-        }
-        bw.writeObject(CLABEAlumnos);
-        bw.flush();
     }
 
     public static void main(String args[]) {
@@ -214,6 +203,4 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
     private javax.swing.JTextField txtCLABE;
     private com.toedter.calendar.JDateChooser txtFechaRegistro;
     // End of variables declaration//GEN-END:variables
-    public static java.util.ArrayList<ClaveInterbancaria> CLABEAlumnos = new java.util.ArrayList<ClaveInterbancaria>();
-    public final static String FILE_NAME = "CLABE_ALUMNOS.OBJ";
 }

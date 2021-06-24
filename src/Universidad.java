@@ -1,4 +1,4 @@
-public class Universidad {
+public class Universidad implements java.io.Serializable{
     private String nombre, telefono, ubicacion;
     public static final String FILE_NAME = "UNIVERSIDAD.TXT";
 

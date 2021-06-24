@@ -33,7 +33,7 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
         lblNombreBanco = new javax.swing.JLabel();
         lblFechaRegistro = new javax.swing.JLabel();
         txtCLABE = new javax.swing.JTextField();
-        txtBanco = new javax.swing.JTextField();
+        cmbNombreBanco = new javax.swing.JComboBox<>();
         txtFechaRegistro = new com.toedter.calendar.JDateChooser();
         jLabel15 = new javax.swing.JLabel();
 
@@ -52,11 +52,11 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
                 btnRegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 150, 50));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 150, 50));
 
         lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-correcta.png"))); // NOI18N
         lblSiguiente.setToolTipText("Siguiente");
-        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, -1, -1));
+        getContentPane().add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, -1, -1));
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -100,16 +100,14 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 50);
         jPanel1.add(txtCLABE, gridBagConstraints);
 
-        txtBanco.setBackground(java.awt.Color.lightGray);
-        txtBanco.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        cmbNombreBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AZTECA", "BANAMEX", "BANCOMER", "BANJIO", "HSBC", "SANTANDER", " " }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.ipadx = 160;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 50);
-        jPanel1.add(txtBanco, gridBagConstraints);
+        jPanel1.add(cmbNombreBanco, gridBagConstraints);
 
-        txtFechaRegistro.setFont(txtBanco.getFont());
+        txtFechaRegistro.setFont(txtCLABE.getFont());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -117,7 +115,7 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel1.add(txtFechaRegistro, gridBagConstraints);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 730, 240));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 780, 100));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abcd.jpg"))); // NOI18N
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -129,7 +127,7 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
         try {
             validarCampos();
             Principal.alumnoSesion.setClaveInterbancaria(new ClaveInterbancaria(Principal.alumnoSesion.getCURP(), txtCLABE.getText(),
-                     txtFechaRegistro.getCalendar(), true, txtBanco.getText()));
+                     txtFechaRegistro.getCalendar(), true, (String)cmbNombreBanco.getSelectedItem()));
             RegistrarAlumno.guardarAlumnos();
             showMessageDialog(this, "Paso 3: Registro completado");
             this.dispose();
@@ -140,7 +138,7 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
 
     private void validarCampos() throws Exception{
         javax.swing.JLabel[] lbls = { lblClave, lblNombreBanco, lblFechaRegistro };
-        javax.swing.JTextField[] jtfs = { txtCLABE, txtBanco, null };
+        javax.swing.JTextField[] jtfs = { txtCLABE, null, null };
         for (int i = 0; i < lbls.length; i++) {
             validarCampoVacio(lbls[i], jtfs[i]);
             switch (i) {
@@ -151,9 +149,6 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
                         jtfs[i].requestFocus();
                         throw new RuntimeException("Escribe una clave válida de 18 números");
                     }
-                    break;
-                case 1:
-                    validarFormatoTexto(lbls[i], jtfs[i]);
                     break;
                 case 2:
                     validarJCalendarVacio(txtFechaRegistro, lbls[i],"Selecciona una fecha de registro en el calendario");
@@ -192,6 +187,7 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cmbNombreBanco;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -199,7 +195,6 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
     private javax.swing.JLabel lblFechaRegistro;
     private javax.swing.JLabel lblNombreBanco;
     private javax.swing.JLabel lblSiguiente;
-    private javax.swing.JTextField txtBanco;
     private javax.swing.JTextField txtCLABE;
     private com.toedter.calendar.JDateChooser txtFechaRegistro;
     // End of variables declaration//GEN-END:variables

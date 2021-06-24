@@ -60,14 +60,12 @@ public class Principal extends javax.swing.JFrame {
         menuS = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
-        menuA = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
         mnuAyuda = new javax.swing.JMenu();
         mnuSoporte = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(51, 102, 255));
-        setIconImage(new javax.swing.ImageIcon("/LogoBecat.png").getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource((String)"//LogoBecat.png")).getImage());
         setSize(new java.awt.Dimension(1280, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -251,33 +249,6 @@ public class Principal extends javax.swing.JFrame {
 
         menuBar.add(menuS);
 
-        menuA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grupo.png"))); // NOI18N
-        menuA.setText("Alumnos");
-        menuA.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        menuA.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuSolMouseClicked(evt);
-            }
-        });
-
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        jMenuItem4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unido.png"))); // NOI18N
-        jMenuItem4.setText("Alumnos Inscritos");
-        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuSolMouseClicked(evt);
-            }
-        });
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        menuA.add(jMenuItem4);
-
-        menuBar.add(menuA);
-
         mnuAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grupo.png"))); // NOI18N
         mnuAyuda.setText("Ayuda");
         mnuAyuda.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
@@ -288,6 +259,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         mnuSoporte.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        mnuSoporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/apoyo-tecnico.png"))); // NOI18N
         mnuSoporte.setText("Soporte");
         mnuSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -326,9 +298,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         if (comprobarInformacionAlumno())
             return;
-        VentanaSolicitud abrir = new VentanaSolicitud();
-        abrir.setVisible(true);
-        abrir.dispose();
+        new Ventana5().setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void menuSolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSolActionPerformed
@@ -348,10 +318,6 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         new Mensajes().setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        new ConfirmarAdministrador().setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void mnuSoportemenuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSoportemenuSolMouseClicked
         
@@ -398,10 +364,6 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
-    public javax.swing.JMenu getMenuA() {
-        return menuA;
-    }
-
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -433,13 +395,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblReloj;
-    private javax.swing.JMenu menuA;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuE;
     private javax.swing.JMenu menuJP;

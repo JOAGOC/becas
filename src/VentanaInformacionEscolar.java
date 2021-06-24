@@ -1,22 +1,31 @@
 import com.toedter.calendar.JDateChooser;
 import static javax.swing.JOptionPane.showMessageDialog;
 import java.awt.Color;
+import java.awt.Dialog;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Calendar;
 
-public class VentanaInformacionEscolar extends javax.swing.JFrame implements IValidateTextFields{
+public class VentanaInformacionEscolar extends javax.swing.JDialog implements IValidateTextFields{
 
     public VentanaInformacionEscolar() {
         initComponents();
         leerUniversidades();
     }
+    
+    public VentanaInformacionEscolar(Dialog owner, boolean modal) {
+        super(owner, modal);
+        initComponents();
+        leerUniversidades();
+        lblAlumno.setText(Principal.alumnoSesion.getNombre());
+	}
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        lblAlumno = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblPromedioAnterior = new javax.swing.JLabel();
         txtPA = new javax.swing.JTextField();
@@ -43,8 +52,13 @@ public class VentanaInformacionEscolar extends javax.swing.JFrame implements IVa
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAlumno.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
+        lblAlumno.setForeground(new java.awt.Color(255, 255, 255));
+        lblAlumno.setText("Información Escolar del Alumno:");
+        getContentPane().add(lblAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -237,7 +251,7 @@ public class VentanaInformacionEscolar extends javax.swing.JFrame implements IVa
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Información Escolar del Alumno:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/123.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 730));
@@ -248,7 +262,8 @@ public class VentanaInformacionEscolar extends javax.swing.JFrame implements IVa
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {                                             
         try {
             validarCampos();
-            
+            guardarInfoAlumnos();
+            dispose();
         } catch (Exception e) {
             showMessageDialog(this, e.getMessage());
         }
@@ -290,11 +305,6 @@ public class VentanaInformacionEscolar extends javax.swing.JFrame implements IVa
     }
 
     private void guardarInfoAlumnos() throws Exception {
-        java.io.ObjectOutputStream bw = null;
-        try {
-            bw = new java.io.ObjectOutputStream(new java.io.FileOutputStream(FILE_NAME));
-        } catch (IOException e) {
-        }
         Calendar f = jdchsFechaInicio.getCalendar();
         Calendar g = jdchsFechaCierre.getCalendar();
         InformacionEscolar.TipoPeriodo t = null;
@@ -309,12 +319,10 @@ public class VentanaInformacionEscolar extends javax.swing.JFrame implements IVa
             case 3:
             t = InformacionEscolar.TipoPeriodo.Cuatrimestre;
         }
-        //new InformacionEscolar(float promedioAnterior, float promedioGeneral, boolean regular, String matricula, TipoPeriodo tipoPeriodo, int totalPeriodos, Periodo periodoActual, Universidad universidad);
-        infoEscolarAlumno.add(new InformacionEscolar(Float.parseFloat(txtPA.getText()),Float.parseFloat(txtPG.getText()),
+        Principal.alumnoSesion.setInformacionEscolar(new InformacionEscolar(Float.parseFloat(txtPA.getText()),Float.parseFloat(txtPG.getText()),
         chbxRegular.isSelected(),txtMatricula.getText().toUpperCase(), t,Integer.parseInt(txtTPeriodos.getText()),
         new Periodo(f,g), universidades.get(txtUniversidad.getSelectedIndex())));
-        bw.writeObject(infoEscolarAlumno);
-        bw.flush();
+        RegistrarAlumno.guardarAlumnos();
     }
 
     private void leerUniversidades(){
@@ -325,7 +333,9 @@ public class VentanaInformacionEscolar extends javax.swing.JFrame implements IVa
             while ((universidad = bf.readLine()) != null) {
                 String[] cell = universidad.split("\\|");
                 int x = 0;
-                universidades.add(new Universidad(cell[x++],cell[x++],cell[x++]));
+                Universidad u = new Universidad(cell[x++],cell[x++],cell[x++]);
+                universidades.add(u);
+                txtUniversidad.addItem(u.getNombre());
             }
         } catch (FileNotFoundException e){
         } catch (Exception e) {
@@ -371,6 +381,7 @@ public class VentanaInformacionEscolar extends javax.swing.JFrame implements IVa
     private javax.swing.JPanel jPanel2;
     private com.toedter.calendar.JDateChooser jdchsFechaCierre;
     private com.toedter.calendar.JDateChooser jdchsFechaInicio;
+    private javax.swing.JLabel lblAlumno;
     private javax.swing.JLabel lblFechaCierre;
     private javax.swing.JLabel lblFechaInicio;
     private javax.swing.JLabel lblMatricula;
@@ -387,7 +398,5 @@ public class VentanaInformacionEscolar extends javax.swing.JFrame implements IVa
     private javax.swing.JTextField txtTPeriodos;
     private javax.swing.JComboBox<String> txtUniversidad;
     // End of variables declaration//GEN-END:variables
-    private static java.util.ArrayList<InformacionEscolar> infoEscolarAlumno = new java.util.ArrayList<InformacionEscolar>();
-    public final static String FILE_NAME = "INFO_ALUMNOS.OBJ";
     private static java.util.ArrayList<Universidad> universidades = new java.util.ArrayList<Universidad>();
 }

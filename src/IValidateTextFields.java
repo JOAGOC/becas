@@ -1,11 +1,9 @@
-import java.awt.Color;
-
 public interface IValidateTextFields {
 
     default void validarJCalendarVacio(com.toedter.calendar.JDateChooser jdchs, javax.swing.JLabel lbl,String message) throws RuntimeException
     {
         if (jdchs.getDate() == null) {
-            lbl.setForeground(Color.red);
+            lbl.setForeground(java.awt.Color.red);
             jdchs.requestFocus();
             throw new RuntimeException(message);
         }
@@ -31,6 +29,17 @@ public interface IValidateTextFields {
             return;
         lbl.setForeground(java.awt.Color.white);
         if (java.util.regex.Pattern.compile("[^áéíóúÁÉÍÓÚÜüa-zA-Z ]+").matcher(jtf.getText()).find()) {
+            lbl.setForeground(java.awt.Color.red);
+            jtf.requestFocus();
+            throw new RuntimeException("En el campo " + lbl.getText() + " solo debe escribir texto");
+        }
+    }
+
+    default void validarFormatoAlfanumerico(javax.swing.JLabel lbl, javax.swing.JTextField jtf) throws RuntimeException {
+        if (lbl == null || jtf == null)
+            return;
+        lbl.setForeground(java.awt.Color.white);
+        if (java.util.regex.Pattern.compile("[^0-9áéíóúÁÉÍÓÚÜüa-zA-Z ]+").matcher(jtf.getText()).find()) {
             lbl.setForeground(java.awt.Color.red);
             jtf.requestFocus();
             throw new RuntimeException("En el campo " + lbl.getText() + " solo debe escribir texto");

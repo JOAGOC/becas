@@ -363,8 +363,8 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
                         throw new RuntimeException("Error en " + lbls[i].getText() + ":\nEl Número debe ser valido");
                     }
                     break;
-                case 6, 7:
-                    validarFormatoTexto(lbls[i], jtfs[i]);
+                case 6, 7, 3:
+                    validarFormatoAlfanumerico(lbls[i], jtfs[i]);
                     break;
                 case 8:
                     if ("".equals(txtDUbicacion.getText())) {

@@ -25,6 +25,7 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
         try {
             java.io.ObjectInputStream reader = new java.io.ObjectInputStream(new java.io.FileInputStream(FILE_NAME));
             alumnos = new ArrayList<Alumno>(Arrays.asList((Alumno[])reader.readObject()));
+            Alumno.setIdN(alumnos.size());;
         } catch (FileNotFoundException e){
         } catch (Exception e) {
             showMessageDialog(this, e.getMessage());
@@ -32,11 +33,11 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
     }
 
     private void changeUI(UI interfaz) {
-        Component[] components = { btnIS, btnRegistrarse, btnAceptar, btnCancelar, lblUsuario, lblContraseña,
+        Component[] components = { btnIS, btnRegistrarse, lblISAdministrador, btnAceptar, btnCancelar, lblUsuario, lblContraseña,
                 txtUsuario, jpswContraseña };
         boolean b = interfaz == UI.Inicial;
         for (int i = 0; i < components.length; i++) {
-            if (i <= 1) {
+            if (i <= 2) {
                 components[i].setVisible(b);
             } else {
                 components[i].setVisible(!b);
@@ -54,7 +55,6 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
                     Principal.alumnoSesion = a;
                     Principal p = (Principal) getParent();
                     p.acceso();
-                    p.getMenuA().setEnabled(false);
                     dispose();
                     return;
                 } else {
@@ -70,21 +70,34 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        lblISAdministrador = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lblUsuario = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
         jpswContraseña = new javax.swing.JPasswordField();
-        btnIS = new javax.swing.JButton();
         btnRegistrarse = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnIS = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setForeground(new java.awt.Color(51, 0, 51));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblISAdministrador.setBackground(new java.awt.Color(255, 153, 0));
+        lblISAdministrador.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+        lblISAdministrador.setForeground(new java.awt.Color(255, 255, 255));
+        lblISAdministrador.setText("Iniciar sesión como Administrador");
+        lblISAdministrador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblISAdministrador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblISAdministradorMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lblISAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 530, -1, -1));
 
         txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txtUsuario.setToolTipText("Introduce tu CURP");
@@ -105,18 +118,6 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
         jpswContraseña.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jpswContraseña.setToolTipText("Introduce tu contraseña");
         getContentPane().add(jpswContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 390, 40));
-
-        btnIS.setBackground(new java.awt.Color(153, 0, 0));
-        btnIS.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        btnIS.setForeground(new java.awt.Color(255, 255, 255));
-        btnIS.setText("Iniciar Sesión");
-        btnIS.setBorder(null);
-        btnIS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnISActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 220, 90));
 
         btnRegistrarse.setBackground(new java.awt.Color(0, 0, 255));
         btnRegistrarse.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
@@ -178,6 +179,18 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 796, 145));
 
+        btnIS.setBackground(new java.awt.Color(153, 0, 0));
+        btnIS.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        btnIS.setForeground(new java.awt.Color(255, 255, 255));
+        btnIS.setText("Iniciar Sesión");
+        btnIS.setBorder(null);
+        btnIS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnISActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 220, 90));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/abc.jpg"))); // NOI18N
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -186,6 +199,12 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblISAdministradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblISAdministradorMouseClicked
+        setVisible(false);
+        new ConfirmarAdministrador(this,true).setVisible(true);
+        setVisible(!false);
+    }//GEN-LAST:event_lblISAdministradorMouseClicked
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSalirActionPerformed
         setVisible(false);
@@ -253,6 +272,7 @@ public class Login extends javax.swing.JDialog implements IValidateTextFields{
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jpswContraseña;
     private javax.swing.JLabel lblContraseña;
+    private javax.swing.JLabel lblISAdministrador;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

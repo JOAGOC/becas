@@ -1,10 +1,8 @@
-import com.toedter.calendar.JDateChooser;
 import static javax.swing.JOptionPane.showMessageDialog;
 import java.awt.Color;
 import java.awt.Dialog;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Calendar;
 
 public class VentanaInformacionEscolar extends javax.swing.JDialog implements IValidateTextFields{
@@ -55,7 +53,7 @@ public class VentanaInformacionEscolar extends javax.swing.JDialog implements IV
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAlumno.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
+        lblAlumno.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         lblAlumno.setForeground(new java.awt.Color(255, 255, 255));
         lblAlumno.setText("Información Escolar del Alumno:");
         getContentPane().add(lblAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
@@ -262,7 +260,10 @@ public class VentanaInformacionEscolar extends javax.swing.JDialog implements IV
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {                                             
         try {
             validarCampos();
+            if (javax.swing.JOptionPane.showConfirmDialog(this,"¿Deseas almacenar la información?") != javax.swing.JOptionPane.YES_OPTION)
+                return;
             guardarInfoAlumnos();
+            showMessageDialog(this, "Datos almacenados correctamente");
             dispose();
         } catch (Exception e) {
             showMessageDialog(this, e.getMessage());

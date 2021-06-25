@@ -313,6 +313,8 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
     private void btnRegistrar2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrar2ActionPerformed
         try {
             validarCamposDeRegistro();
+            if (javax.swing.JOptionPane.showConfirmDialog(this,"¿Deseas almacenar la información?") != javax.swing.JOptionPane.YES_OPTION)
+                return;
             Principal.alumnoSesion.setResidenciaAlumno(new ResidenciaAlumno((String)cmbEstado.getSelectedItem(), (String)cmbMunicipio.getSelectedItem(), txtAsentamiento.getText().toUpperCase(), txtLocalidad.getText().toUpperCase(), txtExterior.getText(), txtNumInterior.getText(), txtDUbicacion.getText(), txtCalle.getText().toUpperCase(), Principal.alumnoSesion.getCURP(), txtCP2.getText()));
             RegistrarAlumno.guardarAlumnos();
             showMessageDialog(this, "Paso 2: Registro completado");
@@ -341,9 +343,9 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
             validarCampoVacio(lbls[i], jtfs[i]);
             switch (i) {
                 case 0, 1:
-                    if (cmbEstado.getSelectedIndex() == 0) {
-                        showMessageDialog(this, "Por favor selecciona una opción de " + lbls[i].getText());
+                    if (i == 0 ? cmbEstado.getSelectedIndex() == 0:cmbMunicipio.getSelectedIndex() == 0) {
                         lbls[i].setForeground(java.awt.Color.red);
+                        throw new RuntimeException("Por favor selecciona una opción de " + lbls[i].getText());
                     }
                     break;
                 case 2:
@@ -373,6 +375,7 @@ public class VentanaResidenciaAlumno extends javax.swing.JDialog implements IVal
                         throw new RuntimeException(
                                 "Error en " + lbls[i].getText() + "\nLa descripción no puede quedar vacía");
                     }
+                    break;
             }
         }
     }

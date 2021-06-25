@@ -17,6 +17,7 @@ public class Principal extends javax.swing.JFrame {
 
         public void run() {
             x.enableControls(false);
+            x.mnuAyuda.setEnabled(true);
             login = new Login(x, true);
             login.setVisible(true);
         }
@@ -65,7 +66,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(51, 102, 255));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource((String)"//LogoBecat.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/LogoBecat.png")).getImage());
         setSize(new java.awt.Dimension(1280, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -296,10 +297,19 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        if (comprobarInformacionAlumno())
+        if (comprobarSolicitud() || comprobarInformacionAlumno())
             return;
-        new Ventana5().setVisible(true);
+        new Ventana5(this,true).setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private boolean comprobarSolicitud() {
+        if (alumnoSesion.getSolicitud() == null)
+        {
+            return false;
+        }
+        showMessageDialog(this, "Ya has registrado tu solicitud");
+        return true;
+    }
 
     private void menuSolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSolActionPerformed
 
@@ -324,7 +334,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuSoportemenuSolMouseClicked
 
     private void mnuSoporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSoporteActionPerformed
-        new Ayuda(this,true);
+        new Ayuda(this,true).setVisible(true);
     }//GEN-LAST:event_mnuSoporteActionPerformed
 
     private void mnuAyudamenuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuAyudamenuSolMouseClicked

@@ -8,6 +8,14 @@ public class Solicitud implements java.io.Serializable {
     private Estado estado;
     private String acuse;
 
+    public Solicitud(int folio, Calendar vigencia, Calendar fecha, Solicitud.Estado estado, String acuse) {
+        this.folio = folio;
+        this.vigencia = vigencia;
+        this.fecha = fecha;
+        this.estado = estado;
+        this.acuse = acuse;
+    }
+    
     public int getFolio() {
         return folio;
     }

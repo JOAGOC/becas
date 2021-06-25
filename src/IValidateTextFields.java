@@ -1,7 +1,7 @@
 public interface IValidateTextFields {
 
-    default void validarJCalendarVacio(com.toedter.calendar.JDateChooser jdchs, javax.swing.JLabel lbl,String message) throws RuntimeException
-    {
+    default void validarJCalendarVacio(com.toedter.calendar.JDateChooser jdchs, javax.swing.JLabel lbl, String message)
+            throws RuntimeException {
         if (jdchs.getDate() == null) {
             lbl.setForeground(java.awt.Color.red);
             jdchs.requestFocus();
@@ -11,7 +11,11 @@ public interface IValidateTextFields {
 
     default void validarCampoVacio(javax.swing.JLabel lbl, javax.swing.JTextField jtf) throws RuntimeException {
         try {
-            if (lbl == null || jtf == null)
+            if (lbl != null)
+                lbl.setForeground(java.awt.Color.white);
+            else
+                return;
+            if (jtf == null)
                 return;
             lbl.setForeground(java.awt.Color.white);
             if ("".equals(jtf.getText())) {
@@ -25,9 +29,12 @@ public interface IValidateTextFields {
     }
 
     default void validarFormatoTexto(javax.swing.JLabel lbl, javax.swing.JTextField jtf) throws RuntimeException {
-        if (lbl == null || jtf == null)
+        if (lbl != null)
+            lbl.setForeground(java.awt.Color.white);
+        else
             return;
-        lbl.setForeground(java.awt.Color.white);
+        if (jtf == null)
+            return;
         if (java.util.regex.Pattern.compile("[^áéíóúÁÉÍÓÚÜüa-zA-Z ]+").matcher(jtf.getText()).find()) {
             lbl.setForeground(java.awt.Color.red);
             jtf.requestFocus();
@@ -35,8 +42,13 @@ public interface IValidateTextFields {
         }
     }
 
-    default void validarFormatoAlfanumerico(javax.swing.JLabel lbl, javax.swing.JTextField jtf) throws RuntimeException {
-        if (lbl == null || jtf == null)
+    default void validarFormatoAlfanumerico(javax.swing.JLabel lbl, javax.swing.JTextField jtf)
+            throws RuntimeException {
+        if (lbl != null)
+            lbl.setForeground(java.awt.Color.white);
+        else
+            return;
+        if (jtf == null)
             return;
         lbl.setForeground(java.awt.Color.white);
         if (java.util.regex.Pattern.compile("[^0-9áéíóúÁÉÍÓÚÜüa-zA-Z ]+").matcher(jtf.getText()).find()) {

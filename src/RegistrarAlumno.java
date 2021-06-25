@@ -2,6 +2,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import static javax.swing.JOptionPane.showMessageDialog;
 
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Calendar;
@@ -35,8 +36,8 @@ public class RegistrarAlumno extends javax.swing.JDialog implements IValidateTex
         jPanel2 = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
-        lblEdad = new javax.swing.JLabel();
-        tfEdad = new javax.swing.JTextField();
+        lblEstadoCivil = new javax.swing.JLabel();
+        cmbEstadoCivil = new javax.swing.JComboBox<>();
         lblCorreo = new javax.swing.JLabel();
         tfCorreo = new javax.swing.JTextField();
         lblTelefono = new javax.swing.JLabel();
@@ -46,8 +47,8 @@ public class RegistrarAlumno extends javax.swing.JDialog implements IValidateTex
         lblNacionalidad = new javax.swing.JLabel();
         tfNacionalidad = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        lblEstadoCivil = new javax.swing.JLabel();
-        cmbEstadoCivil = new javax.swing.JComboBox<>();
+        lblEdad = new javax.swing.JLabel();
+        tfEdad = new javax.swing.JTextField();
         lblFechaNacimiento = new javax.swing.JLabel();
         jdchFechaNacimiento = new com.toedter.calendar.JDateChooser();
         lblLugarNacimiento = new javax.swing.JLabel();
@@ -146,30 +147,27 @@ public class RegistrarAlumno extends javax.swing.JDialog implements IValidateTex
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel2.add(tfNombre, gridBagConstraints);
 
-        lblEdad.setBackground(java.awt.Color.lightGray);
-        lblEdad.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        lblEdad.setForeground(new java.awt.Color(255, 255, 255));
-        lblEdad.setText("Edad: ");
-        lblEdad.setMaximumSize(null);
+        lblEstadoCivil.setBackground(java.awt.Color.lightGray);
+        lblEstadoCivil.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblEstadoCivil.setForeground(new java.awt.Color(255, 255, 255));
+        lblEstadoCivil.setText("Estado Civil:");
+        lblEstadoCivil.setVerifyInputWhenFocusTarget(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel2.add(lblEdad, gridBagConstraints);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 80;
+        jPanel2.add(lblEstadoCivil, gridBagConstraints);
 
-        tfEdad.setEditable(false);
-        tfEdad.setBackground(new java.awt.Color(255, 255, 255));
-        tfEdad.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        tfEdad.setMaximumSize(null);
+        cmbEstadoCivil.setFont(tfEdad.getFont());
+        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SOLTERO", "CASADO", "DIVORCIADO", "VIUDO" }));
+        cmbEstadoCivil.setVerifyInputWhenFocusTarget(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 100;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel2.add(tfEdad, gridBagConstraints);
+        jPanel2.add(cmbEstadoCivil, gridBagConstraints);
 
         lblCorreo.setBackground(java.awt.Color.lightGray);
         lblCorreo.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
@@ -260,30 +258,35 @@ public class RegistrarAlumno extends javax.swing.JDialog implements IValidateTex
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel2.add(tfNacionalidad, gridBagConstraints);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 230, 450));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 230, 430));
 
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        lblEstadoCivil.setBackground(java.awt.Color.lightGray);
-        lblEstadoCivil.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
-        lblEstadoCivil.setForeground(new java.awt.Color(255, 255, 255));
-        lblEstadoCivil.setText("Estado Civil:");
-        lblEstadoCivil.setVerifyInputWhenFocusTarget(false);
+        lblEdad.setBackground(java.awt.Color.lightGray);
+        lblEdad.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
+        lblEdad.setForeground(new java.awt.Color(255, 255, 255));
+        lblEdad.setText("Edad: ");
+        lblEdad.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 80;
-        jPanel3.add(lblEstadoCivil, gridBagConstraints);
-
-        cmbEstadoCivil.setFont(tfEdad.getFont());
-        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SOLTERO", "CASADO", "DIVORCIADO", "VIUDO" }));
-        cmbEstadoCivil.setVerifyInputWhenFocusTarget(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 100;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel3.add(cmbEstadoCivil, gridBagConstraints);
+        jPanel3.add(lblEdad, gridBagConstraints);
+
+        tfEdad.setEditable(false);
+        tfEdad.setBackground(new java.awt.Color(255, 255, 255));
+        tfEdad.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        tfEdad.setMaximumSize(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPanel3.add(tfEdad, gridBagConstraints);
 
         lblFechaNacimiento.setBackground(java.awt.Color.lightGray);
         lblFechaNacimiento.setFont(new java.awt.Font("New Gulim", 1, 18)); // NOI18N
@@ -454,6 +457,8 @@ public class RegistrarAlumno extends javax.swing.JDialog implements IValidateTex
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarActionPerformed
         try {
             validarCamposDeRegistro();
+            if (javax.swing.JOptionPane.showConfirmDialog(this,"¿Deseas almacenar la información?") != javax.swing.JOptionPane.YES_OPTION)
+                return;
             Calendar c = jdchFechaNacimiento.getCalendar();
             Login.alumnos.add(new Alumno(tfNombre.getText().toUpperCase(), tfCURP.getText().toUpperCase(),
                     jpswConfirmar.getText(), tfTelefono.getText(), tfCorreo.getText().toLowerCase(),
@@ -470,33 +475,35 @@ public class RegistrarAlumno extends javax.swing.JDialog implements IValidateTex
     }// GEN-LAST:event_btnRegistrarActionPerformed
 
     private void validarCamposDeRegistro() throws Exception {
-        JLabel[] lbls = { lblNombre, lblEdad, lblCorreo, lblTelefono, lblCelular, lblNacionalidad, lblEstadoCivil,
+        JLabel[] lbls = { lblNombre, lblCorreo, lblTelefono, lblCelular, lblNacionalidad,
                 lblFechaNacimiento, lblLugarNacimiento, lblCURP, lblPassword, lblConfirmar };
-        JTextField[] jtfs = { tfNombre, tfEdad, tfCorreo, tfTelefono, tfCelular, tfNacionalidad, null, null,
+        JTextField[] jtfs = { tfNombre, tfCorreo, tfTelefono, tfCelular, tfNacionalidad, null,
                 tfLugarNacimiento, tfCURP, jpswPassword, jpswConfirmar };
         for (int i = 0; i < jtfs.length; i++) {
-            if (i != 3)
+            if (i != 2)
                 validarCampoVacio(lbls[i], jtfs[i]);
+            else
+                lbls[i].setForeground(Color.WHITE);
             switch (i) {
-                case 0, 5, 8:
+                case 0, 4, 6:
                     validarFormatoTexto(lbls[i], jtfs[i]);
                     break;
-                case 1:
+                case 5:
                     if (jdchFechaNacimiento.getDate() == null) {
                         throw new RuntimeException("Selecciona en el selector de fechas tu fecha de nacimiento");
                     }
-                    int x = Integer.parseInt(jtfs[i].getText());
-                    if (x < 17 || x > 60) {
+                    int x = Integer.parseInt(tfEdad.getText());
+                    if (x < 17 || x > 40) {
                         lbls[i].setForeground(java.awt.Color.red);
-                        jtfs[i].requestFocus();
-                        throw new RuntimeException("La edad que se registra no es válida: Parámetro 17-60 años");
+                        jdchFechaNacimiento.requestFocus();
+                        throw new RuntimeException("La edad que se registra no es válida: Parámetro 17-40 años");
                     }
                     break;
-                case 2:
+                case 1:
                     validarCorreo(lbls[i], jtfs[i]);
                     break;
-                case 3, 4:
-                    if ("".equals(jtfs[i].getText()) && i == 3)
+                case 2,3:
+                    if (i == 2 && "".equals(jtfs[i].getText()))
                         continue;
                     validarFormatoNumerico(lbls[i], jtfs[i]);
                     if (jtfs[i].getText().length() < 10) {
@@ -506,17 +513,17 @@ public class RegistrarAlumno extends javax.swing.JDialog implements IValidateTex
                                 + ":\nEl número telefónico debe tener al menos 10 dígitos");
                     }
                     break;
-                case 9:
+                case 7:
                     if (jtfs[i].getText().length() != 18) {
                         lbls[i].setForeground(java.awt.Color.red);
                         jtfs[i].requestFocus();
                         throw new RuntimeException("La CURP debe tener 18 caracteres, revisa tu entrada");
                     }
                     break;
-                case 10:
+                case 8:
                     validarContrasenia(lbls[i], jtfs[i]);
                     break;
-                case 11:
+                case 9:
                     if (!jtfs[i].getText().equals(jtfs[i - 1].getText())) {
                         lbls[i].setForeground(java.awt.Color.red);
                         jtfs[i].requestFocus();

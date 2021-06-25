@@ -95,14 +95,15 @@ public class VentanaConsulta extends javax.swing.JDialog {
     }// GEN-LAST:event_btnRegistrarActionPerformed
 
     private void InicioRegistroInformacionEscolar() throws RuntimeException {
-        if (jTable1.getSelectedRow() == -1)
+        int indiceFila = jTable1.getSelectedRow();
+        if (indiceFila== -1)
             throw new RuntimeException("No has seleccionado un alumno");
-        Principal.alumnoSesion = Login.alumnos.get(jTable1.getSelectedRow());
+        Principal.alumnoSesion = Login.alumnos.get(Integer.parseInt((String)m.getValueAt(indiceFila, 0))-1);
         setVisible(false);
         new VentanaInformacionEscolar(this, true).setVisible(true);
-        setVisible(true);
         if (Principal.alumnoSesion.getInformacionEscolar() != null)
             m.removeRow(jTable1.getSelectedRow());
+        setVisible(true);
     }
 
     public void leerAlumno() {

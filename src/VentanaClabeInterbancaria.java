@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IValidateTextFields {
@@ -100,7 +98,7 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 50);
         jPanel1.add(txtCLABE, gridBagConstraints);
 
-        cmbNombreBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AZTECA", "BANAMEX", "BANCOMER", "BANJIO", "HSBC", "SANTANDER", " " }));
+        cmbNombreBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AZTECA", "BANAMEX", "BANCOMER", "BANJIO", "HSBC", "SANTANDER" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 160;
@@ -126,6 +124,8 @@ public class VentanaClabeInterbancaria extends javax.swing.JDialog implements IV
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegistrarActionPerformed
         try {
             validarCampos();
+            if (javax.swing.JOptionPane.showConfirmDialog(this,"¿Deseas almacenar la información?") != javax.swing.JOptionPane.YES_OPTION)
+                return;
             Principal.alumnoSesion.setClaveInterbancaria(new ClaveInterbancaria(Principal.alumnoSesion.getCURP(), txtCLABE.getText(),
                      txtFechaRegistro.getCalendar(), true, (String)cmbNombreBanco.getSelectedItem()));
             RegistrarAlumno.guardarAlumnos();

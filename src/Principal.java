@@ -3,6 +3,7 @@ import static javax.swing.JOptionPane.showConfirmDialog;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.management.RuntimeErrorException;
 import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
@@ -28,20 +29,22 @@ public class Principal extends javax.swing.JFrame {
         Thread h = new Thread(new ShowLogin(this));
         h.start();
         lblFecha.setText(fecha());
-        TimerTask x = new TimerTask(){
-            public void run(){
+        TimerTask x = new TimerTask() {
+            public void run() {
                 try {
-                    lblReloj.setText(java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss")));
+                    lblReloj.setText(
+                            java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss")));
                 } catch (Exception e) {
-                    showMessageDialog(null,e.getMessage());
+                    showMessageDialog(null, e.getMessage());
                 }
             }
-            
+
         };
-        timer.schedule(x,0,1000);
+        timer.schedule(x, 0, 1000);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lblReloj = new javax.swing.JLabel();
@@ -53,11 +56,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         menuJP = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        menuE = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnuRegistrarseJP = new javax.swing.JMenuItem();
+        menu7 = new javax.swing.JMenu();
+        mnuRegistrarseE = new javax.swing.JMenuItem();
         menuT = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mnuRegistrarseT = new javax.swing.JMenuItem();
         menuS = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -100,11 +103,6 @@ public class Principal extends javax.swing.JFrame {
 
         menuBar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 204)));
         menuBar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuBar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                menuBarFocusGained(evt);
-            }
-        });
         menuBar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuSolMouseClicked(evt);
@@ -117,11 +115,6 @@ public class Principal extends javax.swing.JFrame {
         menuSol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuSolMouseClicked(evt);
-            }
-        });
-        menuSol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuSolActionPerformed(evt);
             }
         });
 
@@ -156,38 +149,38 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
-        jMenuItem1.setText("Registrarse");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mnuRegistrarseJP.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        mnuRegistrarseJP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
+        mnuRegistrarseJP.setText("Registrarse");
+        mnuRegistrarseJP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnuRegistrarseJPActionPerformed1(evt);
             }
         });
-        menuJP.add(jMenuItem1);
+        menuJP.add(mnuRegistrarseJP);
 
         jMenu1.add(menuJP);
 
-        menuE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/excelencia.png"))); // NOI18N
-        menuE.setText("Excelencia");
-        menuE.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        menuE.addMouseListener(new java.awt.event.MouseAdapter() {
+        menu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/excelencia.png"))); // NOI18N
+        menu7.setText("Excelencia");
+        menu7.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        menu7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuSolMouseClicked(evt);
             }
         });
 
-        jMenuItem2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
-        jMenuItem2.setText("Registrarse");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mnuRegistrarseE.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        mnuRegistrarseE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
+        mnuRegistrarseE.setText("Registrarse");
+        mnuRegistrarseE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnuRegistrarseEActionPerformed(evt);
             }
         });
-        menuE.add(jMenuItem2);
+        menu7.add(mnuRegistrarseE);
 
-        jMenu1.add(menuE);
+        jMenu1.add(menu7);
 
         menuT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/libro-abierto.png"))); // NOI18N
         menuT.setText("Tlautli");
@@ -198,15 +191,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
-        jMenuItem3.setText("Registrarse");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mnuRegistrarseT.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        mnuRegistrarseT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nota.png"))); // NOI18N
+        mnuRegistrarseT.setText("Registrarse");
+        mnuRegistrarseT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnuRegistrarseTActionPerformed(evt);
             }
         });
-        menuT.add(jMenuItem3);
+        menuT.add(mnuRegistrarseT);
 
         jMenu1.add(menuT);
 
@@ -221,7 +214,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M,
+                java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/correo-electronico.png"))); // NOI18N
         jMenuItem5.setText("Mensajes");
@@ -237,7 +231,8 @@ public class Principal extends javax.swing.JFrame {
         });
         menuS.add(jMenuItem5);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P,
+                java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem6.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/metodo-de-pago.png"))); // NOI18N
         jMenuItem6.setText("Pagos");
@@ -253,20 +248,10 @@ public class Principal extends javax.swing.JFrame {
         mnuAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grupo.png"))); // NOI18N
         mnuAyuda.setText("Ayuda");
         mnuAyuda.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        mnuAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnuAyudamenuSolMouseClicked(evt);
-            }
-        });
 
         mnuSoporte.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         mnuSoporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/apoyo-tecnico.png"))); // NOI18N
         mnuSoporte.setText("Soporte");
-        mnuSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnuSoportemenuSolMouseClicked(evt);
-            }
-        });
         mnuSoporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuSoporteActionPerformed(evt);
@@ -281,65 +266,82 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static String fecha(){
-        // Date fecha= new Date();
-        // SimpleDateFormat ffecha=new SimpleDateFormat("dd/MM/YYYY");
-        // return ffecha.format(fecha);
+    public static String fecha() {
         return java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/YYYY"));
     }
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }// GEN-LAST:event_btnSalirActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        RegistrarAlumno abrir = new RegistrarAlumno(this,true);
-        abrir.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void mnuRegistrarseEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_mnuRegistrarseEActionPerformed
+        try {
+            confirmarRegistroPrograma();
+            new VentanaPago(this, true, 2).setVisible(true);
+            if (alumnoSesion.getPrograma() != null)
+                new Mensajes(this, true).setVisible(true);
+        } catch (Exception e) {
+            showMessageDialog(this, e.getMessage());
+        }
+    }// GEN-LAST:event_mnuRegistrarseEActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem7ActionPerformed
         if (comprobarSolicitud() || comprobarInformacionAlumno())
             return;
-        new Ventana5(this,true).setVisible(true);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+        new Ventana5(this, true).setVisible(true);
+    }// GEN-LAST:event_jMenuItem7ActionPerformed
 
     private boolean comprobarSolicitud() {
-        if (alumnoSesion.getSolicitud() == null)
-        {
+        if (alumnoSesion.getSolicitud() == null) {
             return false;
         }
         showMessageDialog(this, "Ya has registrado tu solicitud");
         return true;
     }
 
-    private void menuSolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSolActionPerformed
-
-    }//GEN-LAST:event_menuSolActionPerformed
-
-    private void menuBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_menuBarFocusGained
-
-    }//GEN-LAST:event_menuBarFocusGained
-
-    private void menuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSolMouseClicked
+    private void menuSolMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_menuSolMouseClicked
         if (login != null) {
             login.setVisible(true);
         }
-    }//GEN-LAST:event_menuSolMouseClicked
+    }// GEN-LAST:event_menuSolMouseClicked
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        new Mensajes().setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem5ActionPerformed
+        new Mensajes(this, true).setVisible(true);
+    }// GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void mnuSoportemenuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSoportemenuSolMouseClicked
-        
-    }//GEN-LAST:event_mnuSoportemenuSolMouseClicked
+    private void mnuSoporteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_mnuSoporteActionPerformed
+        new Ayuda(this, true).setVisible(true);
+    }// GEN-LAST:event_mnuSoporteActionPerformed
 
-    private void mnuSoporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSoporteActionPerformed
-        new Ayuda(this,true).setVisible(true);
-    }//GEN-LAST:event_mnuSoporteActionPerformed
+    private void mnuRegistrarseJPActionPerformed1(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_mnuRegistrarseJPActionPerformed1
+        try {
+            confirmarRegistroPrograma();
+            new VentanaPago(this, true, 1).setVisible(true);
+            if (alumnoSesion.getPrograma() != null)
+            new Mensajes(this, true).setVisible(true);
+        } catch (Exception e) {
+            showMessageDialog(this, e.getMessage());
+        }
+    }// GEN-LAST:event_mnuRegistrarseJPActionPerformed1
 
-    private void mnuAyudamenuSolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuAyudamenuSolMouseClicked
-        
-    }//GEN-LAST:event_mnuAyudamenuSolMouseClicked
+    private void confirmarRegistroPrograma() throws RuntimeException {
+        if (alumnoSesion.getSolicitud() == null)
+            throw new RuntimeException("Aún no has registrado tu solicitud");
+        if (alumnoSesion.getPrograma() != null)
+            throw new RuntimeException(
+                    "Ya te has registrado en un programa, vuelve a intentar cuando comience un nuevo periodo de selección");
+    }
+
+    private void mnuRegistrarseTActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_mnuRegistrarseTActionPerformed
+        try {
+            confirmarRegistroPrograma();
+            new VentanaPago(this, true, 3).setVisible(true);
+            if (alumnoSesion.getPrograma() != null)
+                new Mensajes(this, true).setVisible(true);
+        } catch (Exception e) {
+            showMessageDialog(this, e.getMessage());
+        }
+    }// GEN-LAST:event_mnuRegistrarseTActionPerformed
 
     public void acceso() {
         enableControls(true);
@@ -360,9 +362,9 @@ public class Principal extends javax.swing.JFrame {
                 new VentanaClabeInterbancaria(this, true).setVisible(true);
             return true;
         }
-        if (alumnoSesion.getInformacionEscolar() == null)
-        {
-            showMessageDialog(this, "Tu información escolar aún no ha sido registrada por el administrador.\nDeberás esperar que lo haga para solicitar una beca.");
+        if (alumnoSesion.getInformacionEscolar() == null) {
+            showMessageDialog(this,
+                    "Tu información escolar aún no ha sido registrada por el administrador.\nDeberás esperar que lo haga para solicitar una beca.");
             return true;
         }
         return false;
@@ -402,21 +404,21 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblReloj;
+    private javax.swing.JMenu menu7;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuE;
     private javax.swing.JMenu menuJP;
     private javax.swing.JMenu menuS;
     private javax.swing.JMenu menuSol;
     private javax.swing.JMenu menuT;
     private javax.swing.JMenu mnuAyuda;
+    private javax.swing.JMenuItem mnuRegistrarseE;
+    private javax.swing.JMenuItem mnuRegistrarseJP;
+    private javax.swing.JMenuItem mnuRegistrarseT;
     private javax.swing.JMenuItem mnuSoporte;
     // End of variables declaration//GEN-END:variables
     public static Alumno alumnoSesion;

@@ -4,6 +4,13 @@ public class Programa implements java.io.Serializable{
     private Periodo periodo;
     private int clave;
 
+    public Programa(String nombre, String descripción, Periodo periodo, int clave) {
+        this.nombre = nombre;
+        this.descripción = descripción;
+        this.periodo = periodo;
+        this.clave = clave;
+    }
+
     public String getNombre() {
         return nombre;
     }
